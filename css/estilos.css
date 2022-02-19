@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* globales */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-principal{
+    padding: 50px;
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-gris{
+    background-color: rgb(121, 121, 121);
+    color: #000000;
+}
+
+
+/* principal */ 
+
+.text-principal h1{
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.text-principal p{
+    font-size: 20px;
+}
+
+
