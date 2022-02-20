@@ -7,8 +7,12 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
 .container-principal{
-    padding: 50px;
+    padding: 40px;
     background-image: url(../img/principal.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,4 +36,25 @@
     font-size: 20px;
 }
 
+.productos{
+    height: 800px;
+}
+
+footer{
+    padding: 20px;
+    background-color: #212529;
+    color: white;
+}
+
+footer .titulo-footer{
+    font-weight: 700;
+    padding-top: 15px;
+    font-size: 18px;
+}
+
+footer p{
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 15px;
+}
 
