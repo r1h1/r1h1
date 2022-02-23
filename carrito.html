@@ -10,14 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/carrito.css">
+
     <title>Carrito - Tienda en Linea</title>
 
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 
-
+    <!-- menu de navegación -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -40,46 +43,254 @@
         </nav>
     </header>
 
+    <!-- principal -->
     <main class="text-principal">
-        <div class="detalle-compra">
-            <h2>Detalle Compra</h2>
-            <p>Tienes N articulo(s) en el carrito de compras</p>
+
+        <!-- division con el detalle de los productos comprados  -->
+        <div class="card detalle-compra">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h2>Detalle Compra</h2>
+                    </div>
+                    <div class="col">
+                        <a href="index.html" class="btn btn-danger">Volver a Comprar</a>
+                    </div>
+                </div>
+                <p>Tienes N articulo(s) en el carrito de compras</p>
+                <div class="productos-agregados mt-5">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nombre Artículo</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Escritorio</th>
+                            <td>Escritorio para PC</td>
+                            <td>Q50</td>
+                            <td><input type="text" class="form-control"></td>
+                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
+                          </tr>
+                          <tr>
+                            <th scope="row">Escritorio</th>
+                            <td>Escritorio para PC</td>
+                            <td>Q50</td>
+                            <td><input type="text" class="form-control"></td>
+                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
+                          </tr>
+                          <tr>
+                            <th scope="row">Escritorio</th>
+                            <td>Escritorio para PC</td>
+                            <td>Q50</td>
+                            <td><input type="text" class="form-control"></td>
+                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
         </div>
+        <!-- fin detalle compra -->
+
+
+        <!-- detalle del pago -->
+        <div class="card detalle-pago">
+            <div class="card-body">
+                <h2>Tipo de Pago</h2>
+
+                <!-- tipos de tarjetas para pago -->
+                <div class="row row-cols-auto">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="visa">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <p><i class="fa-brands fa-cc-visa fa-3x"></i></p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mastercard">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <p><i class="fa-brands fa-cc-mastercard fa-3x"></i></p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="paypal">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <p><i class="fa-brands fa-cc-paypal fa-3x"></i></p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin tipo de tarjetas -->
+                
+
+                <label for="exampleFormControlInput1" class="form-label">Nombre del Titular</label>
+                <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
+                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();">
+
+                <label for="exampleFormControlInput1" class="form-label">Número de Tarjeta</label>
+                <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
+                    placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    required>
+
+
+                <label for="exampleFormControlInput1" class="form-label">Fecha de Vencimiento</label>
+                <input type="month" class="form-control" id="fechaVencimiento" placeholder="" required>
+
+                <label for="exampleFormControlInput1" class="form-label">CVV (Dígitos de la parte
+                    trasera)</label>
+                <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1" maxlength="3"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    required>
+
+                <hr>
+
+                <!-- total a pagar por los productos adquiridos -->
+                <div class="row">
+                    <div class="col">
+                        <p>Total a pagar</p>
+                    </div>
+                    <div class="col">
+                        <p>Q8888</p>
+                    </div>
+                </div>
+                <!-- fin total a pagar -->
+
+                <div id="alerta">
+                    <!-- alerta que indica que no está y si está lleno -->
+                </div>
+                <a class="btn btn-success" onclick="finalizarVenta()">Continua con Envio</a>
+            </div>
+        </div>
+        <!-- fin detalle pago -->
+
+
+        <!-- modal para registrar los datos del cliente, y si ya existen, se ignoran -->
+        <div class="modal" id="datosCliente">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-muted" id="exampleModalLabel">Registro de Cliente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- formulario para validar el registro del cliente -->
+                        <form action="carrito.html" method="POST">
+
+                            <!-- tipo de documento -->
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tipo de Documento</label>
+                                <select class="form-select" aria-label="Default select example" required>
+                                    <option selected>Seleccione...</option>
+                                    <option value="1">DPI</option>
+                                    <option value="2">NIT</option>
+                                    <option value="3">Pasaporte</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Numero de Documento</label>
+                                <input type="number" class="form-control" placeholder="Ej: 1515489699999" maxlength="13"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" placeholder="Ej: JUAN DAVID MONZÓN TORRES"
+                                    onkeyup="this.value = this.value.toUpperCase();">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="message-text" class="col-form-label">Teléfono de
+                                        Residencia</label>
+                                    <input type="number" class="form-control" placeholder="Ej: 66314589" maxlength="8"
+                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="message-text" class="col-form-label">Teléfono
+                                        Celular</label>
+                                    <input type="number" class="form-control" placeholder="Ej: 45858787" maxlength="8"
+                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">País</label>
+                                <select class="form-select" aria-label="Default select example" required>
+                                    <option selected>Seleccione...</option>
+                                    <option value="1">Guatemala</option>
+                                    <option value="2">El Salvador</option>
+                                    <option value="3">México</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Departamento / Estado</label>
+                                <select class="form-select" aria-label="Default select example" required>
+                                    <option selected>Seleccione...</option>
+                                    <option value="1">Guatemala</option>
+                                    <option value="2">Escuintla</option>
+                                    <option value="3">Retalhuleo</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Ciudad de
+                                    Residencia</label>
+                                    <select class="form-select" aria-label="Default select example" required>
+                                        <option selected>Seleccione...</option>
+                                        <option value="1">Ciudad de Guatemala</option>
+                                        <option value="2">San José Pinula</option>
+                                        <option value="3">San Miguel Petapa</option>
+                                    </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Dirección</label>
+                                <input type="text" class="form-control" placeholder="Ej: 7ma Calle, Colonia Pinares"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Profesión</label>
+                                <input type="text" class="form-control" placeholder="Ej: Estudiante">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" placeholder="Ej: ejemplo@ejemplo.com" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Procesar Pago</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin modal info clientes -->
+
     </main>
 
-    <section class="forma-pago">
-        <div class="detalle-pago">
-            <h2>Tipo de tarjeta</h2>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Default checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
 
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">    
-
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> 
-
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> 
-
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> 
-
-            <p>Total a pagar</p>
-
-        </div>
-    </section>
-
+    <!-- pie de pagina -->
     <footer class="pie-pagina">
         <div class="container-fluid">
             <div class="row">
@@ -88,7 +299,6 @@
                     <i class="fa-brands fa-cc-visa fa-3x"></i>
                     <i class="fa-brands fa-cc-mastercard fa-3x"></i>
                     <i class="fa-brands fa-cc-paypal fa-3x"></i>
-                    <i class="fa-solid fa-money-bill-1 fa-3x"></i>
                 </div>
             </div>
             <p class="text-center mt-5">&copy; Todos los derechos reservados - Mueblería Los Alpes</p>
@@ -96,12 +306,14 @@
     </footer>
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- javascript de bootstrap 5  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
+    <!-- script para validaciones -->
+    <script src="js/main.js"></script>
+
 
 </body>
 

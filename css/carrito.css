@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* globales */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.text-principal{
+    display: flex;
+    padding: 30px;
+}
+
+.text-principal .detalle-compra{
+    justify-content: flex-start;
+    width: 60%;
+}
+
+.text-principal .detalle-compra h2{
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.text-principal .detalle-compra p{
+    font-size: 16px;
+}
+
+.text-principal .detalle-pago{
+    justify-content: flex-end;
+    width: 40%;
+}
+
+.text-principal .detalle-pago h2{
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.text-principal .detalle-pago p{
+    font-size: 16px;
+}
+
+footer{
+    padding: 20px;
+    background-color: #212529;
+    color: white;
+}
+
+footer .titulo-footer{
+    font-weight: 700;
+    padding-top: 15px;
+    font-size: 18px;
+}
+
+footer p{
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 15px;
+}
