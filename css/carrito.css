@@ -11,6 +11,30 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
+.bg-gris{
+    background-color: rgb(121, 121, 121);
+    color: #000000;
+}
+
+/* principal */ 
+
+.container-principal{
+    padding: 40px;
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.texto-main h1{
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.texto-main p{
+    font-size: 20px;
+}
+
 .text-principal{
     display: flex;
     padding: 30px;
