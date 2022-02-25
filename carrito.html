@@ -16,15 +16,18 @@
 
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    
 </head>
 
 <body>
 
     <!-- contenedor principal con información relevante -->
-    <main class="texto-main">
+    <main class="text-principal">
         <div class="container-fluid container-principal bg-gris text-center">
             <h1>Productos Agregados</h1>
             <p>Mueblería Los Alpes</p>
+            <p>¡Verifica lo que quieres comprar!</p>
         </div>
     </main>
     <!-- fin contenedor principal -->
@@ -43,7 +46,7 @@
                         <!-- nothing -->
                     </ul>
                     <form class="d-flex">
-                        <a href="index.html" class="btn btn-danger me-2">Regresar</a>
+                        <a href="index.html" class="btn btn-danger me-2">Seguir Comprando</a>
                         <a href="ingreso.html" class="btn btn-success">Ingresar</a>
                     </form>
                 </div>
@@ -51,139 +54,142 @@
         </nav>
     </header>
 
-    <!-- principal -->
-    <main class="text-principal">
+    <!-- seccion de productos -->
+    <section class="principal">
 
-        <!-- division con el detalle de los productos comprados  -->
-        <div class="card detalle-compra">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
+        <div class="row">
+
+            <div class="col-md-6 mt-4">
+                <div class="card">
+                    <div class="card-body">
                         <h2>Detalle Compra</h2>
-                    </div>
-                    <div class="col">
-                        <a href="index.html" class="btn btn-danger">Volver a Comprar</a>
+                        <p>Tienes N articulo(s) en el carrito de compras</p>
+                        <div class="productos-agregados mt-5 table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre Artículo</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Escritorio</td>
+                                        <td>Q50</td>
+                                        <td>1</td>
+                                        <td><a href="#" class="btn btn-outline-danger"><i
+                                                    class="fa-solid fa-trash"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Escritorio</td>
+                                        <td>Q50</td>
+                                        <td>1</td>
+                                        <td><a href="#" class="btn btn-outline-danger"><i
+                                                    class="fa-solid fa-trash"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Escritorio</td>
+                                        <td>Q50</td>
+                                        <td>1</td>
+                                        <td><a href="#" class="btn btn-outline-danger"><i
+                                                    class="fa-solid fa-trash"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <p>Tienes N articulo(s) en el carrito de compras</p>
-                <div class="productos-agregados mt-5">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Nombre Artículo</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">Escritorio</th>
-                            <td>Escritorio para PC</td>
-                            <td>Q50</td>
-                            <td><input type="text" class="form-control"></td>
-                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
-                          </tr>
-                          <tr>
-                            <th scope="row">Escritorio</th>
-                            <td>Escritorio para PC</td>
-                            <td>Q50</td>
-                            <td><input type="text" class="form-control"></td>
-                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
-                          </tr>
-                          <tr>
-                            <th scope="row">Escritorio</th>
-                            <td>Escritorio para PC</td>
-                            <td>Q50</td>
-                            <td><input type="text" class="form-control"></td>
-                            <th scope="col"><a href="#" class="btn btn-outline-danger">Borrar</a></th>
-                          </tr>
-                        </tbody>
-                      </table>
+            </div>
+
+
+            <div class="col-md-6 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Tipo de Pago</h2>
+
+                        <!-- tipos de tarjetas para pago -->
+                        <div class="row row-cols-auto">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="visa">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p><i class="fa-brands fa-cc-visa fa-3x"></i></p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="mastercard">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p><i class="fa-brands fa-cc-mastercard fa-3x"></i></p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="paypal">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p><i class="fa-brands fa-cc-paypal fa-3x"></i></p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fin tipo de tarjetas -->
+
+                        <label for="exampleFormControlInput1" class="form-label">Nombre del Titular
+                             <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
+                        <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
+                            placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();">
+
+                        <label for="exampleFormControlInput1" class="form-label">Número de Tarjeta 
+                            <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span>
+                        </label>
+                        <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
+                            placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            required>
+
+
+                        <label for="exampleFormControlInput1" class="form-label">Fecha de Vencimiento 
+                            <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span>
+                        </label>
+                        <input type="month" class="form-control" id="fechaVencimiento" placeholder="" required>
+
+                        <label for="exampleFormControlInput1" class="form-label">CVV (Dígitos de la parte
+                            trasera) <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
+                        <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1"
+                            maxlength="3"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            required>
+
+                        <hr>
+
+                        <!-- total a pagar por los productos adquiridos -->
+                        <div class="row">
+                            <div class="col">
+                                <p>Total a pagar</p>
+                            </div>
+                            <div class="col">
+                                <p>Q8888</p>
+                            </div>
+                        </div>
+                        <!-- fin total a pagar -->
+
+                        <div id="alerta">
+                            <!-- alerta que indica que no está y si está lleno -->
+                        </div>
+                        <a class="btn btn-success" onclick="finalizarVenta()">Continua con Envio</a>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- fin detalle compra -->
+    </section>
+    <!-- fin sección de productos -->
 
-
-        <!-- detalle del pago -->
-        <div class="card detalle-pago">
-            <div class="card-body">
-                <h2>Tipo de Pago</h2>
-
-                <!-- tipos de tarjetas para pago -->
-                <div class="row row-cols-auto">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="visa">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                <p><i class="fa-brands fa-cc-visa fa-3x"></i></p>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="mastercard">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                <p><i class="fa-brands fa-cc-mastercard fa-3x"></i></p>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="paypal">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                <p><i class="fa-brands fa-cc-paypal fa-3x"></i></p>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- fin tipo de tarjetas -->
-                
-
-                <label for="exampleFormControlInput1" class="form-label">Nombre del Titular</label>
-                <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
-                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();">
-
-                <label for="exampleFormControlInput1" class="form-label">Número de Tarjeta</label>
-                <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
-                    placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    required>
-
-
-                <label for="exampleFormControlInput1" class="form-label">Fecha de Vencimiento</label>
-                <input type="month" class="form-control" id="fechaVencimiento" placeholder="" required>
-
-                <label for="exampleFormControlInput1" class="form-label">CVV (Dígitos de la parte
-                    trasera)</label>
-                <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1" maxlength="3"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    required>
-
-                <hr>
-
-                <!-- total a pagar por los productos adquiridos -->
-                <div class="row">
-                    <div class="col">
-                        <p>Total a pagar</p>
-                    </div>
-                    <div class="col">
-                        <p>Q8888</p>
-                    </div>
-                </div>
-                <!-- fin total a pagar -->
-
-                <div id="alerta">
-                    <!-- alerta que indica que no está y si está lleno -->
-                </div>
-                <a class="btn btn-success" onclick="finalizarVenta()">Continua con Envio</a>
-            </div>
-        </div>
-        <!-- fin detalle pago -->
-
-
+    <section class="formulario-registro-cliente">
         <!-- modal para registrar los datos del cliente, y si ya existen, se ignoran -->
         <div class="modal" id="datosCliente">
             <div class="modal-dialog">
@@ -261,12 +267,12 @@
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Ciudad de
                                     Residencia</label>
-                                    <select class="form-select" aria-label="Default select example" required>
-                                        <option selected>Seleccione...</option>
-                                        <option value="1">Ciudad de Guatemala</option>
-                                        <option value="2">San José Pinula</option>
-                                        <option value="3">San Miguel Petapa</option>
-                                    </select>
+                                <select class="form-select" aria-label="Default select example" required>
+                                    <option selected>Seleccione...</option>
+                                    <option value="1">Ciudad de Guatemala</option>
+                                    <option value="2">San José Pinula</option>
+                                    <option value="3">San Miguel Petapa</option>
+                                </select>
                             </div>
 
                             <div class="mb-3">
@@ -294,8 +300,8 @@
             </div>
         </div>
         <!-- fin modal info clientes -->
+    </section>
 
-    </main>
 
 
     <!-- pie de pagina -->

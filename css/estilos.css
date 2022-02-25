@@ -37,7 +37,8 @@ body{
 
 .productos{
     height: auto;
-    padding: 50px;
+    padding: 70px;
+    margin-bottom: 15px;
 }
 
 .productos img{

@@ -9,6 +9,7 @@
 
 body{
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
 }
 
 .bg-gris{
@@ -26,47 +27,18 @@ body{
     background-attachment: fixed;
 }
 
-.texto-main h1{
+.text-principal h1{
     font-weight: 700;
     font-size: 50px;
 }
 
-.texto-main p{
+.text-principal p{
     font-size: 20px;
 }
 
-.text-principal{
-    display: flex;
-    padding: 30px;
-}
-
-.text-principal .detalle-compra{
-    justify-content: flex-start;
-    width: 60%;
-}
-
-.text-principal .detalle-compra h2{
-    font-weight: 700;
-    font-size: 28px;
-}
-
-.text-principal .detalle-compra p{
-    font-size: 16px;
-}
-
-.text-principal .detalle-pago{
-    justify-content: flex-end;
-    width: 40%;
-}
-
-.text-principal .detalle-pago h2{
-    font-weight: 700;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.text-principal .detalle-pago p{
-    font-size: 16px;
+.principal{
+    height: auto;
+    padding: 20px;
 }
 
 footer{
