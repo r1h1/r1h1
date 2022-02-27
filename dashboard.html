@@ -41,10 +41,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Inicio</a>
+                    <a href="dashboard.html" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="btn btn-danger">Cerrar Sesion</a>
+                    <a href="index.html" class="btn btn-danger">Cerrar Sesion</a>
                 </li>
             </ul>
         </nav>
@@ -66,10 +66,10 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="./index.html" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="./dashboard.html" class="nav-link active btn btn-primary">
                                 <i class="right fas fa-angle-left"></i>
-                                <p>Dashboard</p>
+                                <p>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-header">Módulos</li>
@@ -111,7 +111,10 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0 pl-5 mt-4">Dashboard</h1>
+                            <p class="m-0 pl-5 mt-2">Bienvenido usuario, gusto que estés aquí.
+                                <br>¿Que deseas hacer hoy?
+                            </p>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -119,7 +122,45 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <section class="content">
+            <section class="content container">
+                <div class="row">
+                    <div class="col-sm-4 mt-4">
+                        <div class="card text-center bg-secondary">
+                            <a href="clientes.html">
+                                <div class="card-body">
+                                    <i class="nav-icon fa-solid fa-person fa-10x"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Clientes</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mt-4">
+                        <div class="card text-center text-white bg-danger">
+                            <a href="productos.html">
+                                <div class="card-body">
+                                    <i class="nav-icon fa-solid fa-box fa-10x"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Productos</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mt-4">
+                        <div class="card text-center bg-warning">
+                            <a href="reportes.html">
+                                <div class="card-body">
+                                    <i class="nav-icon fa-solid fa-align-justify fa-10x"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Reportes</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- /.content -->
