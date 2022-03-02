@@ -68,7 +68,7 @@
                         </li>
                         <li class="nav-header">Módulos</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="clientes.html" class="nav-link">
                                 <i class="nav-icon fa-solid fa-person"></i>
                                 <p>
                                     Clientes
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="productos.html" class="nav-link">
                                 <i class="nav-icon fa-solid fa-box"></i>
                                 <p>
                                     Productos
@@ -84,18 +84,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="reportes.html" class="nav-link">
                                 <i class="nav-icon fa-solid fa-align-justify"></i>
                                 <p>
                                     Reportes
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item mt-4 bg-danger">
-                            <a href="index.html" class="nav-link">
-                                <i class="nav-icon fa-solid fa-right-from-bracket"></i>
-                                <p>
-                                    Cerrar Sesión
                                 </p>
                             </a>
                         </li>
@@ -131,58 +123,74 @@
                                 <div class="row">
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <select class="form-control" aria-label="Default select example" name="tipoDoc">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                          </select>
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Número de documento (*)</label>
-                                        <input type="number" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="number" class="form-control" id="exampleFormControlInput1" name="numDoc"
+                                            placeholder="3054 4444 87559">
                                     </div>
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-12 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Nombre completo del cliente (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente"
+                                            placeholder="Juan Antonio Gutierrez Morales">
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Teléfono de residencia (*)</label>
-                                        <input type="number" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="number" class="form-control" id="exampleFormControlInput1" name="telefonoRes"
+                                            placeholder="6631 8787">
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Teléfono celular</label>
-                                        <input type="number" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="number" class="form-control" id="exampleFormControlInput1" name="telefonoCelu"
+                                            placeholder="4689 5521">
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">País (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <select class="form-control" aria-label="Default select example" name="pais">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <select class="form-control" aria-label="Default select example" name="depto">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-12 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <select class="form-control" aria-label="Default select example" name="ciudad">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="7 avenida 6-85 Calle Real" name="direccion">
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Profesión</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="profesion"
+                                            placeholder="Programador">
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleFormControlInput1" class="form-label">Email (*)</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                            placeholder="name@example.com">
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
+                                            placeholder="nombre@ejemplo.com">
                                     </div>
                                     <div class="col-md-12 mt-4">
                                         <a href="#" class="btn btn-success">Agregar</a>
