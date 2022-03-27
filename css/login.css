@@ -9,11 +9,16 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-image: url(../img/p3.jpg);
+    background-repeat: no-repeat;
+}
+
+.texto-bienvenida{
+    text-align: center;
 }
 
 .principal{
-    margin-top: 120px;
-    padding: 50px;
+    margin-top: 12rem;
 }
 
 .principal h1{

@@ -9,15 +9,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
 }
-
-.bg-gris{
-    background-color: #343A40;
-    color: #ffffff;
-}
-
-/* principal */ 
 
 .container-principal{
     padding: 40px;
@@ -26,6 +18,13 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+
+.bg-gris{
+    background-color: #343A40;
+    color: #ffffff;
+}
+
+/* principal */ 
 
 .text-principal h1{
     font-weight: 700;
@@ -36,9 +35,13 @@ body{
     font-size: 20px;
 }
 
-.principal{
+.info-perfil{
+    margin-top: 30px;
+}
+
+.perfiles{
     height: auto;
-    padding: 20px;
+    margin-bottom: 30px;
 }
 
 footer{
@@ -58,3 +61,4 @@ footer p{
     margin-top: 10px;
     font-size: 15px;
 }
+

@@ -13,7 +13,7 @@ body{
 
 .container-principal{
     padding: 40px;
-    background-image: url(../img/principal.jpg);
+    background-image: url(../img/p3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -21,7 +21,7 @@ body{
 
 .bg-gris{
     background-color: #343A40;
-    color: #000000;
+    color: #ffffff;
 }
 
 /* principal */ 
