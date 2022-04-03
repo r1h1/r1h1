@@ -10,6 +10,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-image: url(../img/p3.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
