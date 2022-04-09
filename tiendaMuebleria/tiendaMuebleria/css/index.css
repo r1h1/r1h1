@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-principal {
+    padding: 40px;
+    background-image: url(../img/p3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-gris {
+    background-color: #343A40;
+    color: #ffffff;
+}
+
+/* principal */
+
+.text-principal h1 {
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.text-principal p {
+    font-size: 20px;
+}
+
+.info-perfil {
+    margin-top: 30px;
+}
+
+.perfiles {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+footer {
+    padding: 20px;
+    background-color: #212529;
+    color: white;
+}
+
+    footer .titulo-footer {
+        font-weight: 700;
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    footer p {
+        text-align: justify;
+        margin-top: 10px;
+        font-size: 15px;
+    }

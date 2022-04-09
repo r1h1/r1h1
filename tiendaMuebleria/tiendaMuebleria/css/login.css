@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* globales */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../img/p3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-bienvenida{
+    text-align: center;
+}
+
+.principal{
+    margin-top: 12rem;
+}
+
+.principal h1{
+    font-weight: 700;
+}
+
