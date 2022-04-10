@@ -135,7 +135,7 @@
                                         <div class="row">
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
-                                                <select class="form-control" aria-label="Default select example" name="tipoDoc">
+                                                <select id="tipoDocumento" class="form-control" aria-label="Default select example" name="tipoDoc">
                                                     <option selected>Selecciona una opción...</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -144,27 +144,29 @@
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Número de documento (*)</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" name="numDoc"
-                                                    placeholder="3054 4444 87559">
+                                                
+                                                <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" name="numDoc"
+                                                    placeholder="3054 4444 87559" required></asp:TextBox>
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Nombre completo del cliente (*)</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente"
-                                                    placeholder="Juan Antonio Gutierrez Morales">
+                                                
+                                                <asp:TextBox ID="nombreCompletoCliente" runat="server" type="text" class="form-control" name="nombreCliente"
+                                                    placeholder="Juan Antonio Gutierrez Morales" required></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Teléfono de residencia (*)</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" name="telefonoRes"
-                                                    placeholder="6631 8787">
+                                                <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" name="telefonoRes"
+                                                    placeholder="6631 8787" required></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Teléfono celular</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" name="telefonoCelu"
-                                                    placeholder="4689 5521">
+                                                <label for="exampleFormControlInput1" class="form-label">Teléfono celular</label>                                                
+                                                <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" name="telefonoCelu"
+                                                    placeholder="4689 5521"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">País (*)</label>
-                                                <select class="form-control" aria-label="Default select example" name="pais">
+                                                <select id="pais" class="form-control" aria-label="Default select example" name="pais">
                                                     <option selected>Selecciona una opción...</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -173,7 +175,7 @@
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
-                                                <select class="form-control" aria-label="Default select example" name="depto">
+                                                <select id="departamentoEstado" class="form-control" aria-label="Default select example" name="depto">
                                                     <option selected>Selecciona una opción...</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -182,7 +184,7 @@
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
-                                                <select class="form-control" aria-label="Default select example" name="ciudad">
+                                                <select id="ciudadResidencia" class="form-control" aria-label="Default select example" name="ciudad">
                                                     <option selected>Selecciona una opción...</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -191,21 +193,24 @@
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion">
+                                                
+                                                <asp:TextBox ID="direccion" runat="server" type="text" class="form-control"
+                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Profesión</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" name="profesion"
-                                                    placeholder="Programador">
+                                                
+                                                <asp:TextBox ID="profesion" runat="server" type="text" class="form-control" name="profesion"
+                                                    placeholder="Programador" />
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Email (*)</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
-                                                    placeholder="nombre@ejemplo.com">
+                                                
+                                                <asp:TextBox ID="email" runat="server" type="email" class="form-control" name="email"
+                                                    placeholder="nombre@ejemplo.com" />
                                             </div>
                                             <div class="col-md-12 mt-4">
-                                                <a href="#" class="btn btn-success">Agregar</a>
+                                                <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" />
                                                 <a href="clientes.aspx" class="btn btn-danger">Limpiar</a>
                                             </div>
                                         </div>

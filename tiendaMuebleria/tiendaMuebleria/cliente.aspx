@@ -70,7 +70,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Mesa</h5>
                                     <p class="card-text">Q800</p>
-                                    <a href="#" class="btn btn-outline-dark">Detalle</a>
+                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
                                     <a href="#" class="btn btn-outline-success">Agregar</a>
                                 </div>
                             </div>

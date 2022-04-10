@@ -42,22 +42,21 @@
                                         <form action="#" method="post">
                                             <div class="form-group first">
                                                 <label for="username">Usuario</label>
-                                                <input type="text" class="form-control" id="username" placeholder="Ej: ejemplo123">
+                                                <asp:TextBox ID="username" runat="server" type="text" class="form-control" placeholder="Ej: ejemplo123"></asp:TextBox>
                                             </div>
 
                                             <br>
 
                                             <div class="form-group last mb-3">
                                                 <label for="password">Contraseña</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Ej: pass123">
+                                                <asp:TextBox ID="password" runat="server" type="password" class="form-control" placeholder="Ej: pass123"></asp:TextBox>
                                             </div>
 
                                             <br>
 
                                             <div>
-                                                <!--<input type="submit" value="Ingresar" class="btn btn-block btn-success">-->
-                                                <a href="dashboard.aspx" class="btn btn-success">Ingresar</a>
-                                                <a href="index.aspx" class="btn btn-danger">Regresar</a>
+                                                <asp:Button ID="ingresar" runat="server" Text="Ingresar" href="dashboard.aspx" class="btn btn-success" />
+                                                <asp:Button ID="regresar" runat="server" Text="Regresar" href="dashboard.aspx" class="btn btn-danger" />
                                             </div>
 
                                         </form>

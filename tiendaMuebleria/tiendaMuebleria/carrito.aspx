@@ -81,22 +81,10 @@
                                                 <td>Escritorio</td>
                                                 <td>Q50</td>
                                                 <td>1</td>
-                                                <td><a href="#" class="btn btn-outline-danger"><i
-                                                    class="fa-solid fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Escritorio</td>
-                                                <td>Q50</td>
-                                                <td>1</td>
-                                                <td><a href="#" class="btn btn-outline-danger"><i
-                                                    class="fa-solid fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Escritorio</td>
-                                                <td>Q50</td>
-                                                <td>1</td>
-                                                <td><a href="#" class="btn btn-outline-danger"><i
-                                                    class="fa-solid fa-trash"></i></a></td>
+                                                <td>
+                                                    <asp:Button ID="eliminarArticulo" runat="server"
+                                                        Text="Borrar" class="btn btn-outline-danger" />
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -114,24 +102,24 @@
                                 <!-- tipos de tarjetas para pago -->
                                 <div class="row row-cols-auto">
                                     <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="visa">
+                                        <div>
+                                            <asp:CheckBox ID="visa" runat="server" value="" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 <p><i class="fa-brands fa-cc-visa fa-3x"></i></p>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="mastercard">
+                                        <div>
+                                            <asp:CheckBox ID="mastercard" runat="server" value="" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 <p><i class="fa-brands fa-cc-mastercard fa-3x"></i></p>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="paypal">
+                                        <div>
+                                            <asp:CheckBox ID="paypal" runat="server" value="" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 <p><i class="fa-brands fa-cc-paypal fa-3x"></i></p>
                                             </label>
@@ -218,7 +206,7 @@
                                     <!-- tipo de documento -->
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Tipo de Documento</label>
-                                        <select class="form-select" aria-label="Default select example" required>
+                                        <select id="tipoDocumento" class="form-select" aria-label="Default select example" required>
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">DPI</option>
                                             <option value="2">NIT</option>
@@ -227,16 +215,16 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Numero de Documento</label>
-                                        <input type="number" class="form-control" placeholder="Ej: 1515489699999" maxlength="13"
+                                        <label for="message-text" class="col-form-label">Número de Documento</label>                                     
+                                        <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" maxlength="13"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required />
+                                            required ></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Nombre Completo</label>
-                                        <input type="text" class="form-control" placeholder="Ej: JUAN DAVID MONZÓN TORRES"
-                                            onkeyup="this.value = this.value.toUpperCase();" />
+                                        <asp:TextBox ID="nombreCompleto" runat="server" type="text" class="form-control" placeholder="JUAN DAVID MONZÓN TORRES"
+                                            onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                                     </div>
 
                                     <div class="row">
@@ -244,23 +232,23 @@
                                             <label for="message-text" class="col-form-label">
                                                 Teléfono de
                                         Residencia</label>
-                                            <input type="number" class="form-control" placeholder="Ej: 66314589" maxlength="8"
+                                            <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" placeholder="66314589" maxlength="8"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required />
+                                                required ></asp:TextBox>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="message-text" class="col-form-label">
                                                 Teléfono
                                         Celular</label>
-                                            <input type="number" class="form-control" placeholder="Ej: 45858787" maxlength="8"
+                                            <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" placeholder="45858787" maxlength="8"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required />
+                                                required    ></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">País</label>
-                                        <select class="form-select" aria-label="Default select example" required>
+                                        <select id="pais" class="form-select" aria-label="Default select example" required>
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Guatemala</option>
                                             <option value="2">El Salvador</option>
@@ -270,7 +258,7 @@
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Departamento / Estado</label>
-                                        <select class="form-select" aria-label="Default select example" required>
+                                        <select id="departamentoEstado" class="form-select" aria-label="Default select example" required>
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Guatemala</option>
                                             <option value="2">Escuintla</option>
@@ -282,7 +270,7 @@
                                         <label for="message-text" class="col-form-label">
                                             Ciudad de
                                     Residencia</label>
-                                        <select class="form-select" aria-label="Default select example" required>
+                                        <select id="ciudadResidencia" class="form-select" aria-label="Default select example" required>
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Ciudad de Guatemala</option>
                                             <option value="2">San José Pinula</option>
@@ -292,22 +280,25 @@
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Dirección</label>
-                                        <input type="text" class="form-control" placeholder="Ej: 7ma Calle, Colonia Pinares"
-                                            required="required" />
+                                        <asp:TextBox ID="direccion" runat="server" type="text" 
+                                            class="form-control" placeholder="7ma Calle, Colonia Pinares"
+                                            required="required"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Profesión</label>
-                                        <input type="text" class="form-control" placeholder="Ej: Estudiante" />
+                                        <asp:TextBox ID="estudiante" runat="server" type="text" 
+                                            class="form-control" placeholder="Estudiante"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Correo Electrónico</label>
-                                        <input type="email" class="form-control" placeholder="Ej: ejemplo@ejemplo.com" required />
+                                        <asp:TextBox ID="correoElectronico" runat="server" type="email" 
+                                            class="form-control" placeholder="ejemplo@ejemplo.com"></asp:TextBox>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="submit" class="btn btn-success">Procesar Pago</button>
+                                        <asp:Button ID="cancelarEnvio" runat="server" Text="Cancelar" class="btn btn-danger" data-bs-dismiss="modal"/>
+                                        <asp:Button ID="procesarPago" runat="server" Text="Pagar" class="btn btn-success"/>
                                     </div>
                                 </div>
                             </div>
