@@ -88,7 +88,7 @@
                 <div class="row">
                     <div class="col-sm-4 mt-4">
                         <div class="card text-center bg-secondary">
-                            <a href="cliente.aspx">
+                            <a href="views/client/cliente.aspx">
                                 <div class="card-body">
                                     <i class="nav-icon fa-solid fa-user fa-6x"></i>
                                     <i class="nav-icon fa-solid fa-cart-shopping fa-2x"></i>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-sm-4 mt-4">
                         <div class="card text-center text-white bg-danger">
-                            <a href="ingreso.aspx">
+                            <a href="views/ingreso.aspx">
                                 <div class="card-body">
                                     <i class="nav-icon fa-solid fa-user-gear fa-6x"></i>
                                     <div class="card-body">

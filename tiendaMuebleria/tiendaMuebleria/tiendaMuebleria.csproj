@@ -67,15 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="carrito.aspx" />
-    <Content Include="cliente.aspx" />
-    <Content Include="clientes.aspx" />
+    <Content Include="views\client\carrito.aspx" />
+    <Content Include="views\client\cliente.aspx" />
+    <Content Include="views\admin\clientes.aspx" />
     <Content Include="css\carrito.css" />
     <Content Include="css\estilos.css" />
     <Content Include="css\index.css" />
     <Content Include="css\login.css" />
-    <Content Include="dashboard.aspx" />
-    <Content Include="descripcionProducto.aspx" />
+    <Content Include="views\admin\dashboard.aspx" />
+    <Content Include="views\client\descripcionProducto.aspx" />
     <Content Include="dist\css\adminlte.css" />
     <Content Include="dist\css\adminlte.min.css" />
     <Content Include="dist\css\alt\adminlte.components.css" />
@@ -102,7 +102,7 @@
     <Content Include="img\p3.jpg" />
     <Content Include="img\sillon.jpg" />
     <Content Include="index.aspx" />
-    <Content Include="ingreso.aspx" />
+    <Content Include="views\ingreso.aspx" />
     <Content Include="js\main.js" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
@@ -1972,44 +1972,44 @@
     <Content Include="plugins\uplot\uPlot.iife.js" />
     <Content Include="plugins\uplot\uPlot.iife.min.js" />
     <Content Include="plugins\uplot\uPlot.min.css" />
-    <Content Include="productos.aspx" />
-    <Content Include="reportes.aspx" />
+    <Content Include="views\admin\productos.aspx" />
+    <Content Include="views\admin\reportes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="carrito.aspx.cs">
+    <Compile Include="views\client\carrito.aspx.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="carrito.aspx.designer.cs">
+    <Compile Include="views\client\carrito.aspx.designer.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
     </Compile>
-    <Compile Include="cliente.aspx.cs">
+    <Compile Include="views\client\cliente.aspx.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="cliente.aspx.designer.cs">
+    <Compile Include="views\client\cliente.aspx.designer.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="clientes.aspx.cs">
+    <Compile Include="views\admin\clientes.aspx.cs">
       <DependentUpon>clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="clientes.aspx.designer.cs">
+    <Compile Include="views\admin\clientes.aspx.designer.cs">
       <DependentUpon>clientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dashboard.aspx.cs">
+    <Compile Include="views\admin\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="dashboard.aspx.designer.cs">
+    <Compile Include="views\admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="descripcionProducto.aspx.cs">
+    <Compile Include="views\client\descripcionProducto.aspx.cs">
       <DependentUpon>descripcionProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="descripcionProducto.aspx.designer.cs">
+    <Compile Include="views\client\descripcionProducto.aspx.designer.cs">
       <DependentUpon>descripcionProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
@@ -2019,26 +2019,26 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ingreso.aspx.cs">
+    <Compile Include="views\ingreso.aspx.cs">
       <DependentUpon>ingreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ingreso.aspx.designer.cs">
+    <Compile Include="views\ingreso.aspx.designer.cs">
       <DependentUpon>ingreso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="productos.aspx.cs">
+    <Compile Include="views\admin\productos.aspx.cs">
       <DependentUpon>productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="productos.aspx.designer.cs">
+    <Compile Include="views\admin\productos.aspx.designer.cs">
       <DependentUpon>productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="reportes.aspx.cs">
+    <Compile Include="views\admin\reportes.aspx.cs">
       <DependentUpon>reportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reportes.aspx.designer.cs">
+    <Compile Include="views\admin\reportes.aspx.designer.cs">
       <DependentUpon>reportes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
