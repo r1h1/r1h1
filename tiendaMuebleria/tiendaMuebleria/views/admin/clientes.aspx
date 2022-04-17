@@ -222,20 +222,28 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Clientes Registrados</h5>
                                         <div class="table-responsive mt-5">
-                                            <asp:GridView ID="dataGridView" runat="server" class="table-dark" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BackColor="White" DataKeyNames="ID_USU_NUMERODOCUMENTO" ForeColor="Black" GridLines="None">
+                                            <asp:GridView ID="dataGridView" runat="server" class="table-dark text-center" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BackColor="White" DataKeyNames="ID_USU_NUMERODOCUMENTO" ForeColor="Black" GridLines="Horizontal" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="6" CellSpacing="8" ShowHeaderWhenEmpty="True">
                                                 <Columns>
-                                                    <asp:BoundField DataField="USU_TIPODOC" HeaderText="Tipo de Documento" SortExpression="USU_TIPODOC" />
+                                                    <asp:BoundField DataField="USU_TIPODOC" HeaderText="Tipo de Documento" SortExpression="USU_TIPODOC" ReadOnly="True" />
                                                     <asp:BoundField DataField="ID_USU_NUMERODOCUMENTO" HeaderText="No. Documento" ReadOnly="True" SortExpression="ID_USU_NUMERODOCUMENTO" />
-                                                    <asp:BoundField DataField="USU_NOMBRECOMPLETO" HeaderText="Nombre Completo" SortExpression="USU_NOMBRECOMPLETO" />
-                                                    <asp:BoundField DataField="USU_TELEFONORESIDENCIAL" HeaderText="Teléfono Residencial" SortExpression="USU_TELEFONORESIDENCIAL" />
-                                                    <asp:BoundField DataField="USU_TELEFONOMOVIL" HeaderText="Teléfono Móvil" SortExpression="USU_TELEFONOMOVIL" />
-                                                    <asp:BoundField DataField="USU_DIRECCION" HeaderText="Dirección" SortExpression="USU_DIRECCION" />
-                                                    <asp:BoundField DataField="USU_EMAIL" HeaderText="Email" SortExpression="USU_EMAIL" />
+                                                    <asp:BoundField DataField="USU_NOMBRECOMPLETO" HeaderText="Nombre Completo" SortExpression="USU_NOMBRECOMPLETO" ReadOnly="True" />
+                                                    <asp:BoundField DataField="USU_TELEFONORESIDENCIAL" HeaderText="Teléfono Residencial" SortExpression="USU_TELEFONORESIDENCIAL" ReadOnly="True" />
+                                                    <asp:BoundField DataField="USU_TELEFONOMOVIL" HeaderText="Teléfono Móvil" SortExpression="USU_TELEFONOMOVIL" ReadOnly="True" />
+                                                    <asp:BoundField DataField="USU_DIRECCION" HeaderText="Dirección" SortExpression="USU_DIRECCION" ReadOnly="True" />
+                                                    <asp:BoundField DataField="USU_EMAIL" HeaderText="Email" SortExpression="USU_EMAIL" ReadOnly="True" />
                                                     <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
                                                     <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
                                                 </Columns>
-                                                <EditRowStyle BackColor="Black" />
+                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                <SortedDescendingHeaderStyle BackColor="#242121" />
                                             </asp:GridView>
+
                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="TNS_ADMIN=C:\Users\d_riv\Oracle\network\admin;USER ID=DANIEL;PASSWORD=123;DATA SOURCE=localhost:1521/orcl" ProviderName="Oracle.ManagedDataAccess.Client" SelectCommand="SELECT &quot;ID_USU_NUMERODOCUMENTO&quot;, &quot;USU_NOMBRECOMPLETO&quot;, &quot;USU_TIPODOC&quot;, &quot;USU_TELEFONORESIDENCIAL&quot;, &quot;USU_TELEFONOMOVIL&quot;, &quot;USU_DIRECCION&quot;, &quot;USU_EMAIL&quot;, &quot;USU_ESTADO&quot; FROM &quot;LA_USUARIO&quot; ORDER BY &quot;ID_USU_NUMERODOCUMENTO&quot;"></asp:SqlDataSource>
                                         </div>
                                     </div>
