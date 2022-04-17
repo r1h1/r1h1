@@ -30,6 +30,12 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css"/>
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 2px;
+        }
+    </style>
     </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <form id="form1" runat="server">
@@ -209,7 +215,7 @@
                                                 <asp:TextBox ID="email" runat="server" type="email" class="form-control" name="email"
                                                     placeholder="nombre@ejemplo.com" required/>
                                             </div>
-                                            <div class="col-md-12 mt-4">
+                                            <div class="col-md-6 mt-3">
                                                 <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
                                                 <a href="clientes.aspx" class="btn btn-danger">Limpiar</a>
                                             </div>
@@ -233,6 +239,12 @@
                                                     <asp:BoundField DataField="USU_EMAIL" HeaderText="Email" SortExpression="USU_EMAIL" ReadOnly="True" />
                                                     <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
                                                     <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
+                                                    <asp:ButtonField ButtonType="Button" Text="Editar">
+                                                    <ControlStyle BackColor="Yellow" />
+                                                    </asp:ButtonField>
+                                                    <asp:ButtonField ButtonType="Button" Text="Borrar">
+                                                    <ControlStyle BackColor="Red" ForeColor="White" />
+                                                    </asp:ButtonField>
                                                 </Columns>
                                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -256,7 +268,7 @@
                 </div>
                 <!-- /.content-wrapper -->
                 <footer class="main-footer">
-                    <strong>Copyright &copy; Muebleria Los Alpesrved.
+                    <strong>Copyright &copy; Muebleria Los Alpesrved.</strong>
                 </footer>
 
                 <!-- Control Sidebar -->

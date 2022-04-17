@@ -14,8 +14,6 @@
 
     <link rel="stylesheet" href="../css/login.css"/>
 
-    <script src="https://kit.fontawesome.com/f5a0c28896.js" crossorigin="anonymous"></script>
-
     <title>Bienvenido - MLA</title>
 </head>
 <body>
@@ -49,7 +47,7 @@
 
                                             <div class="form-group last mb-3">
                                                 <label for="password">Numero de Documento (Sin espacios)</label>
-                                                <asp:TextBox ID="numeroDocumento" runat="server" type="password" class="form-control" placeholder="1212458969568"></asp:TextBox>
+                                                <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1212458969568"></asp:TextBox>
                                             </div>
 
                                             <br/>
