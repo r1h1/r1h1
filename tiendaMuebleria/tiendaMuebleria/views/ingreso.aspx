@@ -5,14 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/login.css"/>
 
     <script src="https://kit.fontawesome.com/f5a0c28896.js" crossorigin="anonymous"></script>
 
@@ -33,39 +33,38 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-12">
 
-                                        <div class="mb-lg-5 texto-bienvenida">
+                                        <div class="mb-lg-4 texto-bienvenida">
                                             <h1>Ingreso al Sistema</h1>
                                             <p class="mb-4">Bienvenido, inicia sesión para continuar.</p>
                                         </div>
 
                                         <!-- formualrio de validación -->
-                                        <form action="#" method="post">
+                                        <div class="formulario-ingreso">
                                             <div class="form-group first">
-                                                <label for="username">Usuario</label>
-                                                <asp:TextBox ID="username" runat="server" type="text" class="form-control" placeholder="Ej: ejemplo123"></asp:TextBox>
+                                                <label for="username">Correo Electrónico</label>
+                                                <asp:TextBox ID="correoElectronico" runat="server" type="text" class="form-control" placeholder="ejemplo@gmail.com"></asp:TextBox>
                                             </div>
 
-                                            <br>
+                                            <br/>
 
                                             <div class="form-group last mb-3">
-                                                <label for="password">Contraseña</label>
-                                                <asp:TextBox ID="password" runat="server" type="password" class="form-control" placeholder="Ej: pass123"></asp:TextBox>
+                                                <label for="password">Numero de Documento (Sin espacios)</label>
+                                                <asp:TextBox ID="numeroDocumento" runat="server" type="password" class="form-control" placeholder="1212458969568"></asp:TextBox>
                                             </div>
 
-                                            <br>
+                                            <br/>
 
                                             <div>
                                                 <!-- <asp:Button ID="ingresar" runat="server" Text="Ingresar" href="dashboard.aspx" class="btn btn-success" /> -->
-                                                <a href="admin/dashboard.aspx" class="btn btn-success" >Ingresar</a>
+                                                <asp:Button ID="ingresarSistema" runat="server" Text="Ingresar" class="btn btn-success" OnClick="ingresarSistema_Click"/>
                                                 <a href="../index.aspx" class="btn btn-danger" >Regresar</a>
                                             </div>
 
-                                        </form>
+                                        </div>
                                         <!-- fin de formulario de validación -->
 
                                     </div>
                                 </div>
-                                </a>
                             </div>
 
                         </div>

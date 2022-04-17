@@ -4,33 +4,33 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Muebleria - Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"/>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"/>
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"/>
     <!-- iCheck -->
-    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
     <!-- JQVMap -->
-    <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css"/>
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css"/>
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css"/>
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css"/>
     <!-- summernote -->
-    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css"/>
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
-</head>
+    </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <form id="form1" runat="server">
         <div>
@@ -115,7 +115,6 @@
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <h1 class="m-0 pl-5 mt-4">Clientes</h1>
-                                    </p>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -135,11 +134,12 @@
                                         <div class="row">
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
-                                                <select id="tipoDocumento" class="form-control" aria-label="Default select example" name="tipoDoc">
-                                                    <option selected>Selecciona una opción...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                <select id="docTipo" name="selectDocTipo" runat="server" class="form-control" aria-label="Default select example">
+                                                    <option value="">Selecciona una opción...</option>
+                                                    <option value="DPI">DPI / CUI</option>
+                                                    <option value="NIT">NIT</option>
+                                                    <option value="PASAPORTE">PASAPORTE</option>
+                                                    <option value="OTRO">OTRO</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mt-3">
@@ -162,40 +162,40 @@
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Teléfono celular</label>                                                
                                                 <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" name="telefonoCelu"
-                                                    placeholder="4689 5521"></asp:TextBox>
+                                                    placeholder="4689 5521" required></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">País (*)</label>
-                                                <select id="pais" class="form-control" aria-label="Default select example" name="pais">
-                                                    <option selected>Selecciona una opción...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                <select id="pais" class="form-control" runat="server" aria-label="Default select example" name="pais" required>
+                                                    <option>Selecciona una opción...</option>
+                                                    <option value="Guatemala">Guatemala</option>
+                                                    <option value="Mexico">México</option>
+                                                    <option value="El Salvador">El Salvador</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
-                                                <select id="departamentoEstado" class="form-control" aria-label="Default select example" name="depto">
-                                                    <option selected>Selecciona una opción...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                <select id="departamentoEstado" class="form-control" runat="server" aria-label="Default select example" name="depto" required>
+                                                    <option>Selecciona una opción...</option>
+                                                    <option value="Guatemala">Guatemala</option>
+                                                    <option value="San Pedro Sacatepequez">San Pedro Sacatepéquez</option>
+                                                    <option value="Quiche">Quiché</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
-                                                <select id="ciudadResidencia" class="form-control" aria-label="Default select example" name="ciudad">
-                                                    <option selected>Selecciona una opción...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                <select id="ciudadResidencia" runat="server" class="form-control" aria-label="Default select example" name="ciudad" required>
+                                                    <option>Selecciona una opción...</option>
+                                                    <option value="Ciudad de Guatemala">Ciudad de Guatemala</option>
+                                                    <option value="Villa Nueva">Villa Nueva</option>
+                                                    <option value="San Miguel Petapa">San Miguel Petapa</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
                                                 
                                                 <asp:TextBox ID="direccion" runat="server" type="text" class="form-control"
-                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion"></asp:TextBox>
+                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion" required></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Profesión</label>
@@ -207,10 +207,10 @@
                                                 <label for="exampleFormControlInput1" class="form-label">Email (*)</label>
                                                 
                                                 <asp:TextBox ID="email" runat="server" type="email" class="form-control" name="email"
-                                                    placeholder="nombre@ejemplo.com" />
+                                                    placeholder="nombre@ejemplo.com" required/>
                                             </div>
                                             <div class="col-md-12 mt-4">
-                                                <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" />
+                                                <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
                                                 <a href="clientes.aspx" class="btn btn-danger">Limpiar</a>
                                             </div>
                                         </div>
@@ -222,42 +222,21 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Clientes Registrados</h5>
                                         <div class="table-responsive mt-5">
-                                            <table class="table">
-                                                <thead class="table-dark">
-                                                    <tr>
-                                                        <th scope="col">Tipo Documento</th>
-                                                        <th scope="col">No. Documento</th>
-                                                        <th scope="col">Nombre</th>
-                                                        <th scope="col">Teléfono Residencia</th>
-                                                        <th scope="col">Teléfono Celular</th>
-                                                        <th scope="col">País</th>
-                                                        <th scope="col">Depto / Estado</th>
-                                                        <th scope="col">Ciudad</th>
-                                                        <th scope="col">Dirección</th>
-                                                        <th scope="col">Profesión</th>
-                                                        <th scope="col">Email</th>
-                                                        <th scope="col"></th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>DPI</td>
-                                                        <td>3045888878887</td>
-                                                        <td>Daniel Rivas</td>
-                                                        <td>66314898</td>
-                                                        <td>45787878</td>
-                                                        <td>Guatemala</td>
-                                                        <td>Guatemala</td>
-                                                        <td>San Miguel Petapa</td>
-                                                        <td>7ma Calle 1-52, Colonia Israel, Zona 9</td>
-                                                        <td>Programador y QA</td>
-                                                        <td>danielrivas1.gt@gmail.com</td>
-                                                        <td><a href="#" class="btn btn-danger">Borrar</a></td>
-                                                        <td><a href="#" class="btn btn-warning">Editar</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <asp:GridView ID="dataGridView" runat="server" class="table-dark" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BackColor="White" DataKeyNames="ID_USU_NUMERODOCUMENTO" ForeColor="Black" GridLines="None">
+                                                <Columns>
+                                                    <asp:BoundField DataField="USU_TIPODOC" HeaderText="Tipo de Documento" SortExpression="USU_TIPODOC" />
+                                                    <asp:BoundField DataField="ID_USU_NUMERODOCUMENTO" HeaderText="No. Documento" ReadOnly="True" SortExpression="ID_USU_NUMERODOCUMENTO" />
+                                                    <asp:BoundField DataField="USU_NOMBRECOMPLETO" HeaderText="Nombre Completo" SortExpression="USU_NOMBRECOMPLETO" />
+                                                    <asp:BoundField DataField="USU_TELEFONORESIDENCIAL" HeaderText="Teléfono Residencial" SortExpression="USU_TELEFONORESIDENCIAL" />
+                                                    <asp:BoundField DataField="USU_TELEFONOMOVIL" HeaderText="Teléfono Móvil" SortExpression="USU_TELEFONOMOVIL" />
+                                                    <asp:BoundField DataField="USU_DIRECCION" HeaderText="Dirección" SortExpression="USU_DIRECCION" />
+                                                    <asp:BoundField DataField="USU_EMAIL" HeaderText="Email" SortExpression="USU_EMAIL" />
+                                                    <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
+                                                    <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
+                                                </Columns>
+                                                <EditRowStyle BackColor="Black" />
+                                            </asp:GridView>
+                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="TNS_ADMIN=C:\Users\d_riv\Oracle\network\admin;USER ID=DANIEL;PASSWORD=123;DATA SOURCE=localhost:1521/orcl" ProviderName="Oracle.ManagedDataAccess.Client" SelectCommand="SELECT &quot;ID_USU_NUMERODOCUMENTO&quot;, &quot;USU_NOMBRECOMPLETO&quot;, &quot;USU_TIPODOC&quot;, &quot;USU_TELEFONORESIDENCIAL&quot;, &quot;USU_TELEFONOMOVIL&quot;, &quot;USU_DIRECCION&quot;, &quot;USU_EMAIL&quot;, &quot;USU_ESTADO&quot; FROM &quot;LA_USUARIO&quot; ORDER BY &quot;ID_USU_NUMERODOCUMENTO&quot;"></asp:SqlDataSource>
                                         </div>
                                     </div>
                                 </div>
@@ -269,8 +248,7 @@
                 </div>
                 <!-- /.content-wrapper -->
                 <footer class="main-footer">
-                    <strong>Copyright &copy; Muebleria Los Alpes</strong>
-                    All rights reserved.
+                    <strong>Copyright &copy; Muebleria Los Alpesrved.
                 </footer>
 
                 <!-- Control Sidebar -->
