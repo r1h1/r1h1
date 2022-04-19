@@ -17,9 +17,8 @@ namespace tiendaMuebleria
 
         }
 
-        protected void ingresarSistema_Click(object sender, EventArgs e)
+        protected void ingresarSistema_Click(object sender, EventArgs e) 
         {
-            string con = ConfigurationManager.ConnectionStrings["connectOrcl"].ConnectionString;
             //conexión a la base de datos
             OracleConnection conexion = new OracleConnection(con);
             conexion.Open();
@@ -40,11 +39,6 @@ namespace tiendaMuebleria
 
             }
             conexion.Close();
-
-        }
-
-        protected void ingresarSistema_Click1(object sender, EventArgs e)
-        {
 
         }
     }

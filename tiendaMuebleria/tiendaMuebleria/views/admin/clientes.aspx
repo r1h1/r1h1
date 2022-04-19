@@ -138,41 +138,41 @@
 
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-6 mt-3">
+                                             <div class="col-md-12 mt-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Número de documento (*)</label>
+                                                
+                                                <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" name="numDoc"
+                                                    placeholder="3054 4444 87559" ></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-3 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
                                                 <select id="docTipo" name="selectDocTipo" runat="server" class="form-control" aria-label="Default select example">
-                                                    <option value="">Selecciona una opción...</option>
+                                                    <option>Selecciona una opción...</option>
                                                     <option value="DPI">DPI / CUI</option>
                                                     <option value="NIT">NIT</option>
                                                     <option value="PASAPORTE">PASAPORTE</option>
                                                     <option value="OTRO">OTRO</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Número de documento (*)</label>
-                                                
-                                                <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" name="numDoc"
-                                                    placeholder="3054 4444 87559" required></asp:TextBox>
-                                            </div>
-                                            <div class="col-md-12 mt-3">
+                                            <div class="col-md-9 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Nombre completo del cliente (*)</label>
                                                 
                                                 <asp:TextBox ID="nombreCompletoCliente" runat="server" type="text" class="form-control" name="nombreCliente"
-                                                    placeholder="Juan Antonio Gutierrez Morales" required></asp:TextBox>
+                                                    placeholder="Juan Antonio Gutierrez Morales" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Teléfono de residencia (*)</label>
                                                 <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" name="telefonoRes"
-                                                    placeholder="6631 8787" required></asp:TextBox>
+                                                    placeholder="6631 8787" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Teléfono celular</label>                                                
                                                 <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" name="telefonoCelu"
-                                                    placeholder="4689 5521" required></asp:TextBox>
+                                                    placeholder="4689 5521" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">País (*)</label>
-                                                <select id="pais" class="form-control" runat="server" aria-label="Default select example" name="pais" required>
+                                                <select id="pais" class="form-control" runat="server" aria-label="Default select example" name="pais" >
                                                     <option>Selecciona una opción...</option>
                                                     <option value="Guatemala">Guatemala</option>
                                                     <option value="Mexico">México</option>
@@ -181,7 +181,7 @@
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
-                                                <select id="departamentoEstado" class="form-control" runat="server" aria-label="Default select example" name="depto" required>
+                                                <select id="departamentoEstado" class="form-control" runat="server" aria-label="Default select example" name="depto" >
                                                     <option>Selecciona una opción...</option>
                                                     <option value="Guatemala">Guatemala</option>
                                                     <option value="San Pedro Sacatepequez">San Pedro Sacatepéquez</option>
@@ -190,7 +190,7 @@
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
-                                                <select id="ciudadResidencia" runat="server" class="form-control" aria-label="Default select example" name="ciudad" required>
+                                                <select id="ciudadResidencia" runat="server" class="form-control" aria-label="Default select example" name="ciudad" >
                                                     <option>Selecciona una opción...</option>
                                                     <option value="Ciudad de Guatemala">Ciudad de Guatemala</option>
                                                     <option value="Villa Nueva">Villa Nueva</option>
@@ -201,7 +201,7 @@
                                                 <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
                                                 
                                                 <asp:TextBox ID="direccion" runat="server" type="text" class="form-control"
-                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion" required></asp:TextBox>
+                                                    placeholder="7 avenida 6-85 Calle Real" name="direccion" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Profesión</label>
@@ -213,11 +213,13 @@
                                                 <label for="exampleFormControlInput1" class="form-label">Email (*)</label>
                                                 
                                                 <asp:TextBox ID="email" runat="server" type="email" class="form-control" name="email"
-                                                    placeholder="nombre@ejemplo.com" required/>
+                                                    placeholder="nombre@ejemplo.com" />
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
-                                                <a href="clientes.aspx" class="btn btn-danger">Limpiar</a>
+                                                <asp:Button ID="editarCliente" runat="server" Text="Editar" class="btn btn-dark" OnClick="actualizar_Click"/>
+                                                <asp:Button ID="borrarCliente" runat="server" Text="Borrar" class="btn btn-danger" OnClick="borrarCliente_Click"/>
+                                                <a href="clientes.aspx" class="btn btn-warning">Limpiar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -228,24 +230,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Clientes Registrados</h5>
                                         <div class="table-responsive mt-5">
-                                            <asp:GridView ID="dataGridView" runat="server" class="table-dark text-center" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BackColor="White" DataKeyNames="ID_USU_NUMERODOCUMENTO" ForeColor="Black" GridLines="Horizontal" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="6" CellSpacing="8" ShowHeaderWhenEmpty="True">
-                                                <Columns>
-                                                    <asp:BoundField DataField="USU_TIPODOC" HeaderText="Tipo de Documento" SortExpression="USU_TIPODOC" ReadOnly="True" />
-                                                    <asp:BoundField DataField="ID_USU_NUMERODOCUMENTO" HeaderText="No. Documento" ReadOnly="True" SortExpression="ID_USU_NUMERODOCUMENTO" />
-                                                    <asp:BoundField DataField="USU_NOMBRECOMPLETO" HeaderText="Nombre Completo" SortExpression="USU_NOMBRECOMPLETO" ReadOnly="True" />
-                                                    <asp:BoundField DataField="USU_TELEFONORESIDENCIAL" HeaderText="Teléfono Residencial" SortExpression="USU_TELEFONORESIDENCIAL" ReadOnly="True" />
-                                                    <asp:BoundField DataField="USU_TELEFONOMOVIL" HeaderText="Teléfono Móvil" SortExpression="USU_TELEFONOMOVIL" ReadOnly="True" />
-                                                    <asp:BoundField DataField="USU_DIRECCION" HeaderText="Dirección" SortExpression="USU_DIRECCION" ReadOnly="True" />
-                                                    <asp:BoundField DataField="USU_EMAIL" HeaderText="Email" SortExpression="USU_EMAIL" ReadOnly="True" />
-                                                    <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
-                                                    <asp:BoundField DataField="" HeaderText="" SortExpression="USU_EMAIL" />
-                                                    <asp:ButtonField ButtonType="Button" Text="Editar">
-                                                    <ControlStyle BackColor="Yellow" />
-                                                    </asp:ButtonField>
-                                                    <asp:ButtonField ButtonType="Button" Text="Borrar">
-                                                    <ControlStyle BackColor="Red" ForeColor="White" />
-                                                    </asp:ButtonField>
-                                                </Columns>
+                                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal">
                                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                                                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -255,8 +240,6 @@
                                                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                                 <SortedDescendingHeaderStyle BackColor="#242121" />
                                             </asp:GridView>
-
-                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="TNS_ADMIN=C:\Users\d_riv\Oracle\network\admin;USER ID=DANIEL;PASSWORD=123;DATA SOURCE=localhost:1521/orcl" ProviderName="Oracle.ManagedDataAccess.Client" SelectCommand="SELECT &quot;ID_USU_NUMERODOCUMENTO&quot;, &quot;USU_NOMBRECOMPLETO&quot;, &quot;USU_TIPODOC&quot;, &quot;USU_TELEFONORESIDENCIAL&quot;, &quot;USU_TELEFONOMOVIL&quot;, &quot;USU_DIRECCION&quot;, &quot;USU_EMAIL&quot;, &quot;USU_ESTADO&quot; FROM &quot;LA_USUARIO&quot; ORDER BY &quot;ID_USU_NUMERODOCUMENTO&quot;"></asp:SqlDataSource>
                                         </div>
                                     </div>
                                 </div>

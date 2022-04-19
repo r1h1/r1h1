@@ -74,7 +74,7 @@ EXECUTE UPDATE_CLIENTE(305000004,'Lesly Marisol Herrera Quevedo','DPI',45458585,
 --PROCEDURE PARA BORRAR UN CLIENTE POR ID (DELETE WHERE ID)
 CREATE OR REPLACE PROCEDURE DELETE_CLIENTE
 (
-    id_usuario IN INT
+    id_usuario int
 )
 AS
 BEGIN
@@ -82,39 +82,46 @@ BEGIN
 END;
 
 --SE EJECUTA POR ID Y SE IMPRIME EN PANTALLA EL RESULTADO
-EXECUTE DELETE_CLIENTE(305000004);
+EXECUTE DELETE_CLIENTE(39256200);
 
+select * from la_usuario;
 
 
 
 --PROCEDIMIENTO PARA LOGIN
 CREATE OR REPLACE PROCEDURE INGRESO_USUARIO
 (
-    usu_email varchar,
-    id_usu_numerodocumento int
+    email varchar,
+    numdoc int
 )
 AS
-    usuEmail VARCHAR(50);
     usuNumeroDoc INT;
 BEGIN
-    SELECT usu_email, id_usu_numerodocumento INTO usuEmail,usuNumeroDoc  FROM LA_USUARIO WHERE usu_email = usu_email AND id_usu_numerodocumento = id_usu_numerodocumento;
+    SELECT COUNT(*) INTO usuNumeroDoc FROM LA_USUARIO WHERE usu_email = email AND id_usu_numerodocumento = numdoc;
 END;
 
+SELECT COUNT(*) FROM LA_USUARIO WHERE usu_email = 'hola@gmail.com' AND id_usu_numerodocumento = 104223510;
 
 
---PROCEDIMIENTO PARA DEVOLVER CLIENTES
+
+
+
+--PROCEDIMIENTO PARA MOSTRAR CLEINTES
 CREATE OR REPLACE PROCEDURE MOSTRAR_CLIENTES
 (
     registros out sys_refcursor
 )
 AS
 BEGIN
-    OPEN registros FOR SELECT * FROM la_usuario;
+    OPEN registros FOR SELECT ID_USU_NUMERODOCUMENTO AS Numero_Documento, USU_NOMBRECOMPLETO AS Nombre_Completo, 
+                              USU_TIPODOC AS Tipo_Documento, USU_TELEFONORESIDENCIAL AS Telefono_Residencial, 
+                              USU_TELEFONOMOVIL AS Telefono_Movil, USU_DIRECCION AS Direccion, USU_EMAIL AS Email 
+                              FROM LA_Usuario;
 END;
 
 
 
-SELECT * FROM la_usuario ORDER BY id_usu_numerodocumento ASC;
+
 
 
 
