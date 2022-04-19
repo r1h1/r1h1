@@ -66,7 +66,7 @@ namespace tiendaMuebleria
             else
             {
                 Response.Redirect("clientes.aspx");
-            }
+             }
         }
 
         public void cargarDatos()
@@ -81,6 +81,7 @@ namespace tiendaMuebleria
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            conexion.Close();
         }
 
         protected void actualizar_Click(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace tiendaMuebleria
 
             if (numerodocumento == "" || emailcliente == "")
             {
-                string script = String.Format(@"<script type='text/javascript'>alert('Debes ingresar el Número de Documento para continuar');</script>", "Error");
+                string script = String.Format(@"<script type='text/javascript'>alert('Debes ingresar todos los datos para continuar');</script>", "Error");
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
                 numeroDocumento.Text = "";
             }
@@ -162,6 +163,16 @@ namespace tiendaMuebleria
                 cargarDatos();
                 conexion.Close();
                 numeroDocumento.Text = "";
+                nombreCompletoCliente.Text = "";
+                docTipo.SelectedIndex = 1;
+                telefonoResidencia.Text = "";
+                telefonoCelular.Text = "";
+                pais.SelectedIndex = 1;
+                ciudadResidencia.SelectedIndex = 1;
+                departamentoEstado.SelectedIndex = 1;
+                profesion.Text = "";
+                direccion.Text = "";
+                email.Text = "";
             }
         }
     }

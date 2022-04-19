@@ -230,7 +230,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Clientes Registrados</h5>
                                         <div class="table-responsive mt-5">
-                                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal">
+                                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True">
                                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                                                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
