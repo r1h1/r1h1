@@ -12,7 +12,7 @@ CREATE TABLE LA_Usuario(
     Usu_Direccion VARCHAR(250) NOT NULL,
     Usu_Profesion VARCHAR(80),
     Usu_Email VARCHAR(70) NOT NULL,
-    Rol_ID INT,
+    Usu_Rol VARCHAR(50) NOT NULL,
     Usu_Estado INT   
 );
 
@@ -31,14 +31,14 @@ CREATE OR REPLACE PROCEDURE INSERTA_USUARIO
     Usu_Direccion VARCHAR, 
     Usu_Profesion VARCHAR,
     Usu_Email VARCHAR, 
-    Rol_ID INT, 
+    Usu_Rol VARCHAR, 
     Usu_Estado INT
 )
 AS 
 BEGIN
     INSERT INTO LA_Usuario VALUES(ID_Usu_NumeroDocumento, Usu_NombreCompleto,
     Usu_TipoDoc, Usu_TelefonoResidencial, Usu_TelefonoMovil, Usu_Pais, Usu_Departamento, 
-    Usu_CiudadResidencia, Usu_Direccion, Usu_Profesion, Usu_Email, Rol_ID, Usu_Estado);
+    Usu_CiudadResidencia, Usu_Direccion, Usu_Profesion, Usu_Email, Usu_Rol, Usu_Estado);
 END;
 
 SELECT * FROM LA_USUARIO;
@@ -60,14 +60,14 @@ CREATE OR REPLACE PROCEDURE UPDATE_CLIENTE
     direccion IN VARCHAR,
     profesion IN VARCHAR,
     email IN VARCHAR,
-    rolID IN INT,
+    rol IN VARCHAR,
     usuEstado IN INT
 )
 AS
 BEGIN
     UPDATE la_usuario SET usu_nombrecompleto = nombreCompleto, usu_tipodoc = tipoDoc, usu_telefonoresidencial = telefonoResidencial, usu_telefonomovil = telefonoMovil,
     Usu_Pais = pais, usu_departamento = departamento, usu_ciudadresidencia = ciudadresidencia, usu_direccion = direccion, usu_profesion = profesion,
-    usu_email = email, rol_id = rolID, usu_estado = usuEstado
+    usu_email = email, usu_rol = rol, usu_estado = usuEstado
     WHERE ID_Usu_NumeroDocumento = id_usuario;
 END;
 
@@ -95,7 +95,7 @@ BEGIN
                               USU_TIPODOC AS Tipo_Documento, USU_TELEFONORESIDENCIAL AS Telefono_Residencial, 
                               USU_TELEFONOMOVIL AS Telefono_Movil, USU_PAIS AS Pais, USU_DEPARTAMENTO AS Departamento, 
                               USU_CIUDADRESIDENCIA AS Ciudad, USU_DIRECCION AS Direccion, USU_PROFESION AS Profesion,
-                              USU_EMAIL AS Email
+                              USU_EMAIL AS Email, USU_ROL AS Rol
                               FROM LA_Usuario;
 END;
 
@@ -155,8 +155,6 @@ BEGIN
 END;
 
 
-
-
 --PROCEDIMIENTO EDITAR PRODUCTO
 CREATE OR REPLACE PROCEDURE EDITAR_PRODUCTO
 (   
@@ -175,9 +173,9 @@ CREATE OR REPLACE PROCEDURE EDITAR_PRODUCTO
 )
 AS 
 BEGIN
-UPDATE LA_PRODUCTO SET Pro_Nombre = PRONOMBRE, Pro_Descripcion = PRODESCRIPCION, Pro_Tipo = PROTIPO, Pro_Material = PROMATERIAL, Pro_Alto = PROALTO,
-                       Pro_Ancho = PROANCHO, Pro_Profundidad = PROPROFUNDIDAD, Pro_Color = PROCOLOR, Pro_Peso = PROPESO, Pro_Precio = PROPRECIO, 
-                       Pro_Cantidad = PROCANTIDAD WHERE PRO_ID = PROID;
+    UPDATE LA_PRODUCTO SET Pro_Nombre = PRONOMBRE, Pro_Descripcion = PRODESCRIPCION, Pro_Tipo = PROTIPO, Pro_Material = PROMATERIAL, Pro_Alto = PROALTO,
+                           Pro_Ancho = PROANCHO, Pro_Profundidad = PROPROFUNDIDAD, Pro_Color = PROCOLOR, Pro_Peso = PROPESO, Pro_Precio = PROPRECIO, 
+                           Pro_Cantidad = PROCANTIDAD WHERE PRO_ID = PROID;
 END;
 
 
@@ -191,6 +189,37 @@ AS
 BEGIN
     DELETE LA_PRODUCTO WHERE PRO_ID = PROID;
 END;
+
+
+--PROCEDIMIENTO PARA MOSTRAR PRODUCTOS
+CREATE OR REPLACE PROCEDURE MOSTRAR_PRODUCTOS
+(
+    registros out sys_refcursor
+)
+AS
+BEGIN
+           OPEN registros FOR SELECT PRO_ID AS Codigo_Producto, PRO_NOMBRE AS Nombre, 
+                                     PRO_DESCRIPCION AS Descripcion, PRO_TIPO AS Tipo, 
+                                     PRO_MATERIAL AS Material, 'ALTO: ' || PRO_ALTO || ', ANCHO: ' || PRO_ANCHO || ', PROFUNDIDAD: ' || PRO_PROFUNDIDAD AS Medidas,
+                                     PRO_COLOR AS Color, PRO_PESO AS Peso, PRO_PRECIO AS Precio_Unitario, PRO_CANTIDAD AS Cantidad FROM LA_PRODUCTO;
+END;
+
+
+--PROCEDIMIENTO PARA INGRESAR AL SISTEMA SEGÚN CORREO Y NUMERO DE DOCUMENTO
+--PROCEDIMIENTO PARA MOSTRAR CLEINTES
+CREATE OR REPLACE PROCEDURE INGRESAR_SISTEMA
+(
+    email IN VARCHAR,
+    numerodoc IN INT,
+    registros out sys_refcursor
+)
+AS
+BEGIN
+    OPEN registros FOR SELECT COUNT(*) FROM LA_USUARIO WHERE USU_EMAIL = email AND ID_USU_NUMERODOCUMENTO = numerodoc;
+END;
+
+
+SELECT COUNT(*) FROM LA_USUARIO WHERE USU_EMAIL = 'danielrivas1.gt@gmail.com' AND ID_USU_NUMERODOCUMENTO = 3050000040117;
 
 
 
@@ -246,6 +275,7 @@ DROP PROCEDURE DELETE_CLIENTE;
 DROP TABLE LA_Producto;
 DROP SEQUENCE AUTOINCREMENTABLE_PRODUCTO;
 DROP PROCEDURE INSERTA_PRODUCTO;
+DROP PROCEDURE MOSTRAR_PRODUCTOS;
 DROP PROCEDURE EDITAR_PRODUCTO;
 DROP PROCEDURE DELETE_PRODUCTO;
 DROP TABLE LA_IMAGENES;

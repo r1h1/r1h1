@@ -181,21 +181,15 @@
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
-                                                <select id="departamentoEstado" class="form-control" runat="server" aria-label="Default select example" name="depto" >
-                                                    <option>Selecciona una opción...</option>
-                                                    <option value="Guatemala">Guatemala</option>
-                                                    <option value="San Pedro Sacatepequez">San Pedro Sacatepéquez</option>
-                                                    <option value="Quiche">Quiché</option>
-                                                </select>
+
+                                                <asp:TextBox ID="departamentoEstado" runat="server" type="text" class="form-control"
+                                                    placeholder="Ciudad de Guatemala" name="departamentoEstado" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
-                                                <select id="ciudadResidencia" runat="server" class="form-control" aria-label="Default select example" name="ciudad" >
-                                                    <option>Selecciona una opción...</option>
-                                                    <option value="Ciudad de Guatemala">Ciudad de Guatemala</option>
-                                                    <option value="Villa Nueva">Villa Nueva</option>
-                                                    <option value="San Miguel Petapa">San Miguel Petapa</option>
-                                                </select>
+
+                                                <asp:TextBox ID="ciudadResidencia" runat="server" type="text" class="form-control"
+                                                    placeholder="Ciudad de Guatemala" name="ciudadResidencia" ></asp:TextBox>
                                             </div>
                                             <div class="col-md-12 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
@@ -215,6 +209,16 @@
                                                 <asp:TextBox ID="email" runat="server" type="email" class="form-control" name="email"
                                                     placeholder="nombre@ejemplo.com" />
                                             </div>
+                                            <div class="col-md-12 mt-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Rol del Cliente (*)</label>
+                                                
+                                                <select id="rol" runat="server" class="form-control" aria-label="Default select example" name="rol" >
+                                                    <option>Selecciona una opción...</option>
+                                                    <option value="Cliente">Cliente</option>
+                                                    <option value="Administrador">Administrador</option>                                                    
+                                                </select>
+                                            </div>
+
                                             <div class="col-md-6 mt-3">
                                                 <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
                                                 <asp:Button ID="editarCliente" runat="server" Text="Editar" class="btn btn-dark" OnClick="actualizar_Click"/>

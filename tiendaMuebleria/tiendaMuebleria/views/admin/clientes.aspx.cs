@@ -27,21 +27,25 @@ namespace tiendaMuebleria
 
             //La variable estado activa automaticamente al cliente al insertar
             //ACTIVO = 1,  NO ACTIVO = 0
-            int dirid = 1, rolid = 1, estado = 1;
+            int estado = 1;
 
             conexion.Open();
             OracleCommand com = new OracleCommand();
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.CommandText = "INSERTA_USUARIO";
+            
             com.Parameters.Add("ID_Usu_NumeroDocumento", numeroDocumento.Text.Trim());
             com.Parameters.Add("Usu_NombreCompleto", nombreCompletoCliente.Text.Trim());
             com.Parameters.Add("Usu_TipoDoc", docTipo.Value);
             com.Parameters.Add("Usu_TelefonoResidencial", Convert.ToInt32(telefonoResidencia.Text.Trim()));
             com.Parameters.Add("Usu_TelefonoMovil", Convert.ToInt32(telefonoCelular.Text.Trim()));
-            com.Parameters.Add("Dir_ID", dirid);
+            com.Parameters.Add("Usu_Pais", pais.Value);
+            com.Parameters.Add("Usu_Departamento", departamentoEstado.Text.Trim());
+            com.Parameters.Add("Usu_CiudadResidencia", ciudadResidencia.Text.Trim());
             com.Parameters.Add("Usu_Direccion", direccion.Text.Trim());
+            com.Parameters.Add("Usu_Profesion", profesion.Text.Trim());
             com.Parameters.Add("Usu_Email", email.Text.Trim());
-            com.Parameters.Add("Rol_ID", rolid);
+            com.Parameters.Add("Usu_Rol", rol.Value);
             com.Parameters.Add("Usu_Estado", estado);
             com.Connection = conexion;
             com.ExecuteNonQuery();
@@ -55,8 +59,8 @@ namespace tiendaMuebleria
                 telefonoResidencia.Text = "";
                 telefonoCelular.Text = "";
                 pais.SelectedIndex = 1;
-                ciudadResidencia.SelectedIndex = 1;
-                departamentoEstado.SelectedIndex = 1;
+                ciudadResidencia.Text = "";
+                departamentoEstado.Text = "";
                 profesion.Text = "";
                 direccion.Text = "";
                 email.Text = "";
@@ -66,7 +70,7 @@ namespace tiendaMuebleria
             else
             {
                 Response.Redirect("clientes.aspx");
-             }
+            }
         }
 
         public void cargarDatos()
@@ -100,7 +104,7 @@ namespace tiendaMuebleria
             {
                 //La variable estado activa automaticamente al cliente al insertar
                 //ACTIVO = 1,  NO ACTIVO = 0
-                int dirid = 1, rolid = 1, estado = 1;
+                int estado = 1;
 
                 //conexión a la base de datos
                 OracleConnection conexion = new OracleConnection(con);
@@ -109,29 +113,35 @@ namespace tiendaMuebleria
                 OracleCommand com = new OracleCommand();
                 com.CommandType = System.Data.CommandType.StoredProcedure;
                 com.CommandText = "UPDATE_CLIENTE";
+
                 com.Parameters.Add("id_usuario", numeroDocumento.Text.Trim());
                 com.Parameters.Add("nombreCompleto", nombreCompletoCliente.Text.Trim());
                 com.Parameters.Add("tipoDoc", docTipo.Value);
                 com.Parameters.Add("telefonoResidencial", Convert.ToInt32(telefonoResidencia.Text.Trim()));
                 com.Parameters.Add("telefonoMovil", Convert.ToInt32(telefonoCelular.Text.Trim()));
-                com.Parameters.Add("dirID", dirid);
+                com.Parameters.Add("pais", pais.Value);
+                com.Parameters.Add("departamento", departamentoEstado.Text.Trim());
+                com.Parameters.Add("ciudadResidencia", ciudadResidencia.Text.Trim());
                 com.Parameters.Add("direccion", direccion.Text.Trim());
+                com.Parameters.Add("profesion", profesion.Text.Trim());
                 com.Parameters.Add("email", email.Text.Trim());
-                com.Parameters.Add("rolID", rolid);
+                com.Parameters.Add("rol", rol.Value);
                 com.Parameters.Add("usuEstado", estado);
+
                 com.Connection = conexion;
                 com.ExecuteNonQuery();
                 cargarDatos();
 
                 conexion.Close();
+
                 numeroDocumento.Text = "";
                 nombreCompletoCliente.Text = "";
                 docTipo.SelectedIndex = 1;
                 telefonoResidencia.Text = "";
                 telefonoCelular.Text = "";
                 pais.SelectedIndex = 1;
-                ciudadResidencia.SelectedIndex = 1;
-                departamentoEstado.SelectedIndex = 1;
+                ciudadResidencia.Text = "";
+                departamentoEstado.Text = "";
                 profesion.Text = "";
                 direccion.Text = "";
                 email.Text = "";
@@ -161,15 +171,17 @@ namespace tiendaMuebleria
                 com.Connection = conexion;
                 com.ExecuteNonQuery();
                 cargarDatos();
+
                 conexion.Close();
+
                 numeroDocumento.Text = "";
                 nombreCompletoCliente.Text = "";
                 docTipo.SelectedIndex = 1;
                 telefonoResidencia.Text = "";
                 telefonoCelular.Text = "";
                 pais.SelectedIndex = 1;
-                ciudadResidencia.SelectedIndex = 1;
-                departamentoEstado.SelectedIndex = 1;
+                ciudadResidencia.Text = "";
+                departamentoEstado.Text = "";
                 profesion.Text = "";
                 direccion.Text = "";
                 email.Text = "";

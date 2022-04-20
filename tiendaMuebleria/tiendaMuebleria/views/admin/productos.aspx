@@ -133,7 +133,12 @@
 
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-12 mt-3">
+                                             <div class="col-md-4 mt-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Código Producto (Editar y Borrar)</label>
+                                                <asp:TextBox ID="idproducto" runat="server" type="text" class="form-control"  
+                                                    placeholder="** EDITAR Y BORRAR **"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-8 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Nombre (*)</label>
                                                 <asp:TextBox ID="nombre" runat="server" type="text" class="form-control"  
                                                     placeholder="Mesa para 6"></asp:TextBox>
@@ -145,10 +150,10 @@
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Tipo (*)</label>
-                                                <select id="tipoDeMueble" class="form-control" aria-label="Default select example">
-                                                    <option selected>Selecciona una opción...</option>
-                                                    <option value="1">Interior</option>
-                                                    <option value="2">Exterior</option>
+                                                <select id="tipoDeMueble" runat="server" class="form-control" aria-label="Default select example">
+                                                    <option>Selecciona una opción...</option>
+                                                    <option value="Interior">Interior</option>
+                                                    <option value="Exterior">Exterior</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mt-3">
@@ -158,18 +163,18 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Alto (CM) *</label>
-                                                <asp:TextBox ID="altura" runat="server" type="text" class="form-control"  
+                                                <asp:TextBox ID="altura" runat="server" type="number" step="0.01" class="form-control"  
                                                     placeholder="26"></asp:TextBox>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Ancho (CM) *</label>
-                                                <asp:TextBox ID="anchura" runat="server" type="text" class="form-control"  
+                                                <asp:TextBox ID="anchura" runat="server" type="number" step="0.01" class="form-control"  
                                                     placeholder="05"></asp:TextBox>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Profundidad (CM) *</label>
-                                                <asp:TextBox ID="profundidad" runat="server" type="text" class="form-control"  
-                                                    placeholder="2001"></asp:TextBox>
+                                                <asp:TextBox ID="profundidad" runat="server" type="number" step="0.01" class="form-control"  
+                                                    placeholder="200.62"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Color</label>
@@ -177,18 +182,18 @@
                                                     placeholder="Verde"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Peso (gramos) *</label>
-                                                <asp:TextBox ID="peso" runat="server" type="text" class="form-control"  
-                                                    placeholder="161"></asp:TextBox>
+                                                <label for="exampleFormControlInput1" class="form-label">Peso (Gramos) *</label>
+                                                <asp:TextBox ID="peso" runat="server" type="number" step="0.01" class="form-control"  
+                                                    placeholder="161.55"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Precio Q (*)</label>
-                                                <asp:TextBox ID="precio" runat="server" type="text" class="form-control"  
-                                                    placeholder="2300"></asp:TextBox>
+                                                <asp:TextBox ID="precio" runat="server" type="number" step="0.01" class="form-control"  
+                                                    placeholder="1250.89"></asp:TextBox>
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Cantidad (*)</label>
-                                                <asp:TextBox ID="cantidad" runat="server" type="text" class="form-control"  
+                                                <asp:TextBox ID="cantidad" runat="server" type="number" class="form-control"  
                                                     placeholder="2"></asp:TextBox>
                                             </div>
                                             <div class="col-md-12 mt-4">
@@ -196,8 +201,11 @@
                                                 <asp:FileUpload ID="fotografia" runat="server" class="form-control" placeholder="Formato admitido (PNG)"/>
                                             </div>
                                             <div class="col-md-12 mt-4">
-                                                <asp:Button ID="agregarProducto" runat="server" Text="Agregar"  class="btn btn-success"/>
-                                                <a href="productos.aspx" class="btn btn-danger">Limpiar</a>
+                       
+                                                <asp:Button ID="agregarProducto" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarProducto_Click"/>
+                                                <asp:Button ID="editarProducto" runat="server" Text="Editar" class="btn btn-dark" OnClick="editarProducto_Click" />
+                                                <asp:Button ID="borrarProducto" runat="server" Text="Borrar" class="btn btn-danger" OnClick="borrarProducto_Click" />
+                                                <a href="productos.aspx" class="btn btn-warning">Limpiar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -208,42 +216,18 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Producos Registrados</h5>
                                         <div class="table-responsive mt-5">
-                                            <table class="table">
-                                                <thead class="table-dark">
-                                                    <tr>
-                                                        <th scope="col">Referencia</th>
-                                                        <th scope="col">Nombre</th>
-                                                        <th scope="col">Descripción</th>
-                                                        <th scope="col">Tipo</th>
-                                                        <th scope="col">Material</th>
-                                                        <th scope="col">Dimensiones</th>
-                                                        <th scope="col">Color</th>
-                                                        <th scope="col">Peso</th>
-                                                        <th scope="col">Precio</th>
-                                                        <th scope="col">Cantidad</th>
-                                                        <th scope="col">Foto</th>
-                                                        <th scope="col"></th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>MESONAT001</td>
-                                                        <td>Mesa Ovalada estilo griego </td>
-                                                        <td>Mesa ovalada con un elegante estilo griego </td>
-                                                        <td>Interior</td>
-                                                        <td>Madera</td>
-                                                        <td>Alto:140, Ancho:40, Profundidad: 55</td>
-                                                        <td>Natural</td>
-                                                        <td>1500</td>
-                                                        <td>1800</td>
-                                                        <td>12</td>
-                                                        <td>*FOTO*</td>
-                                                        <td><a href="#" class="btn btn-danger">Borrar</a></td>
-                                                        <td><a href="#" class="btn btn-warning">Editar</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <asp:GridView ID="gridProductos" runat="server" BackColor="White" BorderColor="#CCCCCC" 
+                                                BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" 
+                                                GridLines="Horizontal" ShowHeaderWhenEmpty="True">
+                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                <SortedDescendingHeaderStyle BackColor="#242121" />
+                                            </asp:GridView>
                                         </div>
                                     </div>
                                 </div>

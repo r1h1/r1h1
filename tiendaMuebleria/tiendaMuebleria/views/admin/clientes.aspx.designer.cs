@@ -84,7 +84,7 @@ namespace tiendaMuebleria
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect departamentoEstado;
+        protected global::System.Web.UI.WebControls.TextBox departamentoEstado;
 
         /// <summary>
         /// Control ciudadResidencia.
@@ -93,7 +93,7 @@ namespace tiendaMuebleria
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ciudadResidencia;
+        protected global::System.Web.UI.WebControls.TextBox ciudadResidencia;
 
         /// <summary>
         /// Control direccion.
@@ -121,6 +121,15 @@ namespace tiendaMuebleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox email;
+
+        /// <summary>
+        /// Control rol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect rol;
 
         /// <summary>
         /// Control agregarCliente.
