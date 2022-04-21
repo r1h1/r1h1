@@ -104,16 +104,19 @@ END;
 --PROCEDIMIENTO PARA BUSCAR CON WHERE LIKE
 CREATE OR REPLACE PROCEDURE BUSCAR_CLIENTES
 (
-    registros out sys_refcursor
+    datoBusqueda VARCHAR,
+    reg out sys_refcursor
 )
 AS
 BEGIN
-    OPEN registros FOR SELECT ID_USU_NUMERODOCUMENTO AS Numero_Documento, USU_NOMBRECOMPLETO AS Nombre_Completo, 
-                              USU_TIPODOC AS Tipo_Documento, USU_TELEFONORESIDENCIAL AS Telefono_Residencial, 
-                              USU_TELEFONOMOVIL AS Telefono_Movil, USU_PAIS AS Pais, USU_DEPARTAMENTO AS Departamento, 
+    OPEN reg FOR SELECT ID_USU_NUMERODOCUMENTO AS Numero_Documento, USU_NOMBRECOMPLETO AS Nombre_Completo, 
+                              USU_TIPODOC AS Tipo_Documento, USU_TELEFONORESIDENCIAL AS Telefono_Residencial,
+                              USU_TELEFONOMOVIL AS Telefono_Movil, USU_PAIS AS Pais, USU_DEPARTAMENTO AS Departamento,
                               USU_CIUDADRESIDENCIA AS Ciudad, USU_DIRECCION AS Direccion, USU_PROFESION AS Profesion,
-                              USU_EMAIL AS Email, USU_ROL AS Rol
-                              FROM LA_Usuario WHERE USU_NOMBRECOMPLETO LIKE '%Daniel%';
+                              USU_EMAIL AS Email, USU_ROL AS Rol FROM LA_Usuario WHERE ID_USU_NUMERODOCUMENTO LIKE datoBusqueda
+                              OR USU_NOMBRECOMPLETO LIKE datoBusqueda OR USU_TIPODOC LIKE datoBusqueda OR USU_TELEFONORESIDENCIAL LIKE datoBusqueda
+                              OR USU_TELEFONOMOVIL LIKE datoBusqueda OR USU_PAIS LIKE datoBusqueda OR USU_DEPARTAMENTO LIKE datoBusqueda OR USU_CIUDADRESIDENCIA LIKE datoBusqueda
+                              OR USU_DIRECCION LIKE datoBusqueda OR USU_PROFESION LIKE datoBusqueda OR USU_EMAIL LIKE datoBusqueda OR USU_ROL LIKE datoBusqueda;
 END;
 
 
