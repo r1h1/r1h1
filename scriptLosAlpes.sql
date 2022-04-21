@@ -101,6 +101,22 @@ END;
 
 
 
+--PROCEDIMIENTO PARA BUSCAR CON WHERE LIKE
+CREATE OR REPLACE PROCEDURE BUSCAR_CLIENTES
+(
+    registros out sys_refcursor
+)
+AS
+BEGIN
+    OPEN registros FOR SELECT ID_USU_NUMERODOCUMENTO AS Numero_Documento, USU_NOMBRECOMPLETO AS Nombre_Completo, 
+                              USU_TIPODOC AS Tipo_Documento, USU_TELEFONORESIDENCIAL AS Telefono_Residencial, 
+                              USU_TELEFONOMOVIL AS Telefono_Movil, USU_PAIS AS Pais, USU_DEPARTAMENTO AS Departamento, 
+                              USU_CIUDADRESIDENCIA AS Ciudad, USU_DIRECCION AS Direccion, USU_PROFESION AS Profesion,
+                              USU_EMAIL AS Email, USU_ROL AS Rol
+                              FROM LA_Usuario WHERE USU_NOMBRECOMPLETO LIKE '%Daniel%';
+END;
+
+
 
 --CREO TABLA PRODUCTO
 CREATE TABLE LA_PRODUCTO(

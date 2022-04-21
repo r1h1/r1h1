@@ -7,7 +7,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Muebleria - Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"/>
@@ -30,6 +36,9 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css"/>
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
     <style type="text/css">
         .auto-style1 {
             left: 0px;
@@ -223,6 +232,7 @@
                                                 <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
                                                 <asp:Button ID="editarCliente" runat="server" Text="Editar" class="btn btn-dark" OnClick="actualizar_Click"/>
                                                 <asp:Button ID="borrarCliente" runat="server" Text="Borrar" class="btn btn-danger" OnClick="borrarCliente_Click"/>
+                                                <a class="btn btn-info" onclick="abrirBusqueda()">Buscar</a>
                                                 <a href="clientes.aspx" class="btn btn-warning">Limpiar</a>
                                             </div>
                                         </div>
@@ -249,13 +259,63 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                       </section>
+                      </div>
+
+                    <section class="formulario-registro-cliente">
+                <!-- modal para registrar los datos del cliente, y si ya existen, se ignoran -->
+                <div class="modal" id="busquedaDatos">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-muted" id="exampleModalLabel">Búsqueda de Cliente</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="formulario-carrito">                                    
+
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Dato a buscar (*)</label>                                     
+                                        <asp:TextBox ID="datoBusqueda" runat="server" type="text" 
+                                            class="form-control" placeholder="Número de Documento"></asp:TextBox>
+                                    </div>
+                                    
+                                    <div class="mb-3">                                        
+                                        <asp:Button ID="buscarDatoModal" runat="server" Text="Buscar Dato" class="btn btn-dark" OnClick="buscarDato_Click"/>
+                                    </div>
+
+                                    <div class="mb-3">
+                                       <div class="table-responsive mt-5">
+                                            <asp:GridView ID="gridBusquedaEspecial" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True">
+                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                <SortedDescendingHeaderStyle BackColor="#242121" />
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="modal-footer">
+                                        <asp:Button ID="cancel" runat="server" Text="Salir" class="btn btn-danger" data-bs-dismiss="modal"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin modal info clientes -->
+            </section>
 
                     <!-- /.content -->
                 </div>
                 <!-- /.content-wrapper -->
                 <footer class="main-footer">
-                    <strong>Copyright &copy; Muebleria Los Alpesrved.</strong>
+                    <strong>Copyright &copy; Muebleria Los Alpes.</strong>
                 </footer>
 
                 <!-- Control Sidebar -->
@@ -301,6 +361,12 @@
             <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
             <script src="../../dist/js/pages/dashboard.js"></script>
 
+            <!-- javascript de bootstrap 5  -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+            </script>
+
+            <!-- script para validaciones -->
             <script src="../../js/main.js"></script>
         </div>
     </form>

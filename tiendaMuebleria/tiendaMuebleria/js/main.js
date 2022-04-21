@@ -103,3 +103,7 @@ function finalizarVenta() {
         })
     }
 }
+
+function abrirBusqueda() {
+    $("#busquedaDatos").modal("show");
+}

@@ -187,5 +187,25 @@ namespace tiendaMuebleria
                 email.Text = "";
             }
         }
+
+        protected void buscarDato_Click(object sender, EventArgs e)
+        {
+            cargarDatosBuscarDato();
+        }
+
+        public void cargarDatosBuscarDato()
+        {
+            OracleConnection conexion = new OracleConnection(con);
+            OracleCommand command = new OracleCommand("BUSCAR_CLIENTES", conexion);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            OracleDataAdapter d = new OracleDataAdapter();
+            d.SelectCommand = command;
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            gridBusquedaEspecial.DataSource = dt;
+            gridBusquedaEspecial.DataBind();
+            conexion.Close();
+        }
     }
 }
