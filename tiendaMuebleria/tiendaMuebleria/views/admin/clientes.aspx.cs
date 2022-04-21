@@ -195,16 +195,24 @@ namespace tiendaMuebleria
 
         public void cargarDatosBuscarDato()
         {
+            //conexión a la base de datos
             OracleConnection conexion = new OracleConnection(con);
-            OracleCommand command = new OracleCommand("BUSCAR_CLIENTES", conexion);
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            OracleDataAdapter d = new OracleDataAdapter();
-            d.SelectCommand = command;
-            DataTable dt = new DataTable();
-            d.Fill(dt);
-            gridBusquedaEspecial.DataSource = dt;
+
+            conexion.Open();
+
+            OracleCommand com = new OracleCommand("BUSCAR_CLIENTES", conexion);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.Add("datoBusqueda", datoBusqueda.Text.Trim());
+            com.Parameters.Add("reg", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter(com);
+            DataTable ds = new DataTable();
+            adapter.Fill(ds);
+            com.Connection = conexion;
+
+            gridBusquedaEspecial.DataSource = ds;
             gridBusquedaEspecial.DataBind();
+
             conexion.Close();
         }
     }
