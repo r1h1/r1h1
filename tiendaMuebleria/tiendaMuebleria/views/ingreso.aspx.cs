@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,22 +22,29 @@ namespace tiendaMuebleria
         {
             //conexión a la base de datos
             OracleConnection conexion = new OracleConnection(con);
-            conexion.Open();
-            OracleCommand com = new OracleCommand("INGRESO_USUARIO", conexion);
-            com.CommandType = System.Data.CommandType.StoredProcedure;
-            com.Parameters.Add("email", correoElectronico.Text);
-            com.Parameters.Add("numdoc", Convert.ToInt32(numeroDocumento.Text));
-            com.Connection = conexion;
-            int result = Convert.ToInt32(com.ExecuteScalar());
 
-            if (result == 1)
+            conexion.Open();
+
+            OracleCommand com = new OracleCommand("INGRESAR_SISTEMA", conexion);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.Add("email", correoElectronico.Text.Trim());
+            com.Parameters.Add("numeroDoc", Convert.ToInt64(numeroDocumento.Text.Trim()));
+            com.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter(com);
+            DataTable ds = new DataTable();
+            adapter.Fill(ds);
+            com.Connection = conexion;
+            string valor = ds.Rows[0]["Count(*)"].ToString();
+
+            if (valor == "1")
             {
                 Response.Redirect("admin/dashboard.aspx");
             }
             else
             {
-                Response.Redirect("../index.aspx");
-
+                string script = String.Format(@"<script type='text/javascript'>alert('Correo y/o Número de documento incorrecto.');</script>");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
             }
             conexion.Close();
 

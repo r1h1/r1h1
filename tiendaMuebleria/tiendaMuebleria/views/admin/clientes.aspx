@@ -232,7 +232,7 @@
                                                 <asp:Button ID="agregarCliente" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarCliente_Click" />
                                                 <asp:Button ID="editarCliente" runat="server" Text="Editar" class="btn btn-dark" OnClick="actualizar_Click"/>
                                                 <asp:Button ID="borrarCliente" runat="server" Text="Borrar" class="btn btn-danger" OnClick="borrarCliente_Click"/>
-                                                <a class="btn btn-info" onclick="abrirBusqueda()">Buscar</a>
+                                                <a class="btn btn-info" onclick="abrirBusqueda()">Buscar / Ver</a>
                                                 <a href="clientes.aspx" class="btn btn-warning">Limpiar</a>
                                             </div>
                                         </div>

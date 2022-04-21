@@ -88,7 +88,6 @@ A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebler
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\roslyn\VBCSCompiler.exe.config
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.AssemblyReference.cache
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.CoreCompileInputs.cache
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.CopyComplete
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.dll
@@ -116,3 +115,4 @@ A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebler
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\System.Threading.Tasks.Extensions.xml
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\System.ValueTuple.xml
 A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\Oracle.ManagedDataAccess.dll
+A:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.AssemblyReference.cache
