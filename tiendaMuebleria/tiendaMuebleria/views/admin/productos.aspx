@@ -8,28 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Muebleria - Dashboard</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
     <!-- iCheck -->
-    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
     <!-- JQVMap -->
-    <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css" />
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
-    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css" />
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <form id="form1" runat="server">
@@ -95,10 +100,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index.aspx" class="nav-link btn btn-danger">
-                                        <i class="nav-icon fa-solid fa-right-from-bracket"></i>
-                                        <p>Cerrar Sesión</p>
-                                    </a>
+                                    <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="nav-link btn btn-danger text-black" OnClick="cerrarSesion_Click"/>                                
                                 </li>
                             </ul>
                         </nav>
@@ -205,6 +207,7 @@
                                                 <asp:Button ID="agregarProducto" runat="server" Text="Añadir" class="btn btn-success" OnClick="agregarProducto_Click"/>
                                                 <asp:Button ID="editarProducto" runat="server" Text="Editar" class="btn btn-dark" OnClick="editarProducto_Click" />
                                                 <asp:Button ID="borrarProducto" runat="server" Text="Borrar" class="btn btn-danger" OnClick="borrarProducto_Click" />
+                                                <a class="btn btn-info" onclick="abrirBusquedaProductos()">Buscar / Ver</a>
                                                 <a href="productos.aspx" class="btn btn-warning">Limpiar</a>
                                             </div>
                                         </div>
@@ -235,6 +238,54 @@
                         </div>
                     </section>
 
+                    <section class="formulario-registro-cliente">
+                    <div class="modal" id="busquedaDatosProductos">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-muted" id="exampleModalLabel">Búsqueda de Productos</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="formulario-carrito">
+
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Dato a buscar (*)</label>
+                                            <asp:TextBox ID="datoBusqueda" runat="server" type="text"
+                                                class="form-control" placeholder="Mesa de Caoba"></asp:TextBox>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <asp:Button ID="buscarDatoModal" runat="server" Text="Buscar Dato" class="btn btn-dark" OnClick="buscarProducto_Click"/>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="table-responsive mt-5">
+                                                <asp:GridView ID="gridBusquedaP" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True">
+                                                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                    <SortedDescendingHeaderStyle BackColor="#242121" />
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="modal-footer">
+                                            <asp:Button ID="cancel" runat="server" Text="Salir" class="btn btn-danger" data-bs-dismiss="modal" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fin modal info clientes -->
+                </section>
+
                     <!-- /.content -->
                 </div>
                 <!-- /.content-wrapper -->
@@ -252,41 +303,47 @@
             <!-- ./wrapper -->
 
             <!-- jQuery -->
-            <script src="../../plugins/jquery/jquery.min.js"></script>
-            <!-- jQuery UI 1.11.4 -->
-            <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
-            <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-            <script>
-                $.widget.bridge('uibutton', $.ui.button)
-            </script>
-            <!-- Bootstrap 4 -->
-            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <!-- ChartJS -->
-            <script src="../../plugins/chart.js/Chart.min.js"></script>
-            <!-- Sparkline -->
-            <script src="../../plugins/sparklines/sparkline.js"></script>
-            <!-- JQVMap -->
-            <script src="../../plugins/jqvmap/jquery.vmap.min.js"></script>
-            <script src="../../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-            <!-- jQuery Knob Chart -->
-            <script src="../../plugins/jquery-knob/jquery.knob.min.js"></script>
-            <!-- daterangepicker -->
-            <script src="../../plugins/moment/moment.min.js"></script>
-            <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
-            <!-- Tempusdominus Bootstrap 4 -->
-            <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-            <!-- Summernote -->
-            <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
-            <!-- overlayScrollbars -->
-            <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-            <!-- AdminLTE App -->
-            <script src="../../dist/js/adminlte.js"></script>
-            <!-- AdminLTE for demo purposes -->
-            <script src="../../dist/js/demo.js"></script>
-            <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-            <script src="../../dist/js/pages/dashboard.js"></script>
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="../../plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="../../plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="../../plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="../../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="../../plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="../../dist/js/pages/dashboard.js"></script>
 
-            <script src="../../js/main.js"></script>
+        <!-- javascript de bootstrap 5  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+        <!-- script para validaciones -->
+        <script src="../../js/main.js"></script>
         </div>
     </form>
 </body>

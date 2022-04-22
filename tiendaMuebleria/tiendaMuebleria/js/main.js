@@ -107,3 +107,8 @@ function finalizarVenta() {
 function abrirBusqueda() {
     $("#busquedaDatos").modal("show");
 }
+
+
+function abrirBusquedaProductos() {
+    $("#busquedaDatosProductos").modal("show");
+}

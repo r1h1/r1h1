@@ -66,81 +66,18 @@
                     <div class="col-sm-4 mt-4">
                         <div class="card text-center">
                             <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
+                                <img src="../../img/sillon.jpg" class="card-img-top" alt="..."/>
                                 <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
+                                    <asp:Label ID="tituloProducto" runat="server" class="card-title text-black" Text=""></asp:Label>
+                                    <br />
+                                    <asp:Label ID="precioProducto" runat="server" class="card-text text-black" Text=""></asp:Label>
+                                    <br /><br />
                                     <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
+                                    <a href="#" class="btn btn-outline-success">Agregar</a>                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4  mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4  mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4  mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4  mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4  mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mesa</h5>
-                                    <p class="card-text">Q800</p>
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </section>
             <!-- fin sección de productos -->

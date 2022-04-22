@@ -16,6 +16,14 @@ namespace tiendaMuebleria
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuarioLogueado"] != null)
+            {
+                string usuariologueado = Session["usuarioLogueado"].ToString();
+            }
+            else
+            {
+                Response.Redirect("../ingreso.aspx");
+            }
             cargarDatos();
         }
 
@@ -196,5 +204,41 @@ namespace tiendaMuebleria
                 cantidad.Text = "";
             }
         }
+
+        protected void buscarProducto_Click(object sender, EventArgs e)
+        {
+            cargarDatosBuscarDato();
+            { ClientScript.RegisterStartupScript(GetType(), "buscarDatoModal", "abrirBusquedaProductos();", true); }
+        }
+
+        public void cargarDatosBuscarDato()
+        {
+            //conexión a la base de datos
+            OracleConnection conexion = new OracleConnection(con);
+
+            conexion.Open();
+
+            OracleCommand com = new OracleCommand("BUSCAR_PRODUCTOS", conexion);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.Add("datoBusqueda", datoBusqueda.Text.Trim());
+            com.Parameters.Add("reg", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter(com);
+            DataTable ds = new DataTable();
+            adapter.Fill(ds);
+            com.Connection = conexion;
+
+            gridBusquedaP.DataSource = ds;
+            gridBusquedaP.DataBind();
+
+            conexion.Close();
+        }
+
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("usuarioLogueado");
+            Response.Redirect("../ingreso.aspx");
+        }
+
     }
 }

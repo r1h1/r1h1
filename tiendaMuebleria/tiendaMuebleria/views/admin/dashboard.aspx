@@ -47,7 +47,7 @@
                             <a href="dashboard.aspx" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item d-none d-sm-inline-block">
-                            <a href="../../index.aspx" class="btn btn-danger">Cerrar Sesion</a>
+                            <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-danger" OnClick="cerrarSesion_Click"/>
                         </li>
                     </ul>
                 </nav>
@@ -67,8 +67,7 @@
                         <nav class="mt-2">
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                                 data-accordion="false">
-                                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                                
                                 <li class="nav-item">
                                     <a href="./dashboard.aspx" class="nav-link active btn btn-primary">
                                         <i class="right fas fa-angle-left"></i>

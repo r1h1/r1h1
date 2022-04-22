@@ -11,7 +11,8 @@ namespace tiendaMuebleria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            tituloProducto.Text = "Mesa";
+            precioProducto.Text = "Q900";
         }
     }
 }

@@ -17,6 +17,15 @@ namespace tiendaMuebleria
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuarioLogueado"] != null)
+            {
+                string usuariologueado = Session["usuarioLogueado"].ToString();
+            }
+            else
+            {
+                Response.Redirect("../ingreso.aspx");
+            }
+
             cargarDatos();
         }
 
@@ -191,6 +200,7 @@ namespace tiendaMuebleria
         protected void buscarDato_Click(object sender, EventArgs e)
         {
             cargarDatosBuscarDato();
+            { ClientScript.RegisterStartupScript(GetType(), "buscarDatoModal", "abrirBusqueda();", true); }
         }
 
         public void cargarDatosBuscarDato()
@@ -214,6 +224,12 @@ namespace tiendaMuebleria
             gridBusquedaEspecial.DataBind();
 
             conexion.Close();
+        }
+
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("usuarioLogueado");
+            Response.Redirect("../ingreso.aspx");
         }
     }
 }

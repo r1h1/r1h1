@@ -20,33 +20,49 @@ namespace tiendaMuebleria
 
         protected void ingresarSistema_Click(object sender, EventArgs e) 
         {
-            //conexión a la base de datos
-            OracleConnection conexion = new OracleConnection(con);
+            string usuario = correoElectronico.Text.Trim();
+            string contrasena = numeroDocumento.Text.Trim();
 
-            conexion.Open();
-
-            OracleCommand com = new OracleCommand("INGRESAR_SISTEMA", conexion);
-            com.CommandType = System.Data.CommandType.StoredProcedure;
-            com.Parameters.Add("email", correoElectronico.Text.Trim());
-            com.Parameters.Add("numeroDoc", Convert.ToInt64(numeroDocumento.Text.Trim()));
-            com.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-
-            OracleDataAdapter adapter = new OracleDataAdapter(com);
-            DataTable ds = new DataTable();
-            adapter.Fill(ds);
-            com.Connection = conexion;
-            string valor = ds.Rows[0]["Count(*)"].ToString();
-
-            if (valor == "1")
+            if(usuario == "" && contrasena == "")
             {
-                Response.Redirect("admin/dashboard.aspx");
+                //NO HACE NADA
+            }
+            else if(usuario == "" || contrasena == "")
+            {
+                //NO HACE NADA
             }
             else
             {
-                string script = String.Format(@"<script type='text/javascript'>alert('Correo y/o Número de documento incorrecto.');</script>");
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
-            }
-            conexion.Close();
+                //conexión a la base de datos
+                OracleConnection conexion = new OracleConnection(con);
+
+                conexion.Open();
+
+                OracleCommand com = new OracleCommand("INGRESAR_SISTEMA", conexion);
+                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.Parameters.Add("email", correoElectronico.Text.Trim());
+                com.Parameters.Add("numeroDoc", Convert.ToInt64(numeroDocumento.Text.Trim()));
+                com.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleDataAdapter adapter = new OracleDataAdapter(com);
+                DataTable ds = new DataTable();
+                adapter.Fill(ds);
+                com.Connection = conexion;
+                string valor = ds.Rows[0]["Count(*)"].ToString();
+
+                if (valor == "1")
+                {
+                    //sesion para validar que ingrese
+                    Session["usuarioLogueado"] = correoElectronico.Text.Trim();
+                    Response.Redirect("admin/dashboard.aspx");
+                }
+                else
+                {
+                    string script = String.Format(@"<script type='text/javascript'>alert('Correo y/o Número de documento incorrecto.');</script>");
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
+                conexion.Close();
+            }           
 
         }
     }
