@@ -65,8 +65,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="mb-4">Detalle Compra</h2>
-                                <p>Tienes <span class="fw-bold text-decoration-underline">1 articulo(s)</span> en el carrito de compras</p>
-                                <p class="fw-bold">Referencia de compra: 26-05-2001</p>
+                                <p>Tienes <span class="fw-bold text-decoration-underline">[numeroArticulos] articulo(s)</span> en el carrito de compras</p>
+                                <p class="fw-bold">Referencia de compra: [numeroReferenciaCompra]</p>
                                 <div class="productos-agregados mt-5 table-responsive">
                                     <table class="table">
                                         <thead>

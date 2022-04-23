@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../../css/estilos.css" />
 
@@ -20,7 +20,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
 
             <!-- contenedor principal con información relevante -->
             <main class="text-principal">
@@ -46,89 +45,53 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <!-- nothing -->
                             </ul>
-                            <form class="d-flex">
-                                <div class="input-group">
-                                    <a href="carrito.aspx" class="btn btn-light"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    <span class="input-group-text me-2" id="basic-addon2">3</span>
-                                </div>
-                                <a href="../ingreso.aspx" class="btn btn-success">Ingresar</a>
-                            </form>
                         </div>
+                        <div class="input-group">
+                            <a href="carrito.aspx" class="btn btn-light"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <span class="input-group-text me-2" id="basic-addon2"><a href="carrito.aspx" class="text-muted">[numeroCarrito]</a></span>
+                        </div>
+                        <a href="../ingreso.aspx" class="btn btn-success">Login</a>
                     </div>
                 </nav>
             </header>
             <!-- fin menu -->
 
 
-            <!-- seccion de productos -->
-            <section class="productos">                
-                    <asp:Label ID="cantidadProductos" runat="server" Text="" Style="color: white;"></asp:Label>
-                    <% 
-                        int i = 0;
-                        int rep = Convert.ToInt32(cantidadProductos.Text.Trim());
-                        for (i = 1; i < rep; i++)
-                        {
-                    %>
-                    <% Response.Write("<br>" + i.ToString());%>
-                    <% 
-                        }
-                    %>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="jumbotron" style="background-color: white">
-                                    <table class="table table-responsive">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h1>Lista de Productos</h1>
-                                                    <asp:Label ID="lblAgregado" runat="server" Text="Label"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton1" Width="120" Height="120" runat="server" ImageUrl="~/Imagenes/carro-de-compras.jpg"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-
-                                                    <asp:DataList ID="DataList1" runat="server">
-                                                        <ItemTemplate>
-                                                            <asp:Image ID="Image1" Width="140" Height="120" runat="server"/>
-                                                            <br />
-                                                            <br />
-                                                            Código :
-                                   
-                                                            <asp:Label ID="codproductoLabel" runat="server" Text='codprod' />
-                                                            <br />
-                                                            Producto :
-                                   
-                                                            <asp:Label ID="desproductoLabel" runat="server" Text='des' />
-                                                            <br />
-                                                            Categoria :
-                                   
-                                                            <asp:Label ID="codcategoriaLabel" runat="server" Text='categoria' />
-                                                            <br />
-                                                            Precio :
-                                   
-                                                            <asp:Label ID="preproductoLabel" runat="server" Text='preprod' />
-                                                            <br />
-                                                            Cantidad :
-                                   
-                                                            <asp:Label ID="canproductoLabel" runat="server" Text='cantidad' />
-                                                            <br />
-                                                            <asp:Button ID="Button1" runat="server" CommandName="Seleccionar" Text="Agregar al Carrito" />
-                                                            <br />
-                                                        </ItemTemplate>
-                                                    </asp:DataList>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+        <!-- seccion de productos -->
+        <section class="productos">
+            <h2 class="fw-bold text-decoration-underline">Nuestros Productos</h2>
+            <br />
+            <div class="row mt-4">
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+                    <ItemTemplate>
+                        <div class="card mb-6" style="max-width: 1400px">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img
+                                        src="../../img/sillon.jpg"
+                                        class="img-fluid rounded-start"
+                                        alt="producto" />
+                                </div>
+                                <div class="col-md-7 mt-4 m-4">
+                                    <div class="card-body"> 
+                                        <asp:Label ID="PRO_NOMBRELabel" class="card-title" runat="server" Text='<%# Eval("PRO_NOMBRE") %>' Font-Bold="true" Font-Size="Large" />
+                                        <br />
+                                        <br />
+                                        Q<asp:Label ID="PRO_PRECIOLabel" class="card-text" runat="server" Text='<%# Eval("PRO_PRECIO") %>' Font-Size="Large"/>
+                                        <br />
+                                        <br />
+                                        <a href="descripcionProducto.aspx" class="btn btn-dark">Ver Detalle</a>
+                                        <a href="carrito.aspx" class="btn btn-success">Agregar al Carrito</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            </section>
+                        <br />
+                    </ItemTemplate>
+                </asp:DataList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="TNS_ADMIN=C:\Users\d_riv\Oracle\network\admin;USER ID=DANIEL;PASSWORD=123;DATA SOURCE=localhost:1521/orcl" ProviderName="Oracle.ManagedDataAccess.Client" SelectCommand="SELECT &quot;PRO_NOMBRE&quot;, &quot;PRO_PRECIO&quot; FROM &quot;LA_PRODUCTO&quot;"></asp:SqlDataSource>
+            </div>
+        </section>
             <!-- fin sección de productos -->
 
 
@@ -161,7 +124,6 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
             </script>
-        </div>
     </form>
 </body>
 </html>

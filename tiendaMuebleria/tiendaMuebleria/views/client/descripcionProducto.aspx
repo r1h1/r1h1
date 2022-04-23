@@ -60,7 +60,7 @@
               <a href="cliente.aspx" class="btn btn-danger me-2"
                 >Seguir Comprando</a
               >
-              <a href="ingreso.aspx" class="btn btn-success">Ingresar</a>
+              <a href="../ingreso.aspx" class="btn btn-success">Ingresar</a>
             </form>
           </div>
         </div>
@@ -78,7 +78,7 @@
               alt="producto"
             />
           </div>
-          <div class="col-md-7 mt-4 m-4">
+          <div class="col-md-6 m-4">
             <div class="card-body">
               <h3 class="card-title">Nombre del producto</h3>
               <p class="card-text mt-4">
