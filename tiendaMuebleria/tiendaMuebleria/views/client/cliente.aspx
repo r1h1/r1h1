@@ -61,24 +61,73 @@
 
 
             <!-- seccion de productos -->
-            <section class="productos">
-                <div class="row">
-                    <div class="col-sm-4 mt-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <img src="../../img/sillon.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <asp:Label ID="tituloProducto" runat="server" class="card-title text-black" Text=""></asp:Label>
-                                    <br />
-                                    <asp:Label ID="precioProducto" runat="server" class="card-text text-black" Text=""></asp:Label>
-                                    <br /><br />
-                                    <a href="descripcionProducto.aspx" class="btn btn-outline-dark">Detalle</a>
-                                    <a href="#" class="btn btn-outline-success">Agregar</a>                                    
+            <section class="productos">                
+                    <asp:Label ID="cantidadProductos" runat="server" Text="" Style="color: white;"></asp:Label>
+                    <% 
+                        int i = 0;
+                        int rep = Convert.ToInt32(cantidadProductos.Text.Trim());
+                        for (i = 1; i < rep; i++)
+                        {
+                    %>
+                    <% Response.Write("<br>" + i.ToString());%>
+                    <% 
+                        }
+                    %>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="jumbotron" style="background-color: white">
+                                    <table class="table table-responsive">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h1>Lista de Productos</h1>
+                                                    <asp:Label ID="lblAgregado" runat="server" Text="Label"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:ImageButton ID="ImageButton1" Width="120" Height="120" runat="server" ImageUrl="~/Imagenes/carro-de-compras.jpg"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <asp:DataList ID="DataList1" runat="server">
+                                                        <ItemTemplate>
+                                                            <asp:Image ID="Image1" Width="140" Height="120" runat="server"/>
+                                                            <br />
+                                                            <br />
+                                                            Código :
+                                   
+                                                            <asp:Label ID="codproductoLabel" runat="server" Text='codprod' />
+                                                            <br />
+                                                            Producto :
+                                   
+                                                            <asp:Label ID="desproductoLabel" runat="server" Text='des' />
+                                                            <br />
+                                                            Categoria :
+                                   
+                                                            <asp:Label ID="codcategoriaLabel" runat="server" Text='categoria' />
+                                                            <br />
+                                                            Precio :
+                                   
+                                                            <asp:Label ID="preproductoLabel" runat="server" Text='preprod' />
+                                                            <br />
+                                                            Cantidad :
+                                   
+                                                            <asp:Label ID="canproductoLabel" runat="server" Text='cantidad' />
+                                                            <br />
+                                                            <asp:Button ID="Button1" runat="server" CommandName="Seleccionar" Text="Agregar al Carrito" />
+                                                            <br />
+                                                        </ItemTemplate>
+                                                    </asp:DataList>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>                    
-                </div>
+                    </div>
             </section>
             <!-- fin sección de productos -->
 

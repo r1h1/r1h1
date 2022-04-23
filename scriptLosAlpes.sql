@@ -233,11 +233,36 @@ CREATE OR REPLACE PROCEDURE MOSTRAR_PRODUCTOS
 )
 AS
 BEGIN
-           OPEN registros FOR SELECT PRO_ID AS Codigo_Producto, PRO_NOMBRE AS Nombre, 
-                                     PRO_DESCRIPCION AS Descripcion, PRO_TIPO AS Tipo, 
-                                     PRO_MATERIAL AS Material, 'ALTO: ' || PRO_ALTO || ', ANCHO: ' || PRO_ANCHO || ', PROFUNDIDAD: ' || PRO_PROFUNDIDAD AS Medidas,
-                                     PRO_COLOR AS Color, PRO_PESO AS Peso, PRO_PRECIO AS Precio_Unitario, PRO_CANTIDAD AS Cantidad FROM LA_PRODUCTO;
+    OPEN registros FOR SELECT PRO_ID AS Codigo_Producto, PRO_NOMBRE AS Nombre, 
+                              PRO_DESCRIPCION AS Descripcion, PRO_TIPO AS Tipo, 
+                              PRO_MATERIAL AS Material, 'ALTO: ' || PRO_ALTO || ', ANCHO: ' || PRO_ANCHO || ', PROFUNDIDAD: ' || PRO_PROFUNDIDAD AS Medidas,
+                              PRO_COLOR AS Color, PRO_PESO AS Peso, PRO_PRECIO AS Precio_Unitario, PRO_CANTIDAD AS Cantidad FROM LA_PRODUCTO;
 END;
+
+
+
+--PROCEDIMIENTO PARA CONTAR CUANTOS PRODUCTOS HAY
+CREATE OR REPLACE PROCEDURE CONTAR_CANTIDAD_PRODUCTOS
+(
+    regs out sys_refcursor
+)
+AS
+BEGIN
+    OPEN regs FOR SELECT COUNT(*) AS cantidadRep FROM LA_PRODUCTO;
+END;
+
+
+--PROCEDIMIENTO PARA MOSTRAR PRODUCTOS PARA COMPRAR
+CREATE OR REPLACE PROCEDURE MOSTRAR_PRODUCTOS_COMPRAR
+(
+    registros out sys_refcursor
+)
+AS
+BEGIN
+    OPEN registros FOR SELECT DISTINCT PRO_NOMBRE AS nombre, PRO_PRECIO AS precio FROM LA_PRODUCTO GROUP BY PRO_NOMBRE,PRO_PRECIO;
+END;
+
+SELECT DISTINCT PRO_NOMBRE AS nombre, PRO_PRECIO AS precio FROM LA_PRODUCTO GROUP BY PRO_NOMBRE,PRO_PRECIO;
 
 
 --PROCEDIMIENTO PARA BUSCAR CON WHERE LIKE
