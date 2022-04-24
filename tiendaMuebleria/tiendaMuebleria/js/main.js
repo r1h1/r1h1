@@ -21,7 +21,7 @@ function finalizarVenta() {
                 title: 'Llena el nombre del titular de la tarjeta.',
                 showConfirmButton: false,
                 timer: 1600
-            })
+            });
             document.getElementById("nombreTitular").focus();
         } else if (numeroTarjeta == "") {
             var element = document.getElementById("alerta");

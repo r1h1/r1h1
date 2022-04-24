@@ -104,9 +104,13 @@ namespace tiendaMuebleria
 
             if (numerodocumento == "" || emailcliente == "")
             {
-                string script = String.Format(@"<script type='text/javascript'>alert('Debes ingresar todos los datos para continuar');</script>", "Error");
+                string script = String.Format(@"<script type='text/javascript'>alert('Llena todos los campos para editar.');</script>", "Error");
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
                 numeroDocumento.Text = "";
+
+                /*
+                 
+                 */
             }
 
             else

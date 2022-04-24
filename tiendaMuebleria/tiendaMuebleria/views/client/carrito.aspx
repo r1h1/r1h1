@@ -93,12 +93,12 @@
                             </div>
                         </div>
                     </div>
-
-
+                    
                     <div class="col-md-6 mt-4">
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="mb-4">Tipo de Pago</h2>
+                                <br />
 
                                 <!-- tipos de tarjetas para pago -->
                                 <div class="row row-cols-auto">
@@ -127,13 +127,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br />
                                 <!-- fin tipo de tarjetas -->
 
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Nombre del Titular
                              <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
                                 <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
-                                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();">
+                                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();"/>
 
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Número de Tarjeta 
@@ -142,7 +143,7 @@
                                 <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
                                     placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    required>
+                                    required/>
 
                                 <div class="row">
                                     <label for="exampleFormControlInput1" class="form-label">
@@ -153,12 +154,12 @@
                                         <input type="number" class="form-control" id="fechaVencimiento" placeholder="Mes" 
                                             minlength="1" maxlength="2"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required>
+                                            required/>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="number" class="form-control" id="fechaVencimiento" placeholder="Año" minlength="4" maxlength="4"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required>
+                                            required/>
                                     </div>
                                 </div>
 
@@ -168,17 +169,18 @@
                                 <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1"
                                     maxlength="3"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    required>
+                                    required/>
 
-                                <hr>
+                                <hr/>
 
                                 <!-- total a pagar por los productos adquiridos -->
+                                <br />                                
                                 <div class="row">
                                     <div class="col">
                                         <p>Total a pagar</p>
                                     </div>
                                     <div class="col">
-                                        <p>Q8888</p>
+                                        <p class="fw-bold">Q8888</p>
                                     </div>
                                 </div>
                                 <!-- fin total a pagar -->
@@ -186,7 +188,9 @@
                                 <div id="alerta">
                                     <!-- alerta que indica que no está y si está lleno -->
                                 </div>
+                                <br />
                                 <a class="btn btn-success" onclick="finalizarVenta()">Continua con Envio</a>
+                                <a class="btn btn-danger">Cancelar Compra</a>
 
                             </div>
                         </div>
