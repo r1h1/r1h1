@@ -67,33 +67,28 @@
                                 <h2 class="mb-4">Detalle Compra</h2>
                                 <p>Tienes <span class="fw-bold text-decoration-underline">[numeroArticulos] articulo(s)</span> en el carrito de compras</p>
                                 <p class="fw-bold">Referencia de compra: [numeroReferenciaCompra]</p>
-                                <div class="productos-agregados mt-5 table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nombre Artículo</th>
-                                                <th scope="col">Precio</th>
-                                                <th scope="col">Cantidad</th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Escritorio</td>
-                                                <td>Q50</td>
-                                                <td>1</td>
-                                                <td>
-                                                    <asp:Button ID="eliminarArticulo" runat="server"
-                                                        Text="Borrar" class="btn btn-outline-danger" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="col-lg-12 mt-4">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <div class="table-responsive mt-5">
+                                            <asp:GridView ID="productosEnCarrito" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True">
+                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                <SortedDescendingHeaderStyle BackColor="#242121" />
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-6 mt-4">
                         <div class="card">
                             <div class="card-body">

@@ -48,7 +48,7 @@
                         </div>
                         <div class="input-group">
                             <a href="carrito.aspx" class="btn btn-light"><i class="fa-solid fa-cart-shopping"></i></a>
-                            <span class="input-group-text me-2" id="basic-addon2"><a href="carrito.aspx" class="text-muted">[numeroCarrito]</a></span>
+                            <span class="input-group-text me-2" id="basic-addon2"><asp:Label ID="noProductosCarrito" runat="server" Text=""></asp:Label></span>
                         </div>
                         <a href="../ingreso.aspx" class="btn btn-success">Login</a>
                     </div>
@@ -62,7 +62,7 @@
             <h2 class="fw-bold text-decoration-underline">Nuestros Productos</h2>
             <br />
             <div class="row mt-4">
-                <asp:DataList ID="DataList1" runat="server">
+                <asp:DataList ID="stockProductos" runat="server">
                     <ItemTemplate>
                         <div class="card mb-6" style="max-width: 1400px">
                             <div class="row g-0">
@@ -75,7 +75,8 @@
                                 <div class="col-lg-5 m-4 d-flex justify-content-center">
                                     <div class="card-body">
                                         <!-- EL ID DEL PRODUCTO ESTÁ OCULTO, SOLO SE USARÁ PARA AGREGAR AL CARRITO -->
-                                        <asp:TextBox ID="idProductoText" runat="server" type="hidden" value='<%# Eval("PRO_ID") %>'></asp:TextBox>                
+                                        <asp:Label ID="PRO_IDLabel" runat="server" Text='<%# Eval("PRO_ID") %>'></asp:Label>
+                                        <br /><br />
                                         <asp:Label ID="PRO_NOMBRELabel" class="card-title" runat="server" Text='<%# Eval("PRO_NOMBRE") %>' Font-Bold="true" Font-Size="Large" Visible="True" />
                                         <br />
                                         <br />
@@ -84,7 +85,7 @@
                                         <br />
                                         <div class="input-group">                                            
                                           <asp:Button ID="masInformacion" runat="server" Text="Más Información" class="btn btn-dark m-2" />
-                                          <asp:TextBox ID="cantidadComprar" runat="server" type="number" class="form-control m-2" placeholder="Cantidad a Comprar"></asp:TextBox>
+                                          <asp:TextBox ID="cantidadComprar" runat="server" type="number" class="form-control m-2" placeholder="Cantidad a Comprar" Text=""></asp:TextBox>
                                           <asp:Button ID="agregarCarrito" runat="server" Text="Agregar al Carrito" class="btn btn-success m-2" OnClick="agregarCarrito_Click"/>
                                         </div>
                                     </div>
