@@ -52,5 +52,15 @@ namespace tiendaMuebleria
 
             conexion.Close();
         }
+
+        protected void borrarCod_Click(object sender, EventArgs e)
+        {
+            int codigoProductoABorrar = Convert.ToInt32(codigoBorrar.Text.Trim());
+        }
+
+        protected void borrarTodo_Click(object sender, EventArgs e)
+        {
+            //borra toda la tabla del carrito haciendo un delete * from
+        }
     }
 }

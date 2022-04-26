@@ -33,6 +33,33 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.Label cantProdCar;
 
         /// <summary>
+        /// Control codigoBorrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox codigoBorrar;
+
+        /// <summary>
+        /// Control borrarCod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button borrarCod;
+
+        /// <summary>
+        /// Control borrarTodo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button borrarTodo;
+
+        /// <summary>
         /// Control productosEnCarrito.
         /// </summary>
         /// <remarks>

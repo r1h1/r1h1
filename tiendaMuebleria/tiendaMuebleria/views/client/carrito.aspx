@@ -4,21 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <<!--  meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 
-    <link rel="stylesheet" href="../../css/carrito.css">
+    <link rel="stylesheet" href="../../css/carrito.css" />
 
-    <title>Carrito - Tienda en Linea</title>
+    <title>Muebleria los Alpes - Carrito</title>
 
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 <body>
@@ -62,30 +62,39 @@
                 <div class="row">
 
                     <div class="col-md-6 mt-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="mb-4">Detalle Compra</h2>
-                                <p>Tienes <asp:Label ID="cantProdCar" runat="server" class="fw-bold text-decoration-underline"></asp:Label> en el carrito de compras</p>
-                                
-                                <p class="fw-bold">Referencia de compra: [numeroReferenciaCompra]</p>
-                                <div class="col-lg-12 mt-4">
-                                <div class="card bg-light">
-                                    <div class="card-body">
-                                        <div class="table-responsive mt-5">
-                                            <asp:GridView ID="productosEnCarrito" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="10" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True">
-                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                                                <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                                <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                                <SortedDescendingHeaderStyle BackColor="#242121" />
-                                            </asp:GridView>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="mb-4">Detalle Compra</h2>
+                                    <p>Tienes
+                                        <asp:Label ID="cantProdCar" runat="server" class="fw-bold text-decoration-underline"></asp:Label>
+                                        en el carrito de compras</p>
+
+                                    <p class="fw-bold">Referencia de compra: </p>
+                                    
+                                    <div class="col-md-12 mt-4">
+                                        <div class="input-group">
+                                            <asp:TextBox ID="codigoBorrar" runat="server" type="number" class="form-control m-1" name="codigoBorrar"
+                                                placeholder="COD" />
+                                            <asp:Button ID="borrarCod" runat="server" Text="Borrar" class="btn btn-dark m-1" OnClick="borrarCod_Click" />
+                                            <asp:Button ID="borrarTodo" runat="server" Text="Borrar Todo" class="btn btn-danger m-1" OnClick="borrarTodo_Click" />
                                         </div>
+
+                                    </div>
+
+                                    <div class="table-responsive mt-3">
+                                        <asp:GridView ID="productosEnCarrito" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True" CellPadding="4" Width="725px">
+                                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                            <SortedDescendingHeaderStyle BackColor="#242121" />                                            
+                                        </asp:GridView>
                                     </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -139,7 +148,7 @@
                                 <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
                                     placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    required/>
+                                    />
 
                                 <div class="row">
                                     <label for="exampleFormControlInput1" class="form-label">
@@ -150,12 +159,12 @@
                                         <input type="number" class="form-control" id="fechaVencimiento" placeholder="Mes" 
                                             minlength="1" maxlength="2"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required/>
+                                            />
                                     </div>
                                     <div class="col-md-6">
                                         <input type="number" class="form-control" id="fechaVencimiento" placeholder="Año" minlength="4" maxlength="4"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required/>
+                                            />
                                     </div>
                                 </div>
 
@@ -165,7 +174,7 @@
                                 <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1"
                                     maxlength="3"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    required/>
+                                    />
 
                                 <hr/>
 
@@ -185,8 +194,8 @@
                                     <!-- alerta que indica que no está y si está lleno -->
                                 </div>
                                 <br />
-                                <a class="btn btn-success" onclick="finalizarVenta()">Continua con Envio</a>
-                                <a class="btn btn-danger">Cancelar Compra</a>
+                                <a class="btn btn-success" onclick="finalizarVenta()">Continuar</a>
+                                <a href="cliente.aspx" class="btn btn-danger">Cancelar</a>
 
                             </div>
                         </div>
@@ -212,7 +221,7 @@
                                     <!-- tipo de documento -->
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Tipo de Documento</label>
-                                        <select id="tipoDocumento" class="form-select" aria-label="Default select example" required>
+                                        <select id="tipoDocumento" class="form-select" aria-label="Default select example" >
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">DPI</option>
                                             <option value="2">NIT</option>
@@ -224,7 +233,7 @@
                                         <label for="message-text" class="col-form-label">Número de Documento</label>                                     
                                         <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" maxlength="13"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            required ></asp:TextBox>
+                                             ></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
@@ -240,7 +249,7 @@
                                         Residencia</label>
                                             <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" placeholder="66314589" maxlength="8"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required ></asp:TextBox>
+                                                 ></asp:TextBox>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="message-text" class="col-form-label">
@@ -248,13 +257,13 @@
                                         Celular</label>
                                             <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" placeholder="45858787" maxlength="8"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required    ></asp:TextBox>
+                                                    ></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">País</label>
-                                        <select id="pais" class="form-select" aria-label="Default select example" required>
+                                        <select id="pais" class="form-select" aria-label="Default select example" >
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Guatemala</option>
                                             <option value="2">El Salvador</option>
@@ -264,7 +273,7 @@
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Departamento / Estado</label>
-                                        <select id="departamentoEstado" class="form-select" aria-label="Default select example" required>
+                                        <select id="departamentoEstado" class="form-select" aria-label="Default select example" >
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Guatemala</option>
                                             <option value="2">Escuintla</option>
@@ -276,7 +285,7 @@
                                         <label for="message-text" class="col-form-label">
                                             Ciudad de
                                     Residencia</label>
-                                        <select id="ciudadResidencia" class="form-select" aria-label="Default select example" required>
+                                        <select id="ciudadResidencia" class="form-select" aria-label="Default select example" >
                                             <option selected="selected">Seleccione...</option>
                                             <option value="1">Ciudad de Guatemala</option>
                                             <option value="2">San José Pinula</option>
@@ -288,7 +297,7 @@
                                         <label for="message-text" class="col-form-label">Dirección</label>
                                         <asp:TextBox ID="direccion" runat="server" type="text" 
                                             class="form-control" placeholder="7ma Calle, Colonia Pinares"
-                                            required="required"></asp:TextBox>
+                                            ></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">

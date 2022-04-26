@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* globales */
+* globales */
 *{
     margin: 0;
     padding: 0;
@@ -9,15 +9,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
 }
-
-.bg-gris{
-    background-color: #343A40;
-    color: #ffffff;
-}
-
-/* principal */ 
 
 .container-principal{
     padding: 40px;
@@ -27,18 +19,19 @@ body{
     background-attachment: fixed;
 }
 
+.bg-gris{
+    background-color: #343A40;
+    color: #ffffff;
+}
+/* principal */ 
+
 .text-principal h1{
     font-weight: 700;
     font-size: 50px;
 }
 
-.text-principal p{
+.text-principal p {
     font-size: 20px;
-}
-
-.principal{
-    height: auto;
-    padding: 20px;
 }
 
 footer{
