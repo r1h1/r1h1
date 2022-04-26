@@ -55,12 +55,26 @@ namespace tiendaMuebleria
 
         protected void borrarCod_Click(object sender, EventArgs e)
         {
-            int codigoProductoABorrar = Convert.ToInt32(codigoBorrar.Text.Trim());
+            string codigoProductoABorrar = codigoBorrar.Text.Trim();
+
+            if(codigoProductoABorrar == "")
+            {
+                string script = String.Format(@"<script type='text/javascript'>alert('El ID de producto a borrar no puede ir vacío.');</script>", "Error");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+            }
+            else
+            {
+                string script = String.Format(@"<script type='text/javascript'>alert('Jeje');</script>", "Error");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+            }
+            
         }
 
         protected void borrarTodo_Click(object sender, EventArgs e)
         {
             //borra toda la tabla del carrito haciendo un delete * from
+            string script = String.Format(@"<script type='text/javascript'>alert('¿Está seguro de borrar todos los productos dentro del carrito?');</script>", "Error");
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
         }
     }
 }
