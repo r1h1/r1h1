@@ -65,7 +65,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="mb-4">Detalle Compra</h2>
-                                <p>Tienes <span class="fw-bold text-decoration-underline">[numeroArticulos] articulo(s)</span> en el carrito de compras</p>
+                                <p>Tienes <asp:Label ID="cantProdCar" runat="server" class="fw-bold text-decoration-underline"></asp:Label> en el carrito de compras</p>
+                                
                                 <p class="fw-bold">Referencia de compra: [numeroReferenciaCompra]</p>
                                 <div class="col-lg-12 mt-4">
                                 <div class="card bg-light">

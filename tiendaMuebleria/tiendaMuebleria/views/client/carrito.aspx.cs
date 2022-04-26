@@ -16,6 +16,7 @@ namespace tiendaMuebleria
         protected void Page_Load(object sender, EventArgs e)
         {
             cargarProductosEnCarrito();
+            cargarNumeroProductosCarrito();
         }
 
         public void cargarProductosEnCarrito()
@@ -30,6 +31,25 @@ namespace tiendaMuebleria
             d.Fill(dt);
             productosEnCarrito.DataSource = dt;
             productosEnCarrito.DataBind();
+            conexion.Close();
+        }
+
+        public void cargarNumeroProductosCarrito()
+        {
+            OracleConnection conexion = new OracleConnection(con);
+
+            conexion.Open();
+
+            OracleCommand command = new OracleCommand("CONTAR_PRODUCTOS_CARRITO", conexion);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("prodsCarrito", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            DataTable ds = new DataTable();
+            adapter.Fill(ds);
+            command.Connection = conexion;
+            string numeroProductosCarrito = ds.Rows[0]["Count(*)"].ToString();
+            cantProdCar.Text = numeroProductosCarrito + " " + "productos";
+
             conexion.Close();
         }
     }
