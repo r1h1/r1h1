@@ -64,17 +64,56 @@ namespace tiendaMuebleria
             }
             else
             {
-                string script = String.Format(@"<script type='text/javascript'>alert('Jeje');</script>", "Error");
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                OracleConnection conexion = new OracleConnection(con);
+
+                conexion.Open();
+
+                OracleCommand com = new OracleCommand();
+                com.CommandType = System.Data.CommandType.StoredProcedure;
+
+                com.CommandText = "BORRAR_CARRITO_POR_ID";
+                com.Parameters.Add("idProdCarrito", Convert.ToInt32(codigoBorrar.Text.Trim()));
+
+                com.Connection = conexion;
+
+                com.ExecuteNonQuery();
+
+                conexion.Close();
+
+                Response.Redirect("carrito.aspx");
             }
             
         }
 
         protected void borrarTodo_Click(object sender, EventArgs e)
         {
-            //borra toda la tabla del carrito haciendo un delete * from
-            string script = String.Format(@"<script type='text/javascript'>alert('¿Está seguro de borrar todos los productos dentro del carrito?');</script>", "Error");
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+            
+            string codigoProductoABorrar = codigoBorrar.Text.Trim();
+
+            if (codigoProductoABorrar == "")
+            {
+                string yesornot = String.Format(@"<script type='text/javascript'>alert('¿Estás seguro de borrarlo?, pon 0 en el apartado COD para borrar.');</script>", "Error");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", yesornot, false);
+            }
+            else
+            {
+                OracleConnection conexion = new OracleConnection(con);
+
+                conexion.Open();
+
+                OracleCommand com = new OracleCommand();
+                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.CommandText = "BORRAR_TODO_EL_CARRITO";
+
+                com.Connection = conexion;
+
+                com.ExecuteNonQuery();
+
+                conexion.Close();
+
+                Response.Redirect("carrito.aspx");
+            }
+            
         }
     }
 }

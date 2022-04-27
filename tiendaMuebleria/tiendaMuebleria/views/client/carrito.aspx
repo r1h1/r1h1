@@ -4,24 +4,57 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <!--  meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../../css/carrito.css" />
 
     <title>Muebleria los Alpes - Carrito</title>
 
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css" />
+    <!-- summernote -->
+    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css" />
     <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 <body>
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 2px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+    </style>
     <form id="form1" runat="server">
         <div>
             <!-- contenedor principal con información relevante -->
@@ -61,17 +94,19 @@
 
                 <div class="row">
 
-                    <div class="col-md-6 mt-4">
+                    <div class="col-md-6 mt-4 mb-4">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="mb-4">Detalle Compra</h2>
-                                    <p>Tienes
+                                    <p>
+                                        Tienes
                                         <asp:Label ID="cantProdCar" runat="server" class="fw-bold text-decoration-underline"></asp:Label>
-                                        en el carrito de compras</p>
+                                        en el carrito de compras
+                                    </p>
 
                                     <p class="fw-bold">Referencia de compra: </p>
-                                    
+
                                     <div class="col-md-12 mt-4">
                                         <div class="input-group">
                                             <asp:TextBox ID="codigoBorrar" runat="server" type="number" class="form-control m-1" name="codigoBorrar"
@@ -91,7 +126,7 @@
                                             <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
                                             <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                            <SortedDescendingHeaderStyle BackColor="#242121" />                                            
+                                            <SortedDescendingHeaderStyle BackColor="#242121" />
                                         </asp:GridView>
                                     </div>
                                 </div>
@@ -99,7 +134,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mt-4">
+                    <div class="col-md-6 mt-4 mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="mb-4">Tipo de Pago</h2>
@@ -139,7 +174,7 @@
                                     Nombre del Titular
                              <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
                                 <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
-                                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();" />
 
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Número de Tarjeta 
@@ -147,8 +182,7 @@
                                 </label>
                                 <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
                                     placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
-                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    />
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 
                                 <div class="row">
                                     <label for="exampleFormControlInput1" class="form-label">
@@ -156,15 +190,13 @@
                                 <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span>
                                     </label>
                                     <div class="col-md-6">
-                                        <input type="number" class="form-control" id="fechaVencimiento" placeholder="Mes" 
+                                        <input type="number" class="form-control" id="fechaVencimiento" placeholder="Mes"
                                             minlength="1" maxlength="2"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            />
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
                                     </div>
                                     <div class="col-md-6">
                                         <input type="number" class="form-control" id="fechaVencimiento" placeholder="Año" minlength="4" maxlength="4"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                            />
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
                                     </div>
                                 </div>
 
@@ -173,13 +205,12 @@
                             trasera) <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
                                 <input type="number" class="form-control" id="cvv" placeholder="EJ: 085" minlength="1"
                                     maxlength="3"
-                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    />
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 
-                                <hr/>
+                                <hr />
 
                                 <!-- total a pagar por los productos adquiridos -->
-                                <br />                                
+                                <br />
                                 <div class="row">
                                     <div class="col">
                                         <p>Total a pagar</p>
@@ -220,20 +251,20 @@
 
                                     <!-- tipo de documento -->
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Tipo de Documento</label>
-                                        <select id="tipoDocumento" class="form-select" aria-label="Default select example" >
-                                            <option selected="selected">Seleccione...</option>
-                                            <option value="1">DPI</option>
-                                            <option value="2">NIT</option>
-                                            <option value="3">Pasaporte</option>
+                                        <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
+                                        <select id="docTipo" name="selectDocTipo" runat="server" class="form-control" aria-label="Default select example">
+                                            <option>Selecciona una opción...</option>
+                                            <option value="DPI">DPI / CUI</option>
+                                            <option value="NIT">NIT</option>
+                                            <option value="PASAPORTE">PASAPORTE</option>
+                                            <option value="OTRO">OTRO</option>
                                         </select>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Número de Documento</label>                                     
-                                        <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" maxlength="13"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                             ></asp:TextBox>
+                                        <label for="message-text" class="col-form-label">Número de Documento</label>
+                                        <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" MaxLength="13"
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
@@ -247,73 +278,60 @@
                                             <label for="message-text" class="col-form-label">
                                                 Teléfono de
                                         Residencia</label>
-                                            <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" placeholder="66314589" maxlength="8"
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                 ></asp:TextBox>
+                                            <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" placeholder="66314589" MaxLength="8"
+                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="message-text" class="col-form-label">
                                                 Teléfono
                                         Celular</label>
-                                            <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" placeholder="45858787" maxlength="8"
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                    ></asp:TextBox>
+                                            <asp:TextBox ID="telefonoCelular" runat="server" type="number" class="form-control" placeholder="45858787" MaxLength="8"
+                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">País</label>
-                                        <select id="pais" class="form-select" aria-label="Default select example" >
-                                            <option selected="selected">Seleccione...</option>
-                                            <option value="1">Guatemala</option>
-                                            <option value="2">El Salvador</option>
-                                            <option value="3">México</option>
+                                        <label for="exampleFormControlInput1" class="form-label">País (*)</label>
+                                        <select id="pais" class="form-control" runat="server" aria-label="Default select example" name="pais">
+                                            <option>Selecciona una opción...</option>
+                                            <option value="Guatemala">Guatemala</option>
+                                            <option value="Mexico">México</option>
+                                            <option value="El Salvador">El Salvador</option>
                                         </select>
                                     </div>
-
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Departamento / Estado</label>
-                                        <select id="departamentoEstado" class="form-select" aria-label="Default select example" >
-                                            <option selected="selected">Seleccione...</option>
-                                            <option value="1">Guatemala</option>
-                                            <option value="2">Escuintla</option>
-                                            <option value="3">Retalhuleo</option>
-                                        </select>
+                                        <label for="exampleFormControlInput1" class="form-label">Departamento / Estado (*)</label>
+
+                                        <asp:TextBox ID="departamentoEstado" runat="server" type="text" class="form-control"
+                                            placeholder="Ciudad de Guatemala" name="departamentoEstado"></asp:TextBox>
                                     </div>
-
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">
-                                            Ciudad de
-                                    Residencia</label>
-                                        <select id="ciudadResidencia" class="form-select" aria-label="Default select example" >
-                                            <option selected="selected">Seleccione...</option>
-                                            <option value="1">Ciudad de Guatemala</option>
-                                            <option value="2">San José Pinula</option>
-                                            <option value="3">San Miguel Petapa</option>
-                                        </select>
+                                        <label for="exampleFormControlInput1" class="form-label">Ciudad de residencia (*)</label>
+
+                                        <asp:TextBox ID="ciudadResidencia" runat="server" type="text" class="form-control"
+                                            placeholder="Ciudad de Guatemala" name="ciudadResidencia"></asp:TextBox>
                                     </div>
-
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Dirección</label>
-                                        <asp:TextBox ID="direccion" runat="server" type="text" 
-                                            class="form-control" placeholder="7ma Calle, Colonia Pinares"
-                                            ></asp:TextBox>
+                                        <label for="exampleFormControlInput1" class="form-label">Dirección (*)</label>
+
+                                        <asp:TextBox ID="direccion" runat="server" type="text" class="form-control"
+                                            placeholder="7 avenida 6-85 Calle Real" name="direccion"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Profesión</label>
-                                        <asp:TextBox ID="estudiante" runat="server" type="text" 
+                                        <asp:TextBox ID="estudiante" runat="server" type="text"
                                             class="form-control" placeholder="Estudiante"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Correo Electrónico</label>
-                                        <asp:TextBox ID="correoElectronico" runat="server" type="email" 
+                                        <asp:TextBox ID="correoElectronico" runat="server" type="email"
                                             class="form-control" placeholder="ejemplo@ejemplo.com"></asp:TextBox>
                                     </div>
                                     <div class="modal-footer">
-                                        <asp:Button ID="cancelarEnvio" runat="server" Text="Cancelar" class="btn btn-danger" data-bs-dismiss="modal"/>
-                                        <asp:Button ID="procesarPago" runat="server" Text="Pagar" class="btn btn-success"/>
+                                        <asp:Button ID="cancelarCompra" runat="server" Text="Cancelar Compra" class="btn btn-danger" data-bs-dismiss="modal" />
+                                        <asp:Button ID="finalizarCompra" runat="server" Text="Finalizar Compra" class="btn btn-success" />
                                     </div>
                                 </div>
                             </div>
@@ -343,6 +361,41 @@
                 </div>
             </footer>
 
+
+            <!-- jQuery -->
+            <script src="../../plugins/jquery/jquery.min.js"></script>
+            <!-- jQuery UI 1.11.4 -->
+            <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+            <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+            <script>
+                $.widget.bridge('uibutton', $.ui.button)
+            </script>
+            <!-- Bootstrap 4 -->
+            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- ChartJS -->
+            <script src="../../plugins/chart.js/Chart.min.js"></script>
+            <!-- Sparkline -->
+            <script src="../../plugins/sparklines/sparkline.js"></script>
+            <!-- JQVMap -->
+            <script src="../../plugins/jqvmap/jquery.vmap.min.js"></script>
+            <script src="../../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+            <!-- jQuery Knob Chart -->
+            <script src="../../plugins/jquery-knob/jquery.knob.min.js"></script>
+            <!-- daterangepicker -->
+            <script src="../../plugins/moment/moment.min.js"></script>
+            <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+            <!-- Tempusdominus Bootstrap 4 -->
+            <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+            <!-- Summernote -->
+            <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+            <!-- overlayScrollbars -->
+            <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../../dist/js/adminlte.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="../../dist/js/demo.js"></script>
+            <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+            <script src="../../dist/js/pages/dashboard.js"></script>
 
             <!-- javascript de bootstrap 5  -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

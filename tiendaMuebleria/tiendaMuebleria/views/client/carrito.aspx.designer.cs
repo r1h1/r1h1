@@ -96,6 +96,15 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.CheckBox paypal;
 
         /// <summary>
+        /// Control docTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect docTipo;
+
+        /// <summary>
         /// Control numeroDocumento.
         /// </summary>
         /// <remarks>
@@ -132,6 +141,33 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.TextBox telefonoCelular;
 
         /// <summary>
+        /// Control pais.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect pais;
+
+        /// <summary>
+        /// Control departamentoEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox departamentoEstado;
+
+        /// <summary>
+        /// Control ciudadResidencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ciudadResidencia;
+
+        /// <summary>
         /// Control direccion.
         /// </summary>
         /// <remarks>
@@ -159,21 +195,21 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.TextBox correoElectronico;
 
         /// <summary>
-        /// Control cancelarEnvio.
+        /// Control cancelarCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelarEnvio;
+        protected global::System.Web.UI.WebControls.Button cancelarCompra;
 
         /// <summary>
-        /// Control procesarPago.
+        /// Control finalizarCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button procesarPago;
+        protected global::System.Web.UI.WebControls.Button finalizarCompra;
     }
 }
