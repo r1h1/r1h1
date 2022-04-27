@@ -17,6 +17,7 @@ namespace tiendaMuebleria
         {
             cargarProductosEnCarrito();
             cargarNumeroProductosCarrito();
+            totalCompraCarrito();
         }
 
         public void cargarProductosEnCarrito()
@@ -48,7 +49,7 @@ namespace tiendaMuebleria
             adapter.Fill(ds);
             command.Connection = conexion;
             string numeroProductosCarrito = ds.Rows[0]["Count(*)"].ToString();
-            cantProdCar.Text = numeroProductosCarrito + " " + "productos";
+            cantProdCar.Text = numeroProductosCarrito + " " + "producto(s)";
 
             conexion.Close();
         }
@@ -59,8 +60,9 @@ namespace tiendaMuebleria
 
             if(codigoProductoABorrar == "")
             {
-                string script = String.Format(@"<script type='text/javascript'>alert('El ID de producto a borrar no puede ir vacío.');</script>", "Error");
+                string script = String.Format(@"<script type='text/javascript'>alert('El COD del producto a borrar no puede ir vacío.');</script>", "Error");
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                codigoBorrar.Focus();
             }
             else
             {
@@ -114,6 +116,25 @@ namespace tiendaMuebleria
                 Response.Redirect("carrito.aspx");
             }
             
+        }
+
+        public void totalCompraCarrito()
+        {
+            OracleConnection conexion = new OracleConnection(con);
+
+            conexion.Open();
+
+            OracleCommand command = new OracleCommand("SUMAR_TOTAL_COMPRA_CARRITO", conexion);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("sumaTotalCompra", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            OracleDataAdapter oracleAdapt = new OracleDataAdapter(command);
+            DataTable totalCompraCarrito = new DataTable();
+            oracleAdapt.Fill(totalCompraCarrito);
+            command.Connection = conexion;
+            string totalCompra = totalCompraCarrito.Rows[0]["Total"].ToString();
+            totalAPagar.Text = "Q" + " " + totalCompra;
+
+            conexion.Close();
         }
     }
 }

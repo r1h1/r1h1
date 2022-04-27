@@ -72,19 +72,18 @@
                                         class="img-fluid rounded-start"
                                         alt="producto" />
                                 </div>
-                                <div class="col-lg-5 m-4 d-flex justify-content-center">
+                                <div class="col-lg-7 m-4 d-flex justify-content-center">
                                     <div class="card-body">
                                         <!-- EL ID DEL PRODUCTO ESTÁ OCULTO, SOLO SE USARÁ PARA AGREGAR AL CARRITO -->
                                         <asp:Label ID="PRO_IDLabel" runat="server" Text='<%# Eval("PRO_ID") %>'></asp:Label>
                                         <br /><br />
                                         <asp:Label ID="PRO_NOMBRELabel" class="card-title" runat="server" Text='<%# Eval("PRO_NOMBRE") %>' Font-Bold="true" Font-Size="Large" Visible="True" />
-                                        <br />
-                                        <br />
-                                        Q<asp:Label ID="PRO_PRECIOLabel" class="card-text" runat="server" Text='<%# Eval("PRO_PRECIO") %>' Font-Size="Large" />
+                                        <br /><br />
+                                        <asp:Label ID="PRO_PRECIOLabel" class="card-text" runat="server" Text='<%# Eval("PRO_PRECIO") %>' Font-Size="Large" />                                        
                                         <br />
                                         <br />
                                         <div class="input-group">                                            
-                                          <asp:Button ID="masInformacion" runat="server" Text="Más Información" class="btn btn-dark m-2" />
+                                          <asp:Button ID="masInformacion" runat="server" Text="Más Información" class="btn btn-dark m-2" OnClick="masInformacion_Click"/>
                                           <asp:TextBox ID="cantidadComprar" runat="server" type="number" class="form-control m-2" placeholder="Cantidad a Comprar" Text=""></asp:TextBox>
                                           <asp:Button ID="agregarCarrito" runat="server" Text="Agregar al Carrito" class="btn btn-success m-2" OnClick="agregarCarrito_Click"/>
                                         </div>

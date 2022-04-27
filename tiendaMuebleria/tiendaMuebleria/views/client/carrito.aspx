@@ -216,7 +216,8 @@
                                         <p>Total a pagar</p>
                                     </div>
                                     <div class="col">
-                                        <p class="fw-bold">Q8888</p>
+                                        <asp:Label ID="totalAPagar" runat="server" Text="" class="fw-bold"></asp:Label>
+
                                     </div>
                                 </div>
                                 <!-- fin total a pagar -->

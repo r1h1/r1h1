@@ -70,9 +70,18 @@ namespace tiendaMuebleria
             Label PRO_IDLabel = (Label)item.Controls[1];
             string idprod = PRO_IDLabel.Text;
 
+            //SE OBTIENE EL PRECIO DEL PRODUCTO DE LA LABEL "PROIDLABEL"
+            Label PRO_PRECIOLabel = (Label)item.FindControl("PRO_PRECIOLabel");
+            string proprecio = PRO_PRECIOLabel.Text;
+
             //SE OBTIENE EL VALOR DEL TEXTBOX "CANTIDADPROD"
             TextBox cantidadComprar = (TextBox)item.FindControl("cantidadComprar");
             string cantProducto = cantidadComprar.Text.ToString();
+
+            int cantPro = Convert.ToInt32(cantProducto);
+            double precioPro = Convert.ToDouble(proprecio);
+
+            double totalCompraProducto = precioPro * cantPro;
 
 
             if (cantProducto == "")
@@ -91,6 +100,7 @@ namespace tiendaMuebleria
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Add("carritoIdProducto", Convert.ToInt32(idprod));
                 command.Parameters.Add("cantidadCompraProducto", Convert.ToInt32(cantProducto));
+                command.Parameters.Add("totalProducto", totalCompraProducto);
                 command.Connection = conexion;
 
                 command.ExecuteNonQuery();
@@ -99,6 +109,11 @@ namespace tiendaMuebleria
 
                 Response.Redirect("cliente.aspx");
             }
+        }
+
+        protected void masInformacion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("descripcionProducto.aspx");
         }
     }
 }

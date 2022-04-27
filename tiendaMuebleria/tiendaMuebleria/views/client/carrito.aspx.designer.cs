@@ -96,6 +96,15 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.CheckBox paypal;
 
         /// <summary>
+        /// Control totalAPagar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalAPagar;
+
+        /// <summary>
         /// Control docTipo.
         /// </summary>
         /// <remarks>
