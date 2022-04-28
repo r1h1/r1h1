@@ -113,7 +113,17 @@ namespace tiendaMuebleria
 
         protected void masInformacion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("descripcionProducto.aspx");
+            //SE OBTIENE EL VALOR SEND DEL BOTON "AGREGAR CARRITO
+            Button masInformacion = (Button)sender;
+
+            //SE CREA UN DATALISTITEM, PARA OBTENER LOS VALORES DENTRO DEL DATALIST
+            DataListItem item = (DataListItem)masInformacion.Parent;
+
+            //SE OBTIENE EL VALOR DEL PRODUCTO DE LA LABEL "PROIDLABEL"
+            Label PRO_IDLabel = (Label)item.Controls[1];
+            string idprodfiltrar = PRO_IDLabel.Text;
+
+            Response.Redirect("descripcionProducto.aspx?IdProducto=" + idprodfiltrar);
         }
     }
 }

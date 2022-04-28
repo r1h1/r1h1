@@ -332,7 +332,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <asp:Button ID="cancelarCompra" runat="server" Text="Cancelar Compra" class="btn btn-danger" data-bs-dismiss="modal" />
-                                        <asp:Button ID="finalizarCompra" runat="server" Text="Finalizar Compra" class="btn btn-success" />
+                                        <asp:Button ID="finalizarCompra" runat="server" Text="Finalizar Compra" class="btn btn-success" OnClick="finalizarCompra_Click" />
                                     </div>
                                 </div>
                             </div>
