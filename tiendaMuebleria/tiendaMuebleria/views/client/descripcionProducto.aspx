@@ -54,7 +54,7 @@
                                 <!-- nothing -->
                             </ul>
                             <form class="d-flex">
-                                <a href="cliente.aspx" class="btn btn-danger me-2">Seguir Comprando</a>
+                                <a href="cliente.aspx" class="btn btn-danger me-2">Continuar Comprando</a>
                                 <a href="../ingreso.aspx" class="btn btn-success">Ingresar</a>
                             </form>
                         </div>
@@ -62,7 +62,7 @@
                 </nav>
             </header>
 
-
+            <!-- SE TOMA EL ID DEL PRODUCTO PARA FILTRAR -->
             <asp:TextBox ID="idProducto" runat="server" type="hidden" disabled></asp:TextBox>
 
 

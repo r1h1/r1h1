@@ -78,11 +78,6 @@ namespace tiendaMuebleria
             TextBox cantidadComprar = (TextBox)item.FindControl("cantidadComprar");
             string cantProducto = cantidadComprar.Text.ToString();
 
-            int cantPro = Convert.ToInt32(cantProducto);
-            double precioPro = Convert.ToDouble(proprecio);
-
-            double totalCompraProducto = precioPro * cantPro;
-
 
             if (cantProducto == "")
             {
@@ -93,6 +88,11 @@ namespace tiendaMuebleria
             {
                 //SE CONECTA A BASE DE DATOS Y SE PROCEDE CON SU INSERCIÓN A LA TABLA "CARRITO"
                 OracleConnection conexion = new OracleConnection(con);
+
+                //SE HACE LA OPERACIÓN DE CALCULO DEL TOTAL (PRECIO * CANTIDAD)
+                int cantPro = Convert.ToInt32(cantProducto);
+                double precioPro = Convert.ToDouble(proprecio);
+                double totalCompraProducto = precioPro * cantPro;
 
                 conexion.Open();
 

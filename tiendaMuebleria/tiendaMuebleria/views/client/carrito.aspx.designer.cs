@@ -96,6 +96,24 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.CheckBox paypal;
 
         /// <summary>
+        /// Control fechaVencimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect fechaVencimiento;
+
+        /// <summary>
+        /// Control Select2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Select2;
+
+        /// <summary>
         /// Control totalAPagar.
         /// </summary>
         /// <remarks>
@@ -105,13 +123,22 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.Label totalAPagar;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control tipoError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label tipoError;
+
+        /// <summary>
+        /// Control numeroDocumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox numeroDocumento;
 
         /// <summary>
         /// Control docTipo.
@@ -186,13 +213,13 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.TextBox direccion;
 
         /// <summary>
-        /// Control estudiante.
+        /// Control profesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox estudiante;
+        protected global::System.Web.UI.WebControls.TextBox profesion;
 
         /// <summary>
         /// Control correoElectronico.
@@ -213,13 +240,13 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.Button cancelarCompra;
 
         /// <summary>
-        /// Control finalizarCompra.
+        /// Control clienteFrecuente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button finalizarCompra;
+        protected global::System.Web.UI.WebControls.Button clienteFrecuente;
 
         /// <summary>
         /// Control clienteNuevo.

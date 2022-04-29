@@ -81,7 +81,7 @@
                                 <!-- nothing -->
                             </ul>
                             <form class="d-flex">
-                                <a href="cliente.aspx" class="btn btn-danger me-2">Seguir Comprando</a>
+                                <a href="cliente.aspx" class="btn btn-danger me-2">Continuar Comprando</a>
                                 <a href="../ingreso.aspx" class="btn btn-success">Ingresar</a>
                             </form>
                         </div>
@@ -173,14 +173,14 @@
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Nombre del Titular
                              <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span></label>
-                                <input type="text" class="form-control" id="nombreTitular" name="nombretitular"
+                                <input type="text" class="form-control mb-2" id="nombreTitular" name="nombretitular"
                                     placeholder="Ej: DAVID ORTEGA" onkeyup="this.value = this.value.toUpperCase();" />
 
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Número de Tarjeta 
                             <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span>
                                 </label>
-                                <input type="number" class="form-control" id="numeroTarjeta" name="numerotarjeta"
+                                <input type="number" class="form-control mb-2" id="numeroTarjeta" name="numerotarjeta"
                                     placeholder="Ej: 4444555566668888" minlength="1" maxlength="16"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 
@@ -189,14 +189,32 @@
                                         Fecha de Vencimiento 
                                 <span style="color: rgb(255, 0, 0); font-size: 20px;">*</span>
                                     </label>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control" id="fechaVencimiento" placeholder="Mes"
-                                            minlength="1" maxlength="2"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                                    <div class="col-md-6 mb-2">
+                                        <select id="fechaVencimiento" name="fechaVencimiento" runat="server" class="form-control" aria-label="Mes">
+                                            <option>Mes</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control" id="fechaVencimiento" placeholder="Año" minlength="4" maxlength="4"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                                    <div class="col-md-6 mb-2">
+                                        <select id="Select2" name="selectmes" runat="server" class="form-control" aria-label="Mes">
+                                            <option>Año</option>
+                                            <option value="01">2023</option>
+                                            <option value="02">2024</option>
+                                            <option value="03">2025</option>
+                                            <option value="04">2026</option>
+                                            <option value="05">2027</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -217,7 +235,6 @@
                                     </div>
                                     <div class="col">
                                         <asp:Label ID="totalAPagar" runat="server" Text="" class="fw-bold"></asp:Label>
-
                                     </div>
                                 </div>
                                 <!-- fin total a pagar -->
@@ -226,7 +243,7 @@
                                     <!-- alerta que indica que no está y si está lleno -->
                                 </div>
                                 <br />
-                                <a class="btn btn-success" onclick="finalizarVenta()">Continuar</a>
+                                <a class="btn btn-success" onclick="finalizarVenta()">Efectuar Compra</a>
                                 <a href="cliente.aspx" class="btn btn-danger">Cancelar</a>
 
                             </div>
@@ -253,13 +270,10 @@
                                     <!-- tipo de documento -->
                                     <div class="mb-3">
                                         <div class="alert alert-secondary" role="alert">
-                                            <p class="form-label mt-2 mb-2" id="exampleModalLabel23">
-                                                Si su cliente ya existe, por favor, llena <span class="fw-bold">sólo el número de documento</span>
-                                                y presione "Cliente Frecuente" , si no, llene todos los datos y presione "Cliente Nuevo" para proceder con la compra.
-                                            </p>
-                                        </div>
+                                            <asp:Label ID="tipoError" class="form-label mt-2 mb-2" runat="server" Text=""></asp:Label>
+                                        </div>                                        
                                         <label for="message-text" class="col-form-label">Número de Documento</label>
-                                        <asp:TextBox ID="TextBox1" runat="server" type="number" class="form-control" placeholder="1515489699999" MaxLength="13"
+                                        <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" MaxLength="13"
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                     </div>
 
@@ -327,7 +341,7 @@
 
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Profesión</label>
-                                        <asp:TextBox ID="estudiante" runat="server" type="text"
+                                        <asp:TextBox ID="profesion" runat="server" type="text"
                                             class="form-control" placeholder="Estudiante"></asp:TextBox>
                                     </div>
 
@@ -338,8 +352,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <asp:Button ID="cancelarCompra" runat="server" Text="Cancelar Compra" class="btn btn-danger" data-bs-dismiss="modal" />
-                                        <asp:Button ID="finalizarCompra" runat="server" Text="Cliente Frecuente" class="btn btn-success" />
-                                        <asp:Button ID="clienteNuevo" runat="server" Text="Cliente Nuevo" class="btn btn-dark" />
+                                        <asp:Button ID="clienteFrecuente" runat="server" Text="Cliente Frecuente" class="btn btn-success" OnClick="clienteFrecuente_Click" />
+                                        <asp:Button ID="clienteNuevo" runat="server" Text="Cliente Nuevo" class="btn btn-dark" OnClick="clienteNuevo_Click"/>
                                     </div>
                                 </div>
                             </div>
