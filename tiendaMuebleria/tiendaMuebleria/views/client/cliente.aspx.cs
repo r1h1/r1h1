@@ -67,7 +67,7 @@ namespace tiendaMuebleria
             DataListItem item = (DataListItem)agregarCarrito.Parent;
 
             //SE OBTIENE EL VALOR DEL PRODUCTO DE LA LABEL "PROIDLABEL"
-            Label PRO_IDLabel = (Label)item.Controls[1];
+            Label PRO_IDLabel = (Label)item.FindControl("PRO_IDLabel");
             string idprod = PRO_IDLabel.Text;
 
             //SE OBTIENE EL PRECIO DEL PRODUCTO DE LA LABEL "PROIDLABEL"
@@ -120,7 +120,7 @@ namespace tiendaMuebleria
             DataListItem item = (DataListItem)masInformacion.Parent;
 
             //SE OBTIENE EL VALOR DEL PRODUCTO DE LA LABEL "PROIDLABEL"
-            Label PRO_IDLabel = (Label)item.Controls[1];
+            Label PRO_IDLabel = (Label)item.FindControl("PRO_IDLabel");
             string idprodfiltrar = PRO_IDLabel.Text;
 
             Response.Redirect("descripcionProducto.aspx?IdProducto=" + idprodfiltrar);

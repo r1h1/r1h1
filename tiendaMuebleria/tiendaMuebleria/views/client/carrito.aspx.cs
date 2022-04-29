@@ -136,10 +136,5 @@ namespace tiendaMuebleria
 
             conexion.Close();
         }
-
-        protected void finalizarCompra_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("");
-        }
     }
 }

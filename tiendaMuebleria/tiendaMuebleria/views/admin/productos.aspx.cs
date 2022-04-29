@@ -47,6 +47,7 @@ namespace tiendaMuebleria
             //La variable estado activa automaticamente al cliente al insertar
             //ACTIVO = 1,  NO ACTIVO = 0
             int estado = 1;
+            string rutaFoto = "../../img/" + fotografia.Value.ToString();
 
 
             OracleConnection conexion = new OracleConnection(con);
@@ -69,7 +70,7 @@ namespace tiendaMuebleria
             com.Parameters.Add("PROPRECIO", Convert.ToDouble(precio.Text.Trim()));
             com.Parameters.Add("PROCANTIDAD", Convert.ToInt32(cantidad.Text.Trim()));
             com.Parameters.Add("PROESTADO", estado);
-
+            com.Parameters.Add("PROIMAGEN", rutaFoto);
 
             com.Connection = conexion;
             com.ExecuteNonQuery();
@@ -113,9 +114,7 @@ namespace tiendaMuebleria
 
             else
             {
-                //La variable estado activa automaticamente al cliente al insertar
-                //ACTIVO = 1,  NO ACTIVO = 0
-                int estado = 1;
+                string rutaFoto = "../../img/" + fotografia.Value.ToString();
 
                 //conexión a la base de datos
                 OracleConnection conexion = new OracleConnection(con);
@@ -138,6 +137,7 @@ namespace tiendaMuebleria
                 com.Parameters.Add("PROPESO", Convert.ToDouble(peso.Text.Trim()));
                 com.Parameters.Add("PROPRECIO", Convert.ToDouble(precio.Text.Trim()));
                 com.Parameters.Add("PROCANTIDAD", Convert.ToInt32(cantidad.Text.Trim()));
+                com.Parameters.Add("PROIMAGEN", rutaFoto);
 
                 com.Connection = conexion;
                 com.ExecuteNonQuery();

@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Muebleria - Dashboard</title>
 
     <!-- Bootstrap CSS -->
@@ -117,7 +117,6 @@
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <h1 class="m-0 pl-5 mt-4">Productos</h1>
-                                    </p>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -199,8 +198,8 @@
                                                     placeholder="2"></asp:TextBox>
                                             </div>
                                             <div class="col-md-12 mt-4">
-                                                <label for="exampleFormControlInput1" class="form-label">Fotografía del Producto - (Formato PNG)</label>
-                                                <asp:FileUpload ID="fotografia" runat="server" class="form-control" placeholder="Formato admitido (PNG)"/>
+                                                <label for="exampleFormControlInput1" class="form-label">Fotografía del Producto (*)</label>
+                                                <input id="fotografia" type="file" runat="server" class="form-control" accept="image/png, image/jpeg"/>
                                             </div>
                                             <div class="col-md-12 mt-4">
                        

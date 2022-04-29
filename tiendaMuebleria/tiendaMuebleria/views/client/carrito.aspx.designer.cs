@@ -105,6 +105,15 @@ namespace tiendaMuebleria
         protected global::System.Web.UI.WebControls.Label totalAPagar;
 
         /// <summary>
+        /// Control TextBox1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
         /// Control docTipo.
         /// </summary>
         /// <remarks>
@@ -112,15 +121,6 @@ namespace tiendaMuebleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect docTipo;
-
-        /// <summary>
-        /// Control numeroDocumento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox numeroDocumento;
 
         /// <summary>
         /// Control nombreCompleto.
@@ -220,5 +220,14 @@ namespace tiendaMuebleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button finalizarCompra;
+
+        /// <summary>
+        /// Control clienteNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clienteNuevo;
     }
 }

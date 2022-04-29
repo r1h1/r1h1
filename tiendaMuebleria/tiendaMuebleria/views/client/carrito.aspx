@@ -242,7 +242,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title text-muted" id="exampleModalLabel">Registro de Cliente</h5>
+                                <h5 class="modal-title text-muted" id="exampleModalLabel">Datos de Compra</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -252,6 +252,18 @@
 
                                     <!-- tipo de documento -->
                                     <div class="mb-3">
+                                        <div class="alert alert-secondary" role="alert">
+                                            <p class="form-label mt-2 mb-2" id="exampleModalLabel23">
+                                                Si su cliente ya existe, por favor, llena <span class="fw-bold">sólo el número de documento</span>
+                                                y presione "Cliente Frecuente" , si no, llene todos los datos y presione "Cliente Nuevo" para proceder con la compra.
+                                            </p>
+                                        </div>
+                                        <label for="message-text" class="col-form-label">Número de Documento</label>
+                                        <asp:TextBox ID="TextBox1" runat="server" type="number" class="form-control" placeholder="1515489699999" MaxLength="13"
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Tipo de Documento (*)</label>
                                         <select id="docTipo" name="selectDocTipo" runat="server" class="form-control" aria-label="Default select example">
                                             <option>Selecciona una opción...</option>
@@ -260,12 +272,6 @@
                                             <option value="PASAPORTE">PASAPORTE</option>
                                             <option value="OTRO">OTRO</option>
                                         </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Número de Documento</label>
-                                        <asp:TextBox ID="numeroDocumento" runat="server" type="number" class="form-control" placeholder="1515489699999" MaxLength="13"
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                     </div>
 
                                     <div class="mb-3">
@@ -282,7 +288,7 @@
                                             <asp:TextBox ID="telefonoResidencia" runat="server" type="number" class="form-control" placeholder="66314589" MaxLength="8"
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></asp:TextBox>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="message-text" class="col-form-label">
                                                 Teléfono
                                         Celular</label>
@@ -325,14 +331,15 @@
                                             class="form-control" placeholder="Estudiante"></asp:TextBox>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="message-text" class="col-form-label">Correo Electrónico</label>
                                         <asp:TextBox ID="correoElectronico" runat="server" type="email"
                                             class="form-control" placeholder="ejemplo@ejemplo.com"></asp:TextBox>
                                     </div>
                                     <div class="modal-footer">
                                         <asp:Button ID="cancelarCompra" runat="server" Text="Cancelar Compra" class="btn btn-danger" data-bs-dismiss="modal" />
-                                        <asp:Button ID="finalizarCompra" runat="server" Text="Finalizar Compra" class="btn btn-success" OnClick="finalizarCompra_Click" />
+                                        <asp:Button ID="finalizarCompra" runat="server" Text="Cliente Frecuente" class="btn btn-success" />
+                                        <asp:Button ID="clienteNuevo" runat="server" Text="Cliente Nuevo" class="btn btn-dark" />
                                     </div>
                                 </div>
                             </div>

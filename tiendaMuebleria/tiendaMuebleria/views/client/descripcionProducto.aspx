@@ -74,10 +74,7 @@
                                 <div class="card mb-6" style="max-width: 1400px">
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img
-                                                src="../../img/sillon.jpg"
-                                                class="img-fluid rounded-start"
-                                                alt="producto" />
+                                            <asp:Image ID="imgProducto" runat="server" src='<%# Eval("PRO_RUTA_IMAGEN") %>' class="img-fluid rounded-start"/>
                                         </div>
                                         <div class="col-md-6 m-4">
                                             <div class="card-body">

@@ -67,10 +67,7 @@
                         <div class="card mb-6" style="max-width: 1400px">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img
-                                        src="../../img/sillon.jpg"
-                                        class="img-fluid rounded-start"
-                                        alt="producto" />
+                                    <asp:Image ID="imgProducto" runat="server" src='<%# Eval("PRO_RUTA_IMAGEN") %>' class="img-fluid rounded-start"/>
                                 </div>
                                 <div class="col-lg-7 m-4 d-flex justify-content-center">
                                     <div class="card-body">
@@ -79,7 +76,7 @@
                                         <br /><br />
                                         <asp:Label ID="PRO_NOMBRELabel" class="card-title" runat="server" Text='<%# Eval("PRO_NOMBRE") %>' Font-Bold="true" Font-Size="Large" Visible="True" />
                                         <br /><br />
-                                        <asp:Label ID="PRO_PRECIOLabel" class="card-text" runat="server" Text='<%# Eval("PRO_PRECIO") %>' Font-Size="Large" />                                        
+                                        <span class="fs-5">Q</span><asp:Label ID="PRO_PRECIOLabel" class="card-text" runat="server" Text='<%# Eval("PRO_PRECIO") %>' Font-Size="Large" />                                        
                                         <br />
                                         <br />
                                         <div class="input-group">                                            
