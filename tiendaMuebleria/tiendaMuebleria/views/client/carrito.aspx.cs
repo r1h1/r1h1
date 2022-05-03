@@ -62,7 +62,7 @@ namespace tiendaMuebleria
         {
             string codigoProductoABorrar = codigoBorrar.Text.Trim();
 
-            if(codigoProductoABorrar == "")
+            if (codigoProductoABorrar == "")
             {
                 string script = String.Format(@"<script type='text/javascript'>alert('El COD del producto a borrar no puede ir vacío.');</script>", "Error");
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
@@ -88,12 +88,12 @@ namespace tiendaMuebleria
 
                 Response.Redirect("carrito.aspx");
             }
-            
+
         }
 
         protected void borrarTodo_Click(object sender, EventArgs e)
         {
-            
+
             string codigoProductoABorrar = codigoBorrar.Text.Trim();
 
             if (codigoProductoABorrar == "")
@@ -119,7 +119,7 @@ namespace tiendaMuebleria
 
                 Response.Redirect("carrito.aspx");
             }
-            
+
         }
 
         public void totalCompraCarrito()
@@ -145,12 +145,12 @@ namespace tiendaMuebleria
         {
             string idcliente = numeroDocumento.Text.Trim();
 
-            if(idcliente == "" || idcliente == null)
+            if (idcliente == "" || idcliente == null)
             {
                 //no hace nada
             }
             else
-            {                
+            {
 
                 OracleConnection conexion = new OracleConnection(con);
 
@@ -166,7 +166,7 @@ namespace tiendaMuebleria
                 command.Connection = conexion;
                 int nombreCliente = Convert.ToInt32(existeCliente.Rows[0]["NOMBRECLIENTE"].ToString());
 
-                if(nombreCliente == 0)
+                if (nombreCliente == 0)
                 {
                     tipoError.Text = "Cliente no existe, llena todos los datos y presiona el botón 'Cliente Nuevo' para continuar.";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
@@ -178,8 +178,7 @@ namespace tiendaMuebleria
 
                     //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
-                    int repeticion = 5;//Convert.ToInt32(noProductosCarrito);
-
+                    int repeticion = Convert.ToInt32(noProductosCarrito);
                     string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
 
                     OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
@@ -190,28 +189,30 @@ namespace tiendaMuebleria
                     DataTable dtap = new DataTable();
                     dap.Fill(dtap);
 
+                    int i;
 
-                    for (int i=0; i <= repeticion; i++)
+                    for (i = 0; i < repeticion; i++)
                     {
-                        string codProducto = dtap.Rows[0]["COD"].ToString();
-                        string cantidadCompraProducto = dtap.Rows[3]["PRODUCTO"].ToString();
+                        string compraUsuario = numeroDocumento.Text.Trim();
+                        string codProducto = dtap.Rows[i]["COD"].ToString();
+                        string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
+                        string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
 
-                        /*OracleCommand com = new OracleCommand();
+                        OracleCommand com = new OracleCommand();
                         com.CommandType = System.Data.CommandType.StoredProcedure;
                         com.CommandText = "INSERTA_VENTA_FACTURA";
-                        com.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(numeroDocumento.Text.Trim()));
-                        com.Parameters.Add("CARRITOIDPRODUCTO", codProducto);
-                        com.Parameters.Add("CANTIDADCOMPRAPRODUCTO", cantidadCompraProducto);
-                        com.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToInt32(totalAPagar.Text));
+                        com.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
+                        com.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
+                        com.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
+                        com.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
                         com.Parameters.Add("METODOPAGO", metodoPago);
                         com.Parameters.Add("FECHACOMPRA", fecha);
 
                         com.Connection = conexion;
-                        com.ExecuteNonQuery();*/
-                    }                    
+                        com.ExecuteNonQuery();
+                    }
 
                 }
-
                 conexion.Close();
             }
         }
@@ -221,7 +222,7 @@ namespace tiendaMuebleria
             string idcliente = numeroDocumento.Text.Trim();
             string correElectronico = correoElectronico.Text.Trim();
 
-            if(idcliente == "" || correElectronico == "")
+            if (idcliente == "" || correElectronico == "")
             {
                 tipoError.Text = "Llena todos los datos antes de registrar el cliente.";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
@@ -258,9 +259,41 @@ namespace tiendaMuebleria
                 com.ExecuteNonQuery();
 
 
-                //SE GUARDA LA COMPRA CON EL ID
+                //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
+                int repeticion = Convert.ToInt32(noProductosCarrito);
+                string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
 
+                OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("prods", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                OracleDataAdapter dap = new OracleDataAdapter();
+                dap.SelectCommand = comando;
+                DataTable dtap = new DataTable();
+                dap.Fill(dtap);
+
+                int i;
+
+                for (i = 0; i < repeticion; i++)
+                {
+                    string compraUsuario = numeroDocumento.Text.Trim();
+                    string codProducto = dtap.Rows[i]["COD"].ToString();
+                    string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
+                    string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
+
+                    OracleCommand comm = new OracleCommand();
+                    comm.CommandType = System.Data.CommandType.StoredProcedure;
+                    comm.CommandText = "INSERTA_VENTA_FACTURA";
+                    comm.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
+                    comm.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
+                    comm.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
+                    comm.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
+                    comm.Parameters.Add("METODOPAGO", metodoPago);
+                    comm.Parameters.Add("FECHACOMPRA", fecha);
+
+                    comm.Connection = conexion;
+                    comm.ExecuteNonQuery();
+                }
                 conexion.Close();
             }
         }
