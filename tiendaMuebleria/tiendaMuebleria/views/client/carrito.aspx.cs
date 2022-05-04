@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
+using System.Text;
 
 namespace tiendaMuebleria
 {
@@ -145,6 +146,23 @@ namespace tiendaMuebleria
         {
             string idcliente = numeroDocumento.Text.Trim();
 
+            int length = 7;
+            // creating a StringBuilder object()
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letter;
+
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+            string refCompra = str_build.ToString();
+
+
             if (idcliente == "" || idcliente == null)
             {
                 //no hace nada
@@ -173,8 +191,6 @@ namespace tiendaMuebleria
                 }
                 else
                 {
-                    tipoError.Text = "El Cliente existe, ¡Compra efectuada! , gracias por la compra, se abrirá tu factura y comprobante...";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
 
                     //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
@@ -201,6 +217,7 @@ namespace tiendaMuebleria
                         OracleCommand com = new OracleCommand();
                         com.CommandType = System.Data.CommandType.StoredProcedure;
                         com.CommandText = "INSERTA_VENTA_FACTURA";
+                        com.Parameters.Add("REFERENCIACOMPRA", refCompra);
                         com.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
                         com.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
                         com.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
@@ -212,6 +229,16 @@ namespace tiendaMuebleria
                         com.ExecuteNonQuery();
                     }
 
+                    OracleCommand borrarTodoCarrito = new OracleCommand();
+                    borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
+                    borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
+                    borrarTodoCarrito.Connection = conexion;
+                    borrarTodoCarrito.ExecuteNonQuery();
+
+                    string yesornot = String.Format(@"<script type='text/javascript'>alert('¡Compra efectuada!');</script>", "Error");
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", yesornot, false);
+                    Response.Redirect("carrito.aspx");
+
                 }
                 conexion.Close();
             }
@@ -221,6 +248,23 @@ namespace tiendaMuebleria
         {
             string idcliente = numeroDocumento.Text.Trim();
             string correElectronico = correoElectronico.Text.Trim();
+
+            int length = 7;
+            // creating a StringBuilder object()
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letter;
+
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+            string refCompra = str_build.ToString();
+
 
             if (idcliente == "" || correElectronico == "")
             {
@@ -284,6 +328,7 @@ namespace tiendaMuebleria
                     OracleCommand comm = new OracleCommand();
                     comm.CommandType = System.Data.CommandType.StoredProcedure;
                     comm.CommandText = "INSERTA_VENTA_FACTURA";
+                    com.Parameters.Add("REFERENCIACOMPRA", refCompra);
                     comm.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
                     comm.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
                     comm.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
@@ -295,10 +340,18 @@ namespace tiendaMuebleria
                     comm.ExecuteNonQuery();
 
                 }
+
+                OracleCommand borrarTodoCarrito = new OracleCommand();
+                borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
+                borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
+                borrarTodoCarrito.Connection = conexion;
+                borrarTodoCarrito.ExecuteNonQuery();
+
                 conexion.Close();
 
-                tipoError.Text = "Cliente registrado y compra efectuada, ¡Gracias!";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
+                string yesornot = String.Format(@"<script type='text/javascript'>alert('¡Compra efectuada!');</script>", "Error");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", yesornot, false);
+                Response.Redirect("carrito.aspx");
             }
         }
     }
