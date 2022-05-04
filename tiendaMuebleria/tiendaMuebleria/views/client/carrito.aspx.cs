@@ -173,7 +173,7 @@ namespace tiendaMuebleria
                 }
                 else
                 {
-                    tipoError.Text = "El Cliente existe, efectuando la compra...";
+                    tipoError.Text = "El Cliente existe, ¡Compra efectuada! , gracias por la compra, se abrirá tu factura y comprobante...";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
 
                     //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
@@ -293,8 +293,12 @@ namespace tiendaMuebleria
 
                     comm.Connection = conexion;
                     comm.ExecuteNonQuery();
+
                 }
                 conexion.Close();
+
+                tipoError.Text = "Cliente registrado y compra efectuada, ¡Gracias!";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
             }
         }
     }
