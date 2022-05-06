@@ -235,9 +235,9 @@ namespace tiendaMuebleria
                     borrarTodoCarrito.Connection = conexion;
                     borrarTodoCarrito.ExecuteNonQuery();
 
-                    string yesornot = String.Format(@"<script type='text/javascript'>alert('¡Compra efectuada!');</script>", "Error");
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", yesornot, false);
-                    Response.Redirect("carrito.aspx");
+                    referencia.Text = refCompra;
+
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
 
                 }
                 conexion.Close();
@@ -325,19 +325,19 @@ namespace tiendaMuebleria
                     string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
                     string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
 
-                    OracleCommand comm = new OracleCommand();
-                    comm.CommandType = System.Data.CommandType.StoredProcedure;
-                    comm.CommandText = "INSERTA_VENTA_FACTURA";
-                    com.Parameters.Add("REFERENCIACOMPRA", refCompra);
-                    comm.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
-                    comm.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
-                    comm.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
-                    comm.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
-                    comm.Parameters.Add("METODOPAGO", metodoPago);
-                    comm.Parameters.Add("FECHACOMPRA", fecha);
+                    OracleCommand facturaF = new OracleCommand();
+                    facturaF.CommandType = System.Data.CommandType.StoredProcedure;
+                    facturaF.CommandText = "INSERTA_VENTA_FACTURA";
+                    facturaF.Parameters.Add("REFERENCIACOMPRA", refCompra);
+                    facturaF.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
+                    facturaF.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
+                    facturaF.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
+                    facturaF.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
+                    facturaF.Parameters.Add("METODOPAGO", metodoPago);
+                    facturaF.Parameters.Add("FECHACOMPRA", fecha);
 
-                    comm.Connection = conexion;
-                    comm.ExecuteNonQuery();
+                    facturaF.Connection = conexion;
+                    facturaF.ExecuteNonQuery();
 
                 }
 
@@ -349,10 +349,13 @@ namespace tiendaMuebleria
 
                 conexion.Close();
 
-                string yesornot = String.Format(@"<script type='text/javascript'>alert('¡Compra efectuada!');</script>", "Error");
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", yesornot, false);
-                Response.Redirect("carrito.aspx");
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
             }
+        }
+
+        protected void finCompra_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("cliente.aspx");
         }
     }
 }

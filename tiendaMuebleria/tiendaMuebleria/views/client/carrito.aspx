@@ -103,9 +103,8 @@
                                         Tienes
                                         <asp:Label ID="cantProdCar" runat="server" class="fw-bold text-decoration-underline"></asp:Label>
                                         en el carrito de compras
-                                    </p>
-
-                                    <p class="fw-bold">Referencia de compra: </p>
+                                    </p>                                  
+                                    
 
                                     <div class="col-md-12 mt-4">
                                         <div class="input-group">
@@ -355,6 +354,48 @@
                                         <asp:Button ID="clienteFrecuente" runat="server" Text="Cliente Frecuente" class="btn btn-success" OnClick="clienteFrecuente_Click" />
                                         <asp:Button ID="clienteNuevo" runat="server" Text="Cliente Nuevo" class="btn btn-dark" OnClick="clienteNuevo_Click"/>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin modal info clientes -->
+            </section>
+
+            <section class="formulario-registro-cliente">
+                <!-- modal para registrar los datos del cliente, y si ya existen, se ignoran -->
+                <div class="modal" id="refCompra">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-muted" id="exampleModaldLabel">¡Gracias por tu compra!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <!-- formulario para validar el registro del cliente -->
+                                <div class="formulario-carrito">
+
+                                    <div class="mb-3">                                            
+                                            <label for="message-text" class="col-form-label">Referencia de Compra:</label>
+                                            <asp:Label ID="referencia" class="col-form-label fw-bold" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                        <div class="mb-3">
+                                            <p>
+                                                El código de referencia de compra es único e irrepetible, por lo que tu
+                                            compra se gestionará a través de ese código, por favor <span class="fw-bold">GUARDALO</span>
+                                                para que puedas consultar sobre el estado de tu pedido, el monto o información por si olvidas
+                                            que compraste, todos nuestros productos se enviarán en horario hábil de 1 - 5 días a la república
+                                            de Guatemala, y de 1 - 2 semanas a otros países (Aplican cargos extras por aduana)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <asp:Button ID="finCompra" runat="server" Text="Entendido" class="btn btn-success" data-bs-dismiss="modal" OnClick="finCompra_Click" />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

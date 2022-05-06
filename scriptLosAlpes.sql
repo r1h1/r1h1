@@ -437,8 +437,8 @@ BEGIN
                                           CANTIDADCOMPRAPRODUCTO,CARRITOTOTALCOMPRA,METODOPAGO,FECHACOMPRA);
 END;
 
-select * from la_compra_factura
 
+SELECT * FROM LA_COMPRA_FACTURA;
 
 
 

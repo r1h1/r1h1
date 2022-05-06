@@ -170,7 +170,6 @@ D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebler
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\System.Text.Json.xml
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\System.Threading.Tasks.Extensions.xml
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\bin\System.ValueTuple.xml
-D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.AssemblyReference.cache
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.CoreCompileInputs.cache
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.csproj.CopyComplete
 D:\DanielRivas\Escritorio\Proyecto BDD\BDDFrontEnd\tiendaMuebleria\tiendaMuebleria\obj\Debug\tiendaMuebleria.dll
