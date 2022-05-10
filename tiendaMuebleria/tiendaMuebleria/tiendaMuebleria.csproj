@@ -101,6 +101,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\admin\reports\filtrarVentaCodigo.aspx" />
     <Content Include="views\client\carrito.aspx" />
     <Content Include="views\client\cliente.aspx" />
     <Content Include="views\admin\clientes.aspx" />
@@ -2011,6 +2012,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="views\admin\reports\filtrarVentaCodigo.aspx.cs">
+      <DependentUpon>filtrarVentaCodigo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\admin\reports\filtrarVentaCodigo.aspx.designer.cs">
+      <DependentUpon>filtrarVentaCodigo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="views\client\carrito.aspx.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

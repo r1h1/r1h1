@@ -13,6 +13,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../css/login.css"/>
+    <script src="https://kit.fontawesome.com/bac7f444fd.js" crossorigin="anonymous"></script>
 
     <title>Bienvenido - MLA</title>
 </head>

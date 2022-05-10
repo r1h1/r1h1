@@ -349,6 +349,8 @@ namespace tiendaMuebleria
 
                 conexion.Close();
 
+                referencia.Text = refCompra;
+
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
             }
         }

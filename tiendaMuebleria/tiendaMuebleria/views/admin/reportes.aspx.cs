@@ -13,5 +13,11 @@ namespace tiendaMuebleria
         {
 
         }
+
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("usuarioLogueado");
+            Response.Redirect("../ingreso.aspx");
+        }
     }
 }

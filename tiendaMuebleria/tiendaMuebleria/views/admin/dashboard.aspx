@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
-    <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bac7f444fd.js" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <form id="form1" runat="server">
@@ -135,7 +135,7 @@
                                 <div class="card text-center bg-secondary">
                                     <a href="clientes.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fa-solid fa-person fa-10x"></i>
+                                            <i class="nav-icon fa-solid fa-person fa-6x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Clientes</h5>
                                             </div>
@@ -147,7 +147,7 @@
                                 <div class="card text-center text-white bg-danger">
                                     <a href="productos.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fa-solid fa-box fa-10x"></i>
+                                            <i class="nav-icon fa-solid fa-box fa-6x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Productos</h5>
                                             </div>
@@ -159,7 +159,7 @@
                                 <div class="card text-center bg-warning">
                                     <a href="reportes.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fa-solid fa-align-justify fa-10x"></i>
+                                            <i class="nav-icon fa-solid fa-align-justify fa-6x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Reportes</h5>
                                             </div>
@@ -222,6 +222,7 @@
             <script src="../../dist/js/pages/dashboard.js"></script>
 
             <script src="../../js/main.js"></script>
+            <script src="https://kit.fontawesome.com/bac7f444fd.js" crossorigin="anonymous"></script>
         </div>
     </form>
 </body>

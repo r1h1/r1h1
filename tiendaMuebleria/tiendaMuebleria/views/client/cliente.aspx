@@ -16,7 +16,7 @@
 
     <title>Muebleria los Alpes - Tienda en Linea</title>
 
-    <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bac7f444fd.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1" runat="server">

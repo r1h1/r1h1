@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css" />
-    <script src="https://kit.fontawesome.com/27018fa2cd.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bac7f444fd.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 </head>
