@@ -47,7 +47,7 @@
                             <a href="dashboard.aspx" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item d-none d-sm-inline-block">
-                            <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-danger" OnClick="cerrarSesion_Click"/>
+                            <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-danger" OnClick="cerrarSesion_Click1"/>
                         </li>
                     </ul>
                 </nav>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="col-sm-4 mt-4">
                                 <div class="card text-center text-white bg-secondary">
-                                    <a href="productos.aspx">
+                                    <a href="reports/reporteVentasDiarias.aspx">
                                         <div class="card-body">
                                             <i class="nav-icon fas fa-calendar fa-6x"></i>
                                             <div class="card-body">

@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\admin\reports\filtrarVentaCodigo.aspx" />
+    <Content Include="views\admin\reports\reporteVentasDiarias.aspx" />
     <Content Include="views\client\carrito.aspx" />
     <Content Include="views\client\cliente.aspx" />
     <Content Include="views\admin\clientes.aspx" />
@@ -2019,6 +2020,13 @@
     </Compile>
     <Compile Include="views\admin\reports\filtrarVentaCodigo.aspx.designer.cs">
       <DependentUpon>filtrarVentaCodigo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\admin\reports\reporteVentasDiarias.aspx.cs">
+      <DependentUpon>reporteVentasDiarias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\admin\reports\reporteVentasDiarias.aspx.designer.cs">
+      <DependentUpon>reporteVentasDiarias.aspx</DependentUpon>
     </Compile>
     <Compile Include="views\client\carrito.aspx.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
