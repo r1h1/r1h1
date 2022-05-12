@@ -28,7 +28,7 @@ namespace tiendaMuebleria.views.admin.reports
         protected void cerrarSesion_Click(object sender, EventArgs e)
         {
             Session.Remove("usuarioLogueado");
-            Response.Redirect("../ingreso.aspx");
+            Response.Redirect("../../ingreso.aspx");
         }
 
         public void cargarCompra()
