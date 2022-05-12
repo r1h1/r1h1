@@ -58,7 +58,7 @@ namespace tiendaMuebleria.views.admin.reports
         {
             string numeroRefCompra = numeroRef.Text.Trim();
 
-            if(numeroRefCompra == "" || numeroRefCompra == null)
+            if (numeroRefCompra == "" || numeroRefCompra == null)
             {
                 string script = String.Format(@"<script type='text/javascript'>alert('Ingresa el número de referencia de la compra.');</script>", "Error");
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);

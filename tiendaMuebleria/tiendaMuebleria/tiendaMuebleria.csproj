@@ -137,6 +137,7 @@
     <Content Include="img\p3.jpg" />
     <Content Include="img\sillon.jpg" />
     <Content Include="index.aspx" />
+    <Content Include="views\client\editarDatosCliente.aspx" />
     <Content Include="views\ingreso.aspx" />
     <Content Include="js\main.js" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
@@ -2060,6 +2061,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\client\editarDatosCliente.aspx.cs">
+      <DependentUpon>editarDatosCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\client\editarDatosCliente.aspx.designer.cs">
+      <DependentUpon>editarDatosCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="views\ingreso.aspx.cs">
       <DependentUpon>ingreso.aspx</DependentUpon>

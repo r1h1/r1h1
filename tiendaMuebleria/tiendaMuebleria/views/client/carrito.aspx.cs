@@ -15,6 +15,8 @@ namespace tiendaMuebleria
     {
         string con = ConfigurationManager.ConnectionStrings["connectOrcl"].ConnectionString;
         string noProductosCarrito;
+        DataSet dataCarritoGlobal = new DataSet();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             cargarProductosEnCarrito();
@@ -33,9 +35,13 @@ namespace tiendaMuebleria
             OracleDataAdapter d = new OracleDataAdapter();
             d.SelectCommand = command;
             DataTable dt = new DataTable();
+            DataSet carritoDatos = new DataSet();
             d.Fill(dt);
+            d.Fill(carritoDatos);
             productosEnCarrito.DataSource = dt;
             productosEnCarrito.DataBind();
+            dataCarritoGlobal = carritoDatos;
+
             conexion.Close();
         }
 
@@ -146,6 +152,8 @@ namespace tiendaMuebleria
         {
             string idcliente = numeroDocumento.Text.Trim();
 
+
+
             int length = 7;
             // creating a StringBuilder object()
             StringBuilder str_build = new StringBuilder();
@@ -163,10 +171,12 @@ namespace tiendaMuebleria
             string refCompra = str_build.ToString();
 
 
-            if (idcliente == "" || idcliente == null)
+            if (idcliente == "")
             {
-                //no hace nada
+                tipoError.Text = "Debes poner tu número de documento para continuar.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
             }
+
             else
             {
 
@@ -191,54 +201,61 @@ namespace tiendaMuebleria
                 }
                 else
                 {
-
-                    //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
-
-                    int repeticion = Convert.ToInt32(noProductosCarrito);
-                    string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
-
-                    OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
-                    comando.CommandType = System.Data.CommandType.StoredProcedure;
-                    comando.Parameters.Add("prods", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                    OracleDataAdapter dap = new OracleDataAdapter();
-                    dap.SelectCommand = comando;
-                    DataTable dtap = new DataTable();
-                    dap.Fill(dtap);
-
-                    int i;
-
-                    for (i = 0; i < repeticion; i++)
+                    if (dataCarritoGlobal.Tables[0].Rows.Count == 0)
                     {
-                        string compraUsuario = numeroDocumento.Text.Trim();
-                        string codProducto = dtap.Rows[i]["COD"].ToString();
-                        string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
-                        string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
-
-                        OracleCommand com = new OracleCommand();
-                        com.CommandType = System.Data.CommandType.StoredProcedure;
-                        com.CommandText = "INSERTA_VENTA_FACTURA";
-                        com.Parameters.Add("REFERENCIACOMPRA", refCompra);
-                        com.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
-                        com.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
-                        com.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
-                        com.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
-                        com.Parameters.Add("METODOPAGO", metodoPago);
-                        com.Parameters.Add("FECHACOMPRA", fecha);
-
-                        com.Connection = conexion;
-                        com.ExecuteNonQuery();
+                        tipoError.Text = "No hay productos en el carrito de compras, por favor, agrega uno.";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
                     }
+                    else
+                    {
+                        //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
-                    OracleCommand borrarTodoCarrito = new OracleCommand();
-                    borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
-                    borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
-                    borrarTodoCarrito.Connection = conexion;
-                    borrarTodoCarrito.ExecuteNonQuery();
+                        int repeticion = Convert.ToInt32(noProductosCarrito);
+                        string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
 
-                    referencia.Text = refCompra;
+                        OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
+                        comando.CommandType = System.Data.CommandType.StoredProcedure;
+                        comando.Parameters.Add("prods", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                        OracleDataAdapter dap = new OracleDataAdapter();
+                        dap.SelectCommand = comando;
+                        DataTable dtap = new DataTable();
+                        dap.Fill(dtap);
 
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
+                        int i;
 
+                        for (i = 0; i < repeticion; i++)
+                        {
+                            string compraUsuario = numeroDocumento.Text.Trim();
+                            string codProducto = dtap.Rows[i]["COD"].ToString();
+                            string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
+                            string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
+
+                            OracleCommand com = new OracleCommand();
+                            com.CommandType = System.Data.CommandType.StoredProcedure;
+                            com.CommandText = "INSERTA_VENTA_FACTURA";
+                            com.Parameters.Add("REFERENCIACOMPRA", refCompra);
+                            com.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
+                            com.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
+                            com.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
+                            com.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
+                            com.Parameters.Add("METODOPAGO", metodoPago);
+                            com.Parameters.Add("FECHACOMPRA", fecha);
+
+                            com.Connection = conexion;
+                            com.ExecuteNonQuery();
+                        }
+
+                        OracleCommand borrarTodoCarrito = new OracleCommand();
+                        borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
+                        borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
+                        borrarTodoCarrito.Connection = conexion;
+                        borrarTodoCarrito.ExecuteNonQuery();
+
+                        referencia.Text = refCompra;
+
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
+
+                    }
                 }
                 conexion.Close();
             }
@@ -302,56 +319,65 @@ namespace tiendaMuebleria
                 com.Connection = conexion;
                 com.ExecuteNonQuery();
 
-
-                //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
-
-                int repeticion = Convert.ToInt32(noProductosCarrito);
-                string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
-
-                OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("prods", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter dap = new OracleDataAdapter();
-                dap.SelectCommand = comando;
-                DataTable dtap = new DataTable();
-                dap.Fill(dtap);
-
-                int i;
-
-                for (i = 0; i < repeticion; i++)
+                if (dataCarritoGlobal.Tables[0].Rows.Count == 0)
                 {
-                    string compraUsuario = numeroDocumento.Text.Trim();
-                    string codProducto = dtap.Rows[i]["COD"].ToString();
-                    string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
-                    string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
+                    tipoError.Text = "No hay productos en el carrito de compras, por favor, agrega uno.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "datosCliente", "$('#datosCliente').modal();", true);
+                }
+                else
+                {
+                    //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
-                    OracleCommand facturaF = new OracleCommand();
-                    facturaF.CommandType = System.Data.CommandType.StoredProcedure;
-                    facturaF.CommandText = "INSERTA_VENTA_FACTURA";
-                    facturaF.Parameters.Add("REFERENCIACOMPRA", refCompra);
-                    facturaF.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
-                    facturaF.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
-                    facturaF.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
-                    facturaF.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
-                    facturaF.Parameters.Add("METODOPAGO", metodoPago);
-                    facturaF.Parameters.Add("FECHACOMPRA", fecha);
+                    int repeticion = Convert.ToInt32(noProductosCarrito);
+                    string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
 
-                    facturaF.Connection = conexion;
-                    facturaF.ExecuteNonQuery();
+                    OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
+                    comando.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando.Parameters.Add("prods", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    OracleDataAdapter dap = new OracleDataAdapter();
+                    dap.SelectCommand = comando;
+                    DataTable dtap = new DataTable();
+                    dap.Fill(dtap);
 
+                    int i;
+
+                    for (i = 0; i < repeticion; i++)
+                    {
+                        string compraUsuario = numeroDocumento.Text.Trim();
+                        string codProducto = dtap.Rows[i]["COD"].ToString();
+                        string cantidadCompraProducto = dtap.Rows[i]["CANTIDAD"].ToString();
+                        string totalCompra = dtap.Rows[i]["TOTAL"].ToString();
+
+                        OracleCommand facturaF = new OracleCommand();
+                        facturaF.CommandType = System.Data.CommandType.StoredProcedure;
+                        facturaF.CommandText = "INSERTA_VENTA_FACTURA";
+                        facturaF.Parameters.Add("REFERENCIACOMPRA", refCompra);
+                        facturaF.Parameters.Add("IDCOMPRAUSUARIO", Convert.ToInt64(compraUsuario));
+                        facturaF.Parameters.Add("CARRITOIDPRODUCTO", Convert.ToInt32(codProducto));
+                        facturaF.Parameters.Add("CANTIDADCOMPRAPRODUCTO", Convert.ToInt32(cantidadCompraProducto));
+                        facturaF.Parameters.Add("CARRITOTOTALCOMPRA", Convert.ToDouble(totalCompra));
+                        facturaF.Parameters.Add("METODOPAGO", metodoPago);
+                        facturaF.Parameters.Add("FECHACOMPRA", fecha);
+
+                        facturaF.Connection = conexion;
+                        facturaF.ExecuteNonQuery();
+
+                    }
+
+                    OracleCommand borrarTodoCarrito = new OracleCommand();
+                    borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
+                    borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
+                    borrarTodoCarrito.Connection = conexion;
+                    borrarTodoCarrito.ExecuteNonQuery();
+
+                    conexion.Close();
+
+                    referencia.Text = refCompra;
+
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
                 }
 
-                OracleCommand borrarTodoCarrito = new OracleCommand();
-                borrarTodoCarrito.CommandType = System.Data.CommandType.StoredProcedure;
-                borrarTodoCarrito.CommandText = "BORRAR_TODO_EL_CARRITO";
-                borrarTodoCarrito.Connection = conexion;
-                borrarTodoCarrito.ExecuteNonQuery();
-
                 conexion.Close();
-
-                referencia.Text = refCompra;
-
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "clienteFrecuente", "$('#refCompra').modal();", true);
             }
         }
 

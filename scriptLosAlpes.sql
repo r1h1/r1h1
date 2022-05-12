@@ -74,6 +74,32 @@ END;
 
 
 
+--PROCEDURE PARA ACTUALIZAR DATOS DEL CLIENTE EN PANTALLA CLIENTE
+CREATE OR REPLACE PROCEDURE UPDATE_CLIENTE_PANTALLA_CLIENTE
+(
+    id_usuario IN INT, 
+    nombreCompleto IN VARCHAR,
+    telefonoResidencial IN NUMBER,
+    telefonoMovil IN NUMBER,
+    pais IN VARCHAR,
+    departamento IN VARCHAR,
+    ciudadResidencia IN VARCHAR,
+    direccion IN VARCHAR,
+    profesion IN VARCHAR,
+    email IN VARCHAR
+)
+AS
+BEGIN
+    UPDATE la_usuario SET usu_nombrecompleto = nombreCompleto, usu_telefonoresidencial = telefonoResidencial, usu_telefonomovil = telefonoMovil,
+                          usu_pais = pais, usu_departamento = departamento, usu_ciudadresidencia = ciudadresidencia, usu_direccion = direccion, usu_profesion = profesion,
+                          usu_email = email WHERE ID_Usu_NumeroDocumento = id_usuario;
+END;
+
+SELECT * FROM LA_USUARIO;
+SELECT * FROM LA_COMPRA_FACTURA;
+
+
+
 --PROCEDURE PARA BORRAR UN CLIENTE POR ID (DELETE WHERE ID)
 CREATE OR REPLACE PROCEDURE DELETE_CLIENTE
 (
@@ -467,6 +493,7 @@ END;
 DROP TABLE LA_Usuario;
 DROP PROCEDURE INSERTA_USUARIO;
 DROP PROCEDURE UPDATE_CLIENTE;
+DROP PROCEDURE UPDATE_CLIENTE_PANTALLA_CLIENTE;
 DROP PROCEDURE MOSTRAR_CLIENTES;
 DROP PROCEDURE DELETE_CLIENTE;
 DROP PROCEDURE BUSCAR_CLIENTES_POR_ID;

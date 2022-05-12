@@ -79,7 +79,7 @@
                                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                                 <li class="nav-item">
-                                    <a href="../../dashboard.aspx" class="nav-link active btn btn-primary">
+                                    <a href="../../admin/dashboard.aspx" class="nav-link active btn btn-primary">
                                         <i class="right fas fa-angle-left"></i>
                                         <p>Inicio</p>
                                     </a>
@@ -151,7 +151,7 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <asp:Button ID="buscarDato" runat="server" Text="Buscar" class="btn btn-dark" OnClick="buscarDato_Click"/>
+                                                <asp:Button ID="buscarDato" runat="server" Text="Buscar" class="btn btn-dark" OnClick="buscarDato_Click" />
                                             </div>
 
                                             <div class="mb-3">

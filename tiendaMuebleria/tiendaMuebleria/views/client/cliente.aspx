@@ -49,6 +49,7 @@
                         <div class="input-group">
                             <a href="carrito.aspx" class="btn btn-light"><i class="fa-solid fa-cart-shopping"></i></a>
                             <span class="input-group-text me-2" id="basic-addon2"><asp:Label ID="noProductosCarrito" runat="server" Text=""></asp:Label></span>
+                            <a href="editarDatosCliente.aspx" class="btn btn-secondary ml-4">Editar Datos de Cliente</a>
                         </div>
                         <a href="../ingreso.aspx" class="btn btn-success">Login</a>
                     </div>
