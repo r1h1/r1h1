@@ -211,7 +211,7 @@ namespace tiendaMuebleria
                         //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
                         int repeticion = Convert.ToInt32(noProductosCarrito);
-                        string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
+                        string metodoPago = "Tarjeta", fecha = DateTime.Now.Date.ToString("dd-MM-yyyy");
 
                         OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
                         comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -329,7 +329,7 @@ namespace tiendaMuebleria
                     //SE GUARDAN LOS DATOS EN LA TABLA DE COMPRA Y SE PROCEDE A MOSTRAR LA PANTALLA DE CONFIRMACIÓN
 
                     int repeticion = Convert.ToInt32(noProductosCarrito);
-                    string metodoPago = "Tarjeta", fecha = DateTime.Now.ToString();
+                    string metodoPago = "Tarjeta", fecha = DateTime.Now.Date.ToString("dd-MM-yyyy");
 
                     OracleCommand comando = new OracleCommand("MOSTRAR_PRODUCTOS_CARRITO", conexion);
                     comando.CommandType = System.Data.CommandType.StoredProcedure;
