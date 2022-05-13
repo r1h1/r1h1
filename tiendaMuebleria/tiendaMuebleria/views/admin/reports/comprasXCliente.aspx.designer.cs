@@ -11,7 +11,7 @@ namespace tiendaMuebleria.views.admin.reports
 {
 
 
-    public partial class reporteVentasDiarias
+    public partial class comprasXCliente
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace tiendaMuebleria.views.admin.reports
         protected global::System.Web.UI.WebControls.Button cerrarSesion;
 
         /// <summary>
+        /// Control clienteDoc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox clienteDoc;
+
+        /// <summary>
         /// Control buscarDato.
         /// </summary>
         /// <remarks>
@@ -51,15 +60,6 @@ namespace tiendaMuebleria.views.admin.reports
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tablareporte;
 
         /// <summary>
-        /// Control ciudad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ciudad;
-
-        /// <summary>
         /// Control fechaGeneracion.
         /// </summary>
         /// <remarks>
@@ -69,75 +69,30 @@ namespace tiendaMuebleria.views.admin.reports
         protected global::System.Web.UI.WebControls.Label fechaGeneracion;
 
         /// <summary>
-        /// Control fechaInicio.
+        /// Control comprasXClient.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fechaInicio;
+        protected global::System.Web.UI.WebControls.GridView comprasXClient;
 
         /// <summary>
-        /// Control fechaFin.
+        /// Control alerta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fechaFin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alerta;
 
         /// <summary>
-        /// Control ventasDiarias.
+        /// Control textoAlerta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ventasDiarias;
-
-        /// <summary>
-        /// Control divTotalVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTotalVenta;
-
-        /// <summary>
-        /// Control totalVentaDiariaLabel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalVentaDiariaLabel;
-
-        /// <summary>
-        /// Control totalVentaDiaria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalVentaDiaria;
-
-        /// <summary>
-        /// Control alertaVacio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaVacio;
-
-        /// <summary>
-        /// Control ventaVacia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ventaVacia;
+        protected global::System.Web.UI.WebControls.Label textoAlerta;
     }
 }

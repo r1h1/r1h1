@@ -112,7 +112,7 @@
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <h1 class="m-0 pl-5 mt-4">Reportes</h1>                                   
                                 </div>
                                 <!-- /.col -->
@@ -126,11 +126,11 @@
                     <!-- Main content -->
                     <section class="content container">
                         <div class="row">
-                            <div class="col-sm-4 mt-4">
+                            <div class="col-sm-3 mt-4">
                                 <div class="card text-center bg-secondary">
                                     <a href="../admin/reports/filtrarVentaCodigo.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fa-solid fa-cart-shopping fa-6x"></i>
+                                            <i class="nav-icon fa-solid fa-cart-shopping fa-4x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Consultar Ventas</h5>
                                             </div>
@@ -138,11 +138,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 mt-4">
+                            <div class="col-sm-3 mt-4">
                                 <div class="card text-center text-white bg-secondary">
                                     <a href="reports/reporteVentasDiarias.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fas fa-calendar fa-6x"></i>
+                                            <i class="nav-icon fas fa-calendar fa-4x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Ventas Diarias</h5>
                                             </div>
@@ -150,11 +150,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 mt-4">
+                            <div class="col-sm-3 mt-4">
                                 <div class="card text-center bg-secondary">
-                                    <a href="reportes.aspx">
+                                    <a href="reports/productoMasVendido.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fas fa-box fa-6x"></i>
+                                            <i class="nav-icon fas fa-box fa-4x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Producto Más Vendido</h5>
                                             </div>
@@ -162,30 +162,18 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 mt-4">
+                            <div class="col-sm-3 mt-4">
                                 <div class="card text-center bg-secondary">
-                                    <a href="reportes.aspx">
+                                    <a href="reports/comprasXCliente.aspx">
                                         <div class="card-body">
-                                            <i class="nav-icon fa-solid fa-people-carry-box fa-6x"></i>
+                                            <i class="nav-icon fa-solid fa-people-carry-box fa-4x"></i>
                                             <div class="card-body">
                                                 <h5 class="card-title">Compras por Cliente</h5>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 mt-4">
-                                <div class="card text-center bg-secondary">
-                                    <a href="reportes.aspx">
-                                        <div class="card-body">
-                                            <i class="nav-icon fas fa-file-archive fa-6x"></i>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Cierre de Caja</h5>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                    </section>
 

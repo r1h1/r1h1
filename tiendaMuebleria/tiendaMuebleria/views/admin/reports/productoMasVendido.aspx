@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reporteVentasDiarias.aspx.cs" Inherits="tiendaMuebleria.views.admin.reports.reporteVentasDiarias" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productoMasVendido.aspx.cs" Inherits="tiendaMuebleria.views.admin.reports.productoMasVendido" %>
 
 <!DOCTYPE html>
 
@@ -110,7 +110,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="nav-link btn btn-danger text-black" OnClick="cerrarSesion_Click" />
+                                    <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesión" class="nav-link btn btn-danger text-black" OnClick="cerrarSesion_Click"/>
                                 </li>
                             </ul>
                         </nav>
@@ -126,7 +126,7 @@
                         <div class="container-fluid">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
-                                    <h1 class="m-0 pl-5 mt-4">Reporte de Ventas Diarias</h1>
+                                    <h1 class="m-0 pl-5 mt-4">Producto Más Vendido</h1>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -146,11 +146,21 @@
                                         <div class="row">      
                                             
                                             <div class="mb-3">
-                                                <asp:Button ID="buscarDato" runat="server" Text="Generar Reporte" class="btn btn-dark" OnClick="buscarDato_Click"/>
+                                                <label for="message-text" class="col-form-label">Fecha Inicio</label>
+                                                <asp:TextBox ID="fechaTInicio" runat="server" class="form-control" placeholder="01-05-2022"></asp:TextBox>                                                
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="message-text" class="col-form-label">Fecha Fin</label>
+                                                <asp:TextBox ID="fechaTFin" runat="server" class="form-control" placeholder="31-05-2022"></asp:TextBox>                                                
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <asp:Button ID="buscarDato" runat="server" Text="Generar Reporte" class="btn btn-dark mt-2" OnClick="buscarDato_Click"/>
                                             </div>
 
                                             <div class="mb-3" id="tablareporte" runat="server">
-                                                <div class="table-responsive mt-5">
+                                                <div class="table-responsive mt-4">
                                                     <table class="table">
                                                         <thead>
                                                             <tr>
@@ -161,22 +171,22 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <th>Ciudad</th>
-                                                                <td><asp:Label ID="ciudad" runat="server" Text=""></asp:Label></td>
+                                                            <tr>                                                                
                                                                 <th>Fecha Generación</th>
                                                                 <td><asp:Label ID="fechaGeneracion" runat="server" Text=""></asp:Label></td>
-                                                            </tr>
-                                                            <tr>
+                                                                <th></th>
+                                                                <th></th>
+                                                            </tr> 
+                                                            <tr>                                                                
                                                                 <th>Fecha Inicio</th>
-                                                                <td><asp:Label ID="fechaInicio" runat="server" Text=""></asp:Label></td>
+                                                                <td><asp:Label ID="feInicio" runat="server" Text=""></asp:Label></td>
                                                                 <th>Fecha Fin</th>
-                                                                <td><asp:Label ID="fechaFin" runat="server" Text=""></asp:Label></td>
-                                                            </tr>
+                                                                <td><asp:Label ID="feFin" runat="server" Text=""></asp:Label></td>
+                                                            </tr> 
                                                         </tbody>
                                                     </table>
                                                     <div class="table-responsive mt-1 mb-4">
-                                                        <asp:GridView ID="ventasDiarias" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True" CellPadding="4" Width="1407px">
+                                                        <asp:GridView ID="prodMasVendido" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True" CellPadding="4" Width="1193px">
                                                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                                                             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -186,13 +196,19 @@
                                                             <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                                             <SortedDescendingHeaderStyle BackColor="#242121" />
                                                         </asp:GridView>
-                                                    </div>
-                                                    <div class="alert alert-dark" role="alert" id="divTotalVenta" runat="server">
-                                                        <asp:Label ID="totalVentaDiariaLabel" class="form-label fs-5 m-4" runat="server" Text="Total Venta Diaria: ">
-                                                        <asp:Label ID="totalVentaDiaria" class="form-label fw-bold fs-5 m-4" runat="server" Text=""></asp:Label></asp:Label>
-                                                    </div>
-                                                    <div class="alert alert-danger" role="alert" id="alertaVacio" runat="server">
-                                                        <asp:Label ID="ventaVacia" class="form-label fs-5 m-4" runat="server" Text=""></asp:Label>
+                                                        <asp:GridView ID="ciudadYDemasReport" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="True" CellPadding="4" Width="1193px">
+                                                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                                                        </asp:GridView>
+                                                    </div>                                                    
+                                                    <div class="alert alert-danger" role="alert" id="alerta" runat="server">
+                                                        <asp:Label ID="textoAlerta" class="form-label fs-5 m-4" runat="server" Text=""></asp:Label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,4 +281,6 @@
     </form>
 </body>
 </html>
+
+
 
